@@ -1,0 +1,14 @@
+---
+const { link, icon, label } = Astro.props;
+
+const IconTag = link ? 'a' : 'span';
+---
+
+<IconTag class="icon" href={link}>
+  <i>
+    <svg>
+      <use xlink:href={`/images/icons.svg#${icon}`}></use>
+    </svg>
+  </i>
+  <span class="srt">{label}</span>
+</IconTag>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+
+const { title, description, sections } = frontmatter;
+---
+
+<BaseLayout pageTitle={title}>
+  <h1>{title}</h1>
+  <p>{description}</p>
+  
+  {sections?.length && sections.map(section => {
+
+    const {type, title, content} = section;
+
+    return (
+      <section class={type}>
+        <h2>{title}</h2>
+        <p>{content}</p>
+      </section>
+    )
+  })}
+</BaseLayout>

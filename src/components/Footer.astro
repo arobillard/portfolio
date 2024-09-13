@@ -1,0 +1,16 @@
+---
+const { extra } = Astro.props;
+const now = new Date(Date.now());
+
+---
+
+<footer>
+  {extra && <p>{extra}</p>}
+  <small>&copy; Adam Robillard {now.getFullYear()}</small>
+</footer>
+
+<style>
+  small {
+    color: pink;
+  }
+</style>

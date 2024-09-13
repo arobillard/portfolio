@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const allCaseStudies = await Astro.glob('../case-studies/*.md');
+
+  return [
+    { params: { technology: "nextjs"}, props: { caseStudies: allCaseStudies }},
+    { params: { technology: "wordpress"}, props: { caseStudies: allCaseStudies }},
+    { params: { technology: "gsap"}, props: { caseStudies: allCaseStudies }},
+    { params: { technology: "adobe-xd"}, props: { caseStudies: allCaseStudies }},
+    { params: { technology: "react"}, props: { caseStudies: allCaseStudies }},
+    { params: { technology: "firebase"}, props: { caseStudies: allCaseStudies }},
+    { params: { technology: "styled-components"}, props: { caseStudies: allCaseStudies }},
+  ]
+}
+
+const { technology } = Astro.params;
+const { caseStudies } = Astro.props;
+
+const filteredCaseStudies = caseStudies.filter((cs) => {
+  const { technologies } = cs.frontmatter;
+
+  let matches = false;
+
+  technologies.forEach(tech => {
+    if (tech.slug === technology) {
+      matches = true;
+    }
+  })
+
+  return matches;
+});
+---
+
+<BaseLayout pageTitle={technology}>
+	<h1>Case Studies using {technology}</h1>
+
+  <ul>
+    {filteredCaseStudies.map(cs => {
+      const {title} = cs.frontmatter;
+
+      return (
+        <li><a href={cs.url}>{title}</a></li>
+      )
+    })}
+  </ul>
+
+</BaseLayout>

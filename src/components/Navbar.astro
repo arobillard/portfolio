@@ -1,0 +1,174 @@
+---
+import Icon from './Icon.astro';
+import Toggle from './Toggle.astro';
+
+const links = [
+  {
+    href: '#work',
+    label: 'Work',
+  },
+  {
+    href: '/about',
+    label: 'About',
+  },
+  {
+    href: '#contact',
+    label: 'Contact',
+  },
+];
+
+const socials = [
+  {
+    link: 'https://github.com/arobillard',
+    label: 'GitHub',
+    icon: 'github',
+  },
+  {
+    link: 'https://www.linkedin.com/in/adam-robillard/',
+    label: 'LinkedIn',
+    icon: 'linkedin',
+  },
+  {
+    link: 'mailto:hello@adamrobillard.ca',
+    label: 'Email',
+    icon: 'email',
+  },
+];
+
+const LogoTag = Astro.url.pathname === '/' ? 'h1' : 'strong';
+---
+
+<header id="navbar" class="navbar">
+  <a class="home-link" href="/">
+    <LogoTag class="logo">Adam Robillard</LogoTag>
+  </a>
+
+  <Toggle target="nav" />
+
+  <nav id="nav">
+    <ol>
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} aria-current={link.href === Astro.url.pathname}>
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </nav>
+
+  <ul class="socials">
+    {
+      socials.map((social) => (
+        <li>
+          <Icon icon={social.icon} link={social.link} label={social.label} />
+        </li>
+      ))
+    }
+  </ul>
+</header>
+
+<style>
+  .navbar {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: auto 0fr;
+    padding-block: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: rgba(from var(--color-bg) r g b / 0.95);
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .home-link {
+    grid-column: span 16;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo {
+    font-size: var(--type-scale-h4);
+    line-height: 1;
+    display: block;
+    margin: 0;
+    white-space: nowrap;
+    letter-spacing: -0.125rem;
+
+    font-weight: 850;
+    font-variation-settings:
+      'wdth' 125,
+      'YTLC' 540;
+  }
+
+  nav {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(from var(--color-bg) r g b / 0.95);
+    -webkit-backdrop-filter: blur(0.25rem);
+    backdrop-filter: blur(0.25rem);
+
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    padding-block: 6rem;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity var(--transition);
+
+    &.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    ol {
+      grid-column: 2 / -2;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      font-size: var(--type-scale-h1);
+
+      li {
+        grid-column: 1 / -1;
+      }
+
+      a {
+        padding-block: 1rem;
+        display: block;
+        opacity: 0;
+        translate: 3rem;
+        font-variation-settings:
+          'wdth' 100,
+          'YTLC' 500;
+
+        transition: all var(--transition);
+
+        &.in {
+          opacity: 1;
+          translate: 0;
+        }
+
+        &:is(:hover, :focus-visible) {
+          font-weight: 850;
+          font-variation-settings:
+            'wdth' 125,
+            'YTLC' 540;
+          color: var(--color-text);
+        }
+      }
+    }
+  }
+
+  .socials {
+    display: none;
+  }
+</style>

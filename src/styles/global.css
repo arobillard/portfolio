@@ -1,0 +1,256 @@
+/* CSS Custom Properties AKA Variables */
+:root {
+  /* Colors */
+  --color-primary: #23272e;
+  --color-primary--light: #303641;
+  --color-primary--dark: #21252c;
+  --color-red: #d86972;
+  --color-red--dark: #a94c54;
+  --color-orange: #bb8b5e;
+  --color-green: #97c278;
+  --color-green--medium: #bedfa5;
+  --color-green--light: #c3e1ad;
+  --color-green--lighter: #c6e3b0;
+  --color-blue: #387bb2;
+  --color-blue--light: #8eb9dd;
+  --color-blue--dark: #2c6593;
+  --color-purple: #c678dd;
+
+  --color-white: #efe;
+
+  --color-bg: var(--color-primary);
+  --color-text: var(--color-white);
+
+  /* Typography */
+  --font-primary: "Nunito Sans", sans-serif;
+
+  --type-scale-h1: clamp(2.027rem, 10.02vw, 7.993rem);
+  --type-scale-h2: clamp(1.802rem, 7.455vw, 5.653rem);
+  --type-scale-h3: clamp(1.602rem, 5.6vw, 3.998rem);
+  --type-scale-h4: clamp(1.424rem, 4.251vw, 2.827rem);
+  --type-scale-h5: clamp(1.266rem, 3.265vw, 1.999rem);
+  --type-scale-h6: clamp(1.125rem, 2.539vw, 1.414rem);
+
+  /* Sizing */
+
+  /* Standardization */
+  --transition: 0.2s;
+  --shadow: 0 0.25rem 0.75rem #0004;
+  --shadow--large: 0 0.5rem 1.5rem #0004;
+  --radius: 0.5em;
+}
+
+/*
+
+CSS Reset
+Adapted from: https://piccalil.li/blog/a-more-modern-css-reset/
+
+*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  line-height: 1.5;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+ol,
+ul,
+dl,
+dd {
+  margin: 0 0 1.5rem;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: var(--color-blue);
+  transition: all var(--transition);
+}
+
+a:not([class]):hover,
+a:not([class]):focus-visible {
+  color: var(--color-green);
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+svg {
+  fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Accessibility ---------- */
+
+/* Focus Highlights */
+*:focus-visible {
+  outline: 0.125rem solid var(--color-blue);
+  outline-offset: 0.125rem;
+}
+
+/* Skip Links */
+
+.skip-links {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.skip-links__link {
+  position: absolute;
+  top: -10rem;
+  left: 0.5rem;
+  background-color: var(--color-green);
+  color: var(--color-primary);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+
+.skip-links__link:focus {
+  top: 0.5rem;
+}
+
+/* To Top */
+
+.to-top {
+  position: fixed;
+  bottom: -0.5rem;
+  right: 1.5rem;
+  background-color: var(--color-green);
+  color: var(--color-primary);
+  padding: 0.5rem 0.5rem 1rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  translate: 0 100%;
+  transition:
+    translate var(--transition),
+    bottom var(--transition);
+}
+
+.to-top.visible {
+  translate: 0;
+}
+
+.to-top:hover,
+.to-top:focus-visible {
+  bottom: 0;
+  color: #000;
+  translate: 0;
+}
+
+/* Screen reader only text */
+
+.screen-reader-text,
+.srt {
+  position: absolute;
+  clip-path: polygon(0 0, 0.1% 0, 0.1% 0.1%, 0 0.1%);
+}
+
+/* ---------- Layout ---------- */
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+
+  > * {
+    grid-column: 2 / -2;
+  }
+}

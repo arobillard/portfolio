@@ -2,21 +2,8 @@
 layout: ../../layouts/CaseStudyLayout.astro
 title: Online Card Games
 description: Created a small app that generates responsive typography styles for the web.
-role: ["Developer", "Designer"]
-technologies:
-  - title: "React"
-    slug: "react"
-  - title: "Firebase"
-    slug: "firebase"
-  - title: "styled-components"
-    slug: "styled-components"
-sections:
-  - type: banner
-    title: Cool Online Card Games
-    content: Lorem ipsum odor amet, consectetuer adipiscing elit.
-  - type: split-content
-    title: Here it be
-    content: Lorem ipsum odor amet, consectetuer adipiscing elit. Urna porta phasellus auctor parturient facilisi torquent. Sagittis tempor metus mus mus molestie phasellus tristique ac. Cursus euismod odio nostra dignissim dapibus. Velit pretium sit tellus libero maecenas lacinia enim interdum. Mollis sagittis rhoncus suscipit, congue eget mauris? Primis parturient hac praesent malesuada mus et porta hendrerit. Scelerisque cras lacus sociosqu interdum tellus dui nullam himenaeos?
+roles: ["developer", "designer"]
+technologies: ["react", "firebase", "styled-components"]
 ---
 
 ## About Online Card Games

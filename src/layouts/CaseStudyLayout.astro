@@ -1,24 +1,37 @@
 ---
+import { getEntries } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
 
-const { title, description, sections } = frontmatter;
+const { title, description, roles, technologies } = frontmatter;
+
+const rolesData = await getEntries(roles);
+const technologiesData = await getEntries(technologies);
+
+console.log(technologiesData);
 ---
 
 <BaseLayout pageTitle={title}>
-  <h1>{title}</h1>
+  <header>
+    <h1>{title}</h1>
+    <h2>Roles</h2>
+    <ul>
+      {rolesData.map((role) => <li>{role.data.title}</li>)}
+    </ul>
+    <h2>Technologies</h2>
+    <ul>
+      {
+        technologiesData.map((tech) => (
+          <li>
+            <a href="#" target="_blank">
+              {tech.data.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </header>
+
   <p>{description}</p>
-  
-  {sections?.length && sections.map(section => {
-
-    const {type, title, content} = section;
-
-    return (
-      <section class={type}>
-        <h2>{title}</h2>
-        <p>{content}</p>
-      </section>
-    )
-  })}
 </BaseLayout>

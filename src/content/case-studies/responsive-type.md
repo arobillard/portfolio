@@ -1,10 +1,8 @@
 ---
-layout: ../../layouts/CaseStudyLayout.astro
 title: Responsive Type
 description: Created a small app that generates responsive typography styles for the web.
-role: ["Developer", "Designer"]
-technologies:
-  [{ title: "React", slug: "react" }, { title: "NextJS", slug: "nextjs" }]
+roles: ["developer", "designer"]
+technologies: ["react", "next-js"]
 ---
 
 ## About Responsive Type

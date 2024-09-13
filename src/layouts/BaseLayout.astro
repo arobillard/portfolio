@@ -1,8 +1,8 @@
 ---
-import '../styles/global.css';
-import '../styles/type.css';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import "../styles/type.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
 const { pageTitle } = Astro.props;
 ---
@@ -23,7 +23,7 @@ const { pageTitle } = Astro.props;
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body style="--color-highlight: hsl(95, 38%, 62%);">
     <div class="grid-layout">
       <Navbar />
 
@@ -35,7 +35,8 @@ const { pageTitle } = Astro.props;
     </div>
 
     <script>
-      import '../scripts/toggle';
+      import "../scripts/highlight-color";
+      import "../scripts/toggle";
     </script>
   </body>
 </html>

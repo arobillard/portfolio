@@ -1,8 +1,17 @@
 ---
-const { target } = Astro.props;
+import { combineClasses } from '../scripts/helpers';
+const { target, desktop } = Astro.props;
+
+const classList = ['toggle'];
+
+if (desktop) classList.push('toggle--desktop');
 ---
 
-<button class="toggle" aria-expanded="false" aria-controls={target}>
+<button
+  class={combineClasses(classList)}
+  aria-expanded="false"
+  aria-controls={target}
+>
   <span class="top"></span>
   <span class="middle"></span>
   <span class="bottom"></span>
@@ -24,6 +33,12 @@ const { target } = Astro.props;
 
     grid-column: 17 / -1;
     justify-self: end;
+
+    @media only screen and (min-width: 60rem) {
+      &:where(:not(.toggle--desktop)) {
+        display: none;
+      }
+    }
 
     span {
       background-color: var(--color-white);
@@ -67,7 +82,7 @@ const { target } = Astro.props;
     }
 
     &.transition-close,
-    &[aria-expanded="true"] {
+    &[aria-expanded='true'] {
       span {
         background-color: var(--color-highlight, #fff);
       }

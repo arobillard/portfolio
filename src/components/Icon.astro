@@ -1,7 +1,7 @@
 ---
 const { link, icon, label, size } = Astro.props;
 
-const IconTag = link ? "a" : "span";
+const IconTag = link ? 'a' : 'span';
 ---
 
 <IconTag class="icon" href={link}>
@@ -14,8 +14,11 @@ const IconTag = link ? "a" : "span";
 </IconTag>
 
 <style define:vars={{ size }}>
+  .icon {
+    width: var(--size, 3rem);
+  }
+
   svg {
     aspect-ratio: 1;
-    width: var(--size, 3rem);
   }
 </style>

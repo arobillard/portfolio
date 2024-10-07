@@ -35,11 +35,11 @@ async function Toggle(tog) {
   async function close() {
     tog.classList.add("transition-close");
     itemsOut();
+    target.classList.remove("open");
     await wait(500);
     middle.removeAttribute("hidden");
     tog.setAttribute("aria-expanded", false);
     tog.classList.remove("transition-close");
-    target.classList.remove("open");
   }
 
   tog.addEventListener("click", () => {

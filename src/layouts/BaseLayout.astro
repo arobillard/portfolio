@@ -1,8 +1,9 @@
 ---
-import "../styles/global.css";
-import "../styles/type.css";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
+import '../styles/global.css';
+import '../styles/type.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ScreenSizeDisplay from '../components/ScreenSizeDisplay.astro';
 
 const { pageTitle } = Astro.props;
 ---
@@ -34,9 +35,12 @@ const { pageTitle } = Astro.props;
       <Footer extra="Hey there my good chums!" />
     </div>
 
+    <ScreenSizeDisplay />
+
     <script>
-      import "../scripts/highlight-color";
-      import "../scripts/toggle";
+      import '../scripts/dev-mode';
+      import '../scripts/highlight-color';
+      import '../scripts/toggle';
     </script>
   </body>
 </html>

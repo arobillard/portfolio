@@ -24,12 +24,12 @@
   /* Typography */
   --font-primary: "Nunito Sans", sans-serif;
 
-  --type-scale-h1: clamp(2.027rem, 10.02vw, 7.993rem);
-  --type-scale-h2: clamp(1.802rem, 7.455vw, 5.653rem);
-  --type-scale-h3: clamp(1.602rem, 5.6vw, 3.998rem);
-  --type-scale-h4: clamp(1.424rem, 4.251vw, 2.827rem);
-  --type-scale-h5: clamp(1.266rem, 3.265vw, 1.999rem);
-  --type-scale-h6: clamp(1.125rem, 2.539vw, 1.414rem);
+  --type-scale-h1: clamp(2.027rem, 10.02cqi, 7.993rem);
+  --type-scale-h2: clamp(1.802rem, 7.455cqi, 5.653rem);
+  --type-scale-h3: clamp(1.602rem, 5.6cqi, 3.998rem);
+  --type-scale-h4: clamp(1.424rem, 4.251cqi, 2.827rem);
+  --type-scale-h5: clamp(1.266rem, 3.265cqi, 1.999rem);
+  --type-scale-h6: clamp(1.125rem, 2.539cqi, 1.414rem);
 
   /* Sizing */
 
@@ -114,14 +114,14 @@ h4 {
 }
 
 /* A elements that don't have a class get default styles */
-a:not([class]) {
+a:where(:not([class])) {
   text-decoration-skip-ink: auto;
   color: var(--color-blue);
   transition: all var(--transition);
 }
 
-a:not([class]):hover,
-a:not([class]):focus-visible {
+a:where(:not([class])):hover,
+a:where(:not([class])):focus-visible {
   color: var(--color-green);
 }
 

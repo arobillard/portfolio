@@ -1,0 +1,24 @@
+---
+import './toggle.css';
+
+import { combineClasses } from '../../scripts/helpers';
+const { target, desktop } = Astro.props;
+
+const classList = ['toggle'];
+
+if (desktop) classList.push('toggle--desktop');
+---
+
+<button
+  class={combineClasses(classList)}
+  aria-expanded="false"
+  aria-controls={target}
+>
+  <span class="top"></span>
+  <span class="middle"></span>
+  <span class="bottom"></span>
+</button>
+
+<script>
+  import './toggle';
+</script>

@@ -1,0 +1,13 @@
+.icon {
+  width: var(--size, 3rem);
+  transition: all var(--transition);
+  color: var(--color, var(--color-text));
+
+  &:where(:hover, :focus-visible) {
+    color: var(--hover, var(--color-highlight, var(--color-green)));
+  }
+}
+
+svg {
+  aspect-ratio: 1;
+}

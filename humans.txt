@@ -1,0 +1,40 @@
+# humanstxt.org
+
+# TEAM
+
+Designer & Developer: Adam Robillard
+Site: http://adamrobillard.ca
+GitHub: https://github.com/arobillard
+Instagram: @awillrobillard
+Location: Ottawa, Canada
+
+---
+
+# THANKS
+
+Thomas J Bradley <hey@thomasjbradley.ca>
+Site:
+  - https://learn-the-web.ca/
+  - http://thomasjbradley.ca
+GitHub:
+  - https://github.com/acgd-learn-the-web
+  - https://github.com/thomasjbradley
+Location: Ottawa, Canada
+
+---
+
+# TECHNOLOGY
+
+## Software
+
+- VSCode
+- Git + GitHub
+- Astro
+- Markdown
+- GSAP
+
+## Hosting
+
+- Hover
+- CloudFlare
+- Github

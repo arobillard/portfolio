@@ -1,0 +1,89 @@
+---
+import Toggle from '../Toggle/Toggle.astro';
+import Socials from '../Socials/Socials.astro';
+import Icon from '../Icon/Icon.astro';
+
+const LogoTag = Astro.url.pathname === '/' ? 'h1' : 'strong';
+
+const links = [
+  {
+    href: '#work',
+    label: 'Work',
+  },
+  {
+    href: '#about',
+    label: 'About',
+  },
+  {
+    href: '#contact',
+    label: 'Contact',
+  },
+];
+
+const socials = [
+  {
+    link: 'https://github.com/arobillard',
+    label: 'GitHub',
+    icon: 'github',
+  },
+  {
+    link: 'https://www.linkedin.com/in/adam-robillard/',
+    label: 'LinkedIn',
+    icon: 'linkedin',
+  },
+  {
+    link: 'mailto:hello@adamrobillard.ca',
+    label: 'Email',
+    icon: 'email',
+  },
+];
+---
+
+<header id="navbar" class="navbar">
+  <a class="navbar__home" href="/">
+    <LogoTag class="navbar__logo">Adam Robillard</LogoTag>
+  </a>
+
+  <Toggle target="nav" />
+
+  <div class="divider divider--desktop"></div>
+
+  <nav id="nav" class="navbar__nav">
+    <ol class="navbar__list">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              class="navbar__link"
+              href={link.href}
+              aria-current={link.href === Astro.url.pathname}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </nav>
+
+  <div class="divider divider--desktop"></div>
+
+  <ul class="navbar__socials">
+    {
+      socials.map((social) => (
+        <li class="navbar__social">
+          <Icon
+            icon={social.icon}
+            link={social.link}
+            label={social.label}
+            class="navbar__icon"
+          />
+        </li>
+      ))
+    }
+  </ul>
+</header>
+
+<style>
+  @import './navbar.css';
+</style>

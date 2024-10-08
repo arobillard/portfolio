@@ -32,6 +32,7 @@
   --type-scale-h6: clamp(1.125rem, 2.539cqi, 1.414rem);
 
   /* Sizing */
+  --container: clamp(70rem, 80vw, 100rem);
 
   /* Standardization */
   --transition: 0.2s;
@@ -247,10 +248,46 @@ textarea:not([rows]) {
 /* ---------- Layout ---------- */
 
 .grid-layout {
+  --cols: 12;
+  --gap: 1.5rem;
+
   display: grid;
-  grid-template-columns: repeat(24, 1fr);
+  gap: 0 var(--gap);
+  grid-template-columns:
+    1fr repeat(
+      var(--cols),
+      min(
+        calc(
+          (var(--container) - (var(--gap) * (var(--cols) + 1))) / var(--cols)
+        ),
+        calc((100% - (var(--gap) * (var(--cols) + 1))) / var(--cols))
+      )
+    )
+    1fr;
+  grid-template-rows: auto auto 1fr auto;
 
   > * {
     grid-column: 2 / -2;
+  }
+}
+
+.cq-sizer {
+  container-type: inline-size;
+  width: 100%;
+}
+
+.divider {
+  height: 0.0625rem;
+  width: 100%;
+  background-color: var(--color-text);
+  position: relative;
+  z-index: 1;
+}
+
+.divider--desktop {
+  display: none;
+
+  @media (min-width: 60rem) {
+    display: block;
   }
 }

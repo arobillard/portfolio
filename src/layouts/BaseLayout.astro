@@ -1,9 +1,9 @@
 ---
-import '../styles/global.css';
+import '../styles/main.css';
 import '../styles/type.css';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import ScreenSizeDisplay from '../components/ScreenSizeDisplay.astro';
+import Navbar from '../components/Navbar/Navbar.astro';
+import Footer from '../components/Footer/Footer.astro';
+import ScreenSizeDisplay from '../components/ScreenSizeDisplay/ScreenSizeDisplay.astro';
 
 const { pageTitle } = Astro.props;
 ---
@@ -25,6 +25,15 @@ const { pageTitle } = Astro.props;
     />
   </head>
   <body style="--color-highlight: hsl(95, 38%, 62%);">
+    <ol class="skip-links">
+      <li>
+        <a class="skip-links__link" href="#nav">Skip to site navigation</a>
+      </li>
+      <li>
+        <a class="skip-links__link" href="#main">Skip to main content</a>
+      </li>
+    </ol>
+
     <div class="grid-layout">
       <Navbar />
 
@@ -32,15 +41,18 @@ const { pageTitle } = Astro.props;
         <slot />
       </main>
 
-      <Footer extra="Hey there my good chums!" />
+      <!-- <Footer /> -->
     </div>
 
-    <ScreenSizeDisplay />
+    <a href="#top" class="to-top">
+      <i class="material-symbols-outlined">arrow_up</i>
+      <span class="srt">Return to top of the page</span>
+    </a>
+
+    {import.meta.env.DEV && <ScreenSizeDisplay />}
 
     <script>
-      import '../scripts/dev-mode';
       import '../scripts/highlight-color';
-      import '../scripts/toggle';
     </script>
   </body>
 </html>

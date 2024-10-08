@@ -1,4 +1,4 @@
-import { wait } from "./helpers";
+import { wait } from "../../scripts/helpers";
 
 async function Toggle(tog) {
   if (!(tog instanceof Element)) return;

@@ -1,6 +1,7 @@
 ---
 title: Responsive Type
 description: Created a small app that generates responsive typography styles for the web.
+order: 1
 roles: ["developer", "designer"]
 technologies: ["react", "next-js"]
 ---

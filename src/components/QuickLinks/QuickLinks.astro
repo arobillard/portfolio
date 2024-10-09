@@ -1,0 +1,39 @@
+---
+import Icon from '../Icon/Icon.astro';
+
+const { title, items } = Astro.props;
+---
+
+<section class="quick-links">
+  <h2 class="quick-links__heading">{title}</h2>
+
+  <ul class="quick-links__list">
+    {
+      items.map(({ title: catTitle, text, link, label }) => (
+        <li class="quick-links__item">
+          <div class="quick-links__header">
+            <h3 class="quick-links__title">{catTitle}</h3>
+            <div class="divider" />
+          </div>
+          <div class="quick-links__content">
+            <p class="quick-links__desc">{text}</p>
+            <Icon
+              icon="arrow-right"
+              class="quick-links__link"
+              link={link}
+              label={label || 'Learn more'}
+              ratio="100 / 65"
+              labelPos="left"
+              size="1.25em"
+              fontSize="var(--type-scale-h6)"
+            />
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  @import './quick-links.css';
+</style>

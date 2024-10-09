@@ -25,3 +25,19 @@ h5 {
 h6 {
   font-size: var(--type-scale-h6);
 }
+
+.bold {
+  font-weight: bold;
+}
+
+.color-highlight {
+  color: var(--color-highlight, var(--color-green));
+}
+
+.color-highlight-hov {
+  transition: all var(--transition);
+}
+
+.color-highlight-hov:where(:hover, :focus-visible) {
+  color: var(--color-highlight, var(--color-green));
+}

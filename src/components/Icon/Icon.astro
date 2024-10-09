@@ -8,6 +8,9 @@ const {
   size,
   color,
   hover,
+  labelPos,
+  ratio,
+  fontSize,
   class: extraClasses,
 } = Astro.props;
 
@@ -31,6 +34,14 @@ if (hover) {
   styles.push({ prop: '--hover', value: hover });
 }
 
+if (ratio) {
+  styles.push({ prop: '--ratio', value: ratio });
+}
+
+if (fontSize) {
+  styles.push({ prop: '--fontSize', value: fontSize });
+}
+
 const IconTag = link ? 'a' : 'span';
 ---
 
@@ -43,10 +54,15 @@ const IconTag = link ? 'a' : 'span';
   href={link}
   style={combineStyles(styles)}
 >
+  {labelPos === 'left' && <span>{label}</span>}
   <i>
     <svg>
       <use xlink:href={`/images/icons.svg#${icon}`}></use>
     </svg>
   </i>
-  <span class="srt">{label}</span>
+  {
+    labelPos !== 'left' && (
+      <span class={labelPos !== 'right' ? 'srt' : ''}>{label}</span>
+    )
+  }
 </IconTag>

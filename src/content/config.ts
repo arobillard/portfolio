@@ -5,6 +5,7 @@ const caseStudyCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    order: z.number(),
     roles: z.array(reference("roles")),
     technologies: z.array(reference("technologies")),
   }),
@@ -26,8 +27,29 @@ const rolesCollection = defineCollection({
   }),
 });
 
+const coolStuffCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    order: z.number(),
+    categories: z.array(reference("cool-stuff-categories")),
+  }),
+});
+
+const coolStuffCategories = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    order: z.number(),
+    description: z.string(),
+  }),
+});
+
 export const collections = {
   "case-studies": caseStudyCollection,
   technologies: technologiesCollection,
   roles: rolesCollection,
+  "cool-stuff": coolStuffCollection,
+  "cool-stuff-categories": coolStuffCategories,
 };

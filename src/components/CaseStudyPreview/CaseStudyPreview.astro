@@ -1,0 +1,50 @@
+---
+import { getEntries } from 'astro:content';
+import Icon from '../Icon/Icon.astro';
+
+const { cs, index, count } = Astro.props;
+const { slug, data } = cs;
+const { title, description, roles, technologies } = data;
+
+const rolesData = await getEntries(roles);
+const technologiesData = await getEntries(technologies);
+---
+
+<section id={slug} class="cs-preview">
+  <div class="cs-preview__img"></div>
+
+  <div class="cs-preview__content">
+    <strong class="cs-preview__number">
+      Case Study <span class="bold color-highlight">0{index + 1}</span>/0{count}
+    </strong>
+    <h2 class="cs-preview__title">{title}</h2>
+    <p class="cs-preview__desc">{description}</p>
+    <div class="cs-preview__info">
+      <h3 class="cs-preview__subtitle">Roles</h3>
+      <ul class="cs-preview__list">
+        {rolesData.map((role) => <li>{role.data.title}</li>)}
+      </ul>
+    </div>
+    <div class="cs-preview__info">
+      <h3 class="cs-preview__subtitle">Technologies</h3>
+      <ul class="cs-preview__list">
+        {technologiesData.map((tech) => <li>{tech.data.title}</li>)}
+      </ul>
+    </div>
+
+    <Icon
+      icon="arrow-right"
+      class="cs-preview__link"
+      link={`/case-studies/${slug}`}
+      label="View case study"
+      ratio="100 / 65"
+      labelPos="left"
+      size="1.5em"
+    />
+  </div>
+</section>
+<div class="divider"></div>
+
+<style>
+  @import './case-study-preview.css';
+</style>

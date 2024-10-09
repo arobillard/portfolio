@@ -24,15 +24,16 @@
   /* Typography */
   --font-primary: "Nunito Sans", sans-serif;
 
-  --type-scale-h1: clamp(2.027rem, 10.02cqi, 7.993rem);
-  --type-scale-h2: clamp(1.802rem, 7.455cqi, 5.653rem);
-  --type-scale-h3: clamp(1.602rem, 5.6cqi, 3.998rem);
-  --type-scale-h4: clamp(1.424rem, 4.251cqi, 2.827rem);
-  --type-scale-h5: clamp(1.266rem, 3.265cqi, 1.999rem);
-  --type-scale-h6: clamp(1.125rem, 2.539cqi, 1.414rem);
+  --type-scale-h1: clamp(2.986rem, 9.744cqi, 6.758rem);
+  --type-scale-h2: clamp(2.488rem, 7.406cqi, 4.915rem);
+  --type-scale-h3: clamp(2.074rem, 5.648cqi, 3.574rem);
+  --type-scale-h4: clamp(1.728rem, 4.328cqi, 2.6rem);
+  --type-scale-h5: clamp(1.44rem, 3.331cqi, 1.891rem);
+  --type-scale-h6: clamp(1.2rem, 2.575cqi, 1.375rem);
 
   /* Sizing */
   --container: clamp(70rem, 80vw, 100rem);
+  --section-padding-block: clamp(3rem, 9vw, 6rem);
 
   /* Standardization */
   --transition: 0.2s;
@@ -64,6 +65,8 @@ html {
   color: var(--color-text);
   font-family: var(--font-primary);
   line-height: 1.5;
+  scroll-behavior: smooth;
+  scroll-padding-block-start: var(--navbar-height, 3.728rem);
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -115,15 +118,17 @@ h4 {
 }
 
 /* A elements that don't have a class get default styles */
-a:where(:not([class])) {
-  text-decoration-skip-ink: auto;
-  color: var(--color-blue);
+a {
   transition: all var(--transition);
 }
 
-a:where(:not([class])):hover,
-a:where(:not([class])):focus-visible {
-  color: var(--color-green);
+a:where(:not([class])) {
+  text-decoration-skip-ink: auto;
+  color: var(--color-green--light);
+}
+
+a:where(:not([class])):where(:hover, :focus-visible) {
+  color: var(--color-highlight, var(--color-green));
 }
 
 /* Make images easier to work with */
@@ -271,6 +276,16 @@ textarea:not([rows]) {
   }
 }
 
+.main {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+
+  > * {
+    grid-column: 2 / -2;
+  }
+}
+
 .cq-sizer {
   container-type: inline-size;
   width: 100%;
@@ -280,8 +295,6 @@ textarea:not([rows]) {
   height: 0.0625rem;
   width: 100%;
   background-color: var(--color-text);
-  position: relative;
-  z-index: 1;
 }
 
 .divider--desktop {

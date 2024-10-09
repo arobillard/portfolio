@@ -1,19 +1,23 @@
 .navbar {
+  --gap: clamp(1.5rem, 3vw, 3rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem;
+  gap: var(--gap);
   padding-block: 1rem;
   position: sticky;
   top: 0;
-  background-color: rgba(from var(--color-bg) r g b / 0.95);
+  z-index: 10000;
+  /* background-color: rgba(from var(--color-bg) r g b / 0.95); */
   transition: background-color 0.2s;
 
   &::before {
     content: " ";
     display: inline-block;
-    position: absolute;
-    inset: 0 -4.1666667vw;
+    position: fixed;
+    inset: 0 0 auto;
+    height: var(--navbar-height);
+    background-color: rgba(from var(--color-bg) r g b / 0.95);
     transition: opacity var(--transition);
     -webkit-backdrop-filter: blur(0.25rem);
     backdrop-filter: blur(0.25rem);
@@ -32,6 +36,11 @@
       color: var(--color-highlight, var(--color-green));
     }
   }
+
+  .divider {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .navbar__home {
@@ -40,7 +49,7 @@
 }
 
 .navbar__logo {
-  font-size: var(--type-scale-h3);
+  font-size: var(--type-scale-h4);
   line-height: 1;
   display: block;
   margin: 0;
@@ -89,7 +98,7 @@
 
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: var(--gap);
 
     padding: 0;
     opacity: 1;
@@ -108,7 +117,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: var(--gap);
     font-size: var(--type-scale-h6);
     line-height: 1.1;
   }

@@ -1,123 +1,41 @@
 ---
+import { getCollection } from 'astro:content';
+import { objectSorter } from '../scripts/helpers';
+import CaseStudyPreview from '../components/CaseStudyPreview/CaseStudyPreview.astro';
+import Hero from '../components/Hero/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickLinks from '../components/QuickLinks/QuickLinks.astro';
+
+const allCaseStudies = await getCollection('case-studies').then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+);
+
+const allCSCats = await getCollection('cool-stuff-categories').then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+);
+
+const coolStuffQuickLinks: object[] = [];
+
+allCSCats.forEach((cat) => {
+  coolStuffQuickLinks.push({
+    title: cat.data.title,
+    text: cat.data.description,
+    link: `/cool-stuff#${cat.id}`,
+    label: `Check them out`,
+  });
+});
+
+// allCaseStudies.sort((a, b) => objectSorter(a.data.order, b.data.order));
 ---
 
 <BaseLayout>
-  <h1>Adam Robillard</h1>
+  <Hero link={`#${allCaseStudies[0].slug}`} />
 
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
-    reiciendis similique incidunt, excepturi sit repellat voluptatum doloremque
-    dolore atque porro iste tempora numquam deleniti ex. Corporis cupiditate
-    quia at perspiciatis!
-  </p>
-  <p>
-    Exercitationem eligendi magni repudiandae tempore ex provident placeat?
-    Accusantium obcaecati amet illo optio ducimus qui aliquam quos quas
-    assumenda dolor. Aliquid sed architecto saepe voluptate corrupti consectetur
-    dignissimos quibusdam mollitia?
-  </p>
-  <p>
-    Quidem consequatur ullam voluptatum asperiores, voluptatem dolorem
-    repudiandae. Placeat reprehenderit eius consequatur repellendus! Laboriosam
-    tenetur autem laborum ab facere, quod eos sint illum tempore! Laboriosam
-    ipsa nulla modi esse neque!
-  </p>
-  <p>
-    Beatae ipsam, eaque labore dolor facilis, quidem magnam aperiam cupiditate
-    sapiente praesentium minus! Perferendis, qui. Voluptatibus facere quia
-    expedita ipsa, architecto a tempora molestias sunt optio facilis non
-    aspernatur error.
-  </p>
-  <p>
-    Cupiditate quisquam corporis facilis qui vitae, eius, consequatur placeat
-    praesentium odit magni repellendus neque aliquid voluptates soluta ut ipsa
-    in fuga ex aperiam rerum quibusdam? In vel hic earum doloribus.
-  </p>
-  <p>
-    Nesciunt corporis tempore tempora, similique eius quasi, ea debitis
-    laboriosam saepe totam unde quis doloribus. Ut beatae dicta, perferendis
-    itaque dolorem ab aliquid voluptatem doloribus modi, aperiam perspiciatis,
-    iusto cupiditate!
-  </p>
-  <p>
-    Iusto placeat tempora iste. Provident temporibus rem, et distinctio odio ut,
-    voluptates non optio reiciendis veritatis ratione praesentium laborum
-    accusantium aspernatur amet quaerat placeat modi vel. Nesciunt debitis aut
-    eius.
-  </p>
-  <p>
-    In nam quis nulla hic voluptate praesentium, pariatur mollitia magni eius
-    recusandae quo reiciendis repellendus optio ipsum nisi perferendis deleniti
-    et laborum inventore? Modi, porro voluptates eveniet ducimus impedit
-    provident.
-  </p>
-  <p>
-    Harum reprehenderit aliquid quidem velit, temporibus assumenda aperiam
-    deserunt nam, iure nesciunt tempore eos! Accusantium, numquam voluptatem
-    modi officia iusto eos natus quam molestiae, eveniet, unde inventore
-    nesciunt dignissimos aliquid.
-  </p>
-  <p>
-    Corrupti atque animi cumque magni itaque facere iusto. Dolorem, eos quo
-    cumque assumenda similique vero incidunt dolorum impedit labore,
-    voluptatibus fugit rem ad odit quasi magni laborum ea ipsa minima!
-  </p>
-  <p>
-    Est alias corporis, quidem repudiandae ullam facilis, praesentium eius unde
-    officia eligendi exercitationem voluptate officiis culpa animi accusantium
-    inventore maxime laboriosam nemo dicta ea distinctio quam placeat
-    reprehenderit reiciendis. Possimus.
-  </p>
-  <p>
-    Aspernatur esse, fugit eos quod necessitatibus suscipit, possimus ducimus
-    vitae corrupti, quis consequatur voluptate? Cum assumenda maiores quos
-    facilis rerum quam voluptates perspiciatis id recusandae, officia sed iusto,
-    non numquam.
-  </p>
-  <p>
-    Odit veritatis, optio ut nesciunt nostrum culpa eveniet ducimus quidem
-    voluptas expedita facilis vitae quos at quisquam minus magni sequi! Ex
-    molestiae possimus tempora dolores voluptates amet maxime nostrum totam!
-  </p>
-  <p>
-    Quam voluptatum enim veritatis hic ipsam, modi harum rem est officiis!
-    Architecto perferendis dolor quisquam cupiditate officiis, veniam sed
-    corrupti est! Ipsum iusto eaque aperiam nihil, eveniet voluptatem dolore
-    mollitia.
-  </p>
-  <p>
-    Nemo repellendus corporis ex, maxime officiis incidunt iure debitis
-    repudiandae beatae quis veniam accusamus molestiae id atque enim. Eius qui
-    culpa tempore, omnis in blanditiis consectetur veniam architecto perferendis
-    dicta!
-  </p>
-  <p>
-    Minus quia eos, magni unde in nam enim et ullam esse nobis porro expedita
-    aspernatur, similique voluptatibus facilis voluptate. Voluptas ea nisi
-    voluptatum consequatur numquam possimus inventore delectus sunt repellat.
-  </p>
-  <p>
-    Molestias eveniet ipsa perspiciatis dolores repudiandae dolorem, sunt
-    sapiente consequuntur saepe, consequatur aliquam repellendus, quos sed velit
-    commodi non quis blanditiis? Nulla sapiente quod rem quibusdam molestiae ad.
-    Fugit, alias!
-  </p>
-  <p>
-    Vel quasi qui quidem dolorem, explicabo vitae excepturi minus, commodi nobis
-    numquam aspernatur est sapiente consectetur? Iure soluta sint, itaque,
-    dolores nulla quae atque, maiores impedit eum molestiae enim ab!
-  </p>
-  <p>
-    Saepe ducimus, totam neque aliquid voluptatibus inventore fugiat incidunt.
-    Doloribus, sapiente nesciunt ut molestiae est, exercitationem voluptates
-    pariatur officia natus voluptatem veniam temporibus culpa ipsam nemo
-    dolorem? Quod, quia distinctio?
-  </p>
-  <p>
-    Provident, ipsum sapiente necessitatibus consequuntur animi labore
-    aspernatur culpa. Natus deleniti mollitia eius quam dolorem quaerat delectus
-    dolores eos? Quae illo, repellat perspiciatis alias repellendus facilis
-    ullam quas? Numquam, sapiente.
-  </p>
+  {
+    allCaseStudies.map((cs, index) => (
+      <CaseStudyPreview cs={cs} index={index} count={allCaseStudies.length} />
+    ))
+  }
+
+  <QuickLinks title="Some Other Cool Stuff" items={coolStuffQuickLinks} />
 </BaseLayout>

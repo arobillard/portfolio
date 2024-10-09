@@ -3,9 +3,19 @@
   padding: 0.5em 1em;
   color: var(--color-primary--dark);
   font-size: 0.75rem;
-  border-radius: 1rem;
+  border-radius: 0 1rem 1rem 0;
 
   position: fixed;
   inset-block-end: 1rem;
-  inset-inline-end: 1rem;
+  inset-inline-start: 0;
+  z-index: 1000000;
+
+  translate: -75%;
+  opacity: 0.5;
+  transition: all var(--transition);
+
+  &:where(:hover) {
+    translate: 0;
+    opacity: 1;
+  }
 }

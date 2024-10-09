@@ -21,3 +21,15 @@ export function combineStyles(styles) {
 
   return styleString;
 }
+
+export function objectSorter(a, b) {
+  const valueA = a; // ignore upper and lowercase
+  const valueB = b; // ignore upper and lowercase
+  if (valueA < valueB) {
+    return -1;
+  }
+  if (valueA > valueB) {
+    return 1;
+  }
+  return 0;
+}

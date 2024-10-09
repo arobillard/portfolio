@@ -1,13 +1,23 @@
 .icon {
-  width: var(--size, 3rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   transition: all var(--transition);
   color: var(--color, var(--color-text));
+
+  text-decoration: none;
+  font-size: var(--fontSize, 1em);
 
   &:where(:hover, :focus-visible) {
     color: var(--hover, var(--color-highlight, var(--color-green)));
   }
-}
 
-svg {
-  aspect-ratio: 1;
+  i {
+    width: var(--size, 3rem);
+    display: inline-block;
+  }
+
+  svg {
+    aspect-ratio: var(--ratio, 1);
+  }
 }

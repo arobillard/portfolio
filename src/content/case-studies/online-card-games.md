@@ -2,6 +2,7 @@
 layout: ../../layouts/CaseStudyLayout.astro
 title: Online Card Games
 description: Created a small app that generates responsive typography styles for the web.
+order: 3
 roles: ["developer", "designer"]
 technologies: ["react", "firebase", "styled-components"]
 ---

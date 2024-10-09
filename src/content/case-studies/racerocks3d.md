@@ -2,8 +2,9 @@
 layout: ../../layouts/CaseStudyLayout.astro
 title: RaceRocks3D
 description: Designed, developed, and project managed the creation of a new website for RaceRocks3D.
+order: 1
 roles: ["developer", "designer", "project-manager"]
-technologies: ["wordpress", "gsap"]
+technologies: ["wordpress", "gsap", "adobe-xd"]
 ---
 
 ## About RaceRocks3D

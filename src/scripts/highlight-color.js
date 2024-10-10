@@ -14,9 +14,15 @@ function init() {
       updatedHValue = updatedHValue - 360;
     }
 
+    let lightness = 62;
+    if (window.matchMedia("prefers-color-scheme: light").matches) {
+      console.log("light");
+      lightness = 40;
+    }
+
     body.style.setProperty(
       "--color-highlight",
-      `hsl(${updatedHValue}, 38%, 62%)`,
+      `hsl(${updatedHValue}, 38%, ${lightness}%)`,
     );
   }
 

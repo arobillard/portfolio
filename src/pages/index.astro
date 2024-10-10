@@ -5,10 +5,26 @@ import CaseStudyPreview from '../components/CaseStudyPreview/CaseStudyPreview.as
 import Hero from '../components/Hero/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuickLinks from '../components/QuickLinks/QuickLinks.astro';
+import AboutMe from '../components/AboutMe/AboutMe.astro';
 
 const allCaseStudies = await getCollection('case-studies').then((data) =>
   data.sort((a, b) => objectSorter(a.data.order, b.data.order))
 );
+
+const allTeaching = await getCollection('teaching').then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+);
+
+const teachingQuickLinks: object[] = [];
+
+allTeaching.forEach((teach) => {
+  teachingQuickLinks.push({
+    title: teach.data.title,
+    text: teach.data.description,
+    link: `/teaching#${teach.id}`,
+    label: `View course`,
+  });
+});
 
 const allCSCats = await getCollection('cool-stuff-categories').then((data) =>
   data.sort((a, b) => objectSorter(a.data.order, b.data.order))
@@ -24,8 +40,6 @@ allCSCats.forEach((cat) => {
     label: `Check them out`,
   });
 });
-
-// allCaseStudies.sort((a, b) => objectSorter(a.data.order, b.data.order));
 ---
 
 <BaseLayout>
@@ -37,5 +51,13 @@ allCSCats.forEach((cat) => {
     ))
   }
 
-  <QuickLinks title="Some Other Cool Stuff" items={coolStuffQuickLinks} />
+  <QuickLinks title="What I've Taught" items={teachingQuickLinks} />
+
+  <QuickLinks
+    title="Some Other Cool Stuff"
+    items={coolStuffQuickLinks}
+    shortTitles
+  />
+
+  <AboutMe />
 </BaseLayout>

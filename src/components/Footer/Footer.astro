@@ -1,8 +1,27 @@
 ---
+import { socials } from '../../scripts/socials';
+import Icon from '../Icon/Icon.astro';
 import './footer.css';
 const now = new Date(Date.now());
 ---
 
+<div class="divider"></div>
 <footer class="footer">
   <small>&copy; {now.getFullYear()} Adam Robillard</small>
+
+  <ul class="footer__socials">
+    {
+      socials.map((social) => (
+        <li class="navbar__social">
+          <Icon
+            icon={social.icon}
+            link={social.link}
+            label={social.label}
+            class="navbar__icon"
+            size="1.5em"
+          />
+        </li>
+      ))
+    }
+  </ul>
 </footer>

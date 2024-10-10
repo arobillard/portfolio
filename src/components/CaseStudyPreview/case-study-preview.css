@@ -19,20 +19,6 @@
       }
     }
   }
-
-  .cs-preview__link {
-    color: var(--color-text);
-    font-weight: bold;
-    font-size: var(--type-scale-h5);
-    text-decoration: none;
-
-    gap: 1.5rem;
-
-    &:where(:hover, :focus-visible) {
-      color: var(--color-highlight, var(--color-green));
-      gap: 2.5rem;
-    }
-  }
 }
 
 .cs-preview__img {

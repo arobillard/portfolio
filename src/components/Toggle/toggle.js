@@ -22,6 +22,12 @@ async function Toggle(tog) {
     }
   }
 
+  function handleEscClose(e) {
+    if (e.key === "Escape") {
+      close();
+    }
+  }
+
   async function open() {
     tog.classList.add("transition-open");
     await wait(500);
@@ -30,6 +36,11 @@ async function Toggle(tog) {
     tog.classList.remove("transition-open");
     target.classList.add("open");
     itemsIn();
+    navItems.forEach((item) => {
+      item.addEventListener("click", close);
+      item.setAttribute("tabindex", 0);
+    });
+    window.addEventListener("keydown", handleEscClose);
   }
 
   async function close() {
@@ -40,6 +51,11 @@ async function Toggle(tog) {
     middle.removeAttribute("hidden");
     tog.setAttribute("aria-expanded", false);
     tog.classList.remove("transition-close");
+    navItems.forEach((item) => {
+      item.removeEventListener("click", close);
+      item.setAttribute("tabindex", -1);
+    });
+    window.removeEventListener("keydown", handleEscClose);
   }
 
   tog.addEventListener("click", () => {

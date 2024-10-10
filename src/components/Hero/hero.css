@@ -36,6 +36,7 @@
 
 .hero__animated {
   display: block;
+  transition: color 0.5s;
 }
 
 .hero__byline {
@@ -65,11 +66,19 @@
   &:has(.hero__link:hover, .hero__link:focus-visible) {
     gap: 3rem;
   }
+
+  .divider:first-child {
+    transform-origin: left center;
+  }
+
+  .divider:last-child {
+    transform-origin: right center;
+  }
 }
 
 .hero__link {
   white-space: nowrap;
-  color: var(--color-highlight, var(--color-green));
+  color: var(--color-text);
   text-decoration: none;
   font-weight: 400;
   font-variation-settings:

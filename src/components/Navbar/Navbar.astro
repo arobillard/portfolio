@@ -4,6 +4,7 @@ import Socials from '../Socials/Socials.astro';
 import Icon from '../Icon/Icon.astro';
 import { getCollection } from 'astro:content';
 import { objectSorter } from '../../scripts/helpers';
+import { socials } from '../../scripts/socials';
 
 const LogoTag = Astro.url.pathname === '/' ? 'h1' : 'strong';
 
@@ -23,24 +24,6 @@ const links = [
   {
     href: '/#contact',
     label: 'Contact',
-  },
-];
-
-const socials = [
-  {
-    link: 'https://github.com/arobillard',
-    label: 'GitHub',
-    icon: 'github',
-  },
-  {
-    link: 'https://www.linkedin.com/in/adam-robillard/',
-    label: 'LinkedIn',
-    icon: 'linkedin',
-  },
-  {
-    link: 'mailto:hello@adamrobillard.ca',
-    label: 'Email',
-    icon: 'email',
   },
 ];
 ---

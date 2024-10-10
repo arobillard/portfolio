@@ -27,6 +27,26 @@ const rolesCollection = defineCollection({
   }),
 });
 
+const teachingCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    order: z.number(),
+    courseSite: z.string().optional(),
+    introduction: z.string(),
+    institution: z.string(),
+    timeline: z.string(),
+    programs: z.array(
+      z.object({
+        title: z.string(),
+        link: z.string(),
+        description: z.string().optional(),
+      }),
+    ),
+  }),
+});
+
 const coolStuffCollection = defineCollection({
   type: "content",
   schema: z.object({
@@ -50,6 +70,7 @@ export const collections = {
   "case-studies": caseStudyCollection,
   technologies: technologiesCollection,
   roles: rolesCollection,
+  teaching: teachingCollection,
   "cool-stuff": coolStuffCollection,
   "cool-stuff-categories": coolStuffCategories,
 };

@@ -34,12 +34,14 @@ const technologiesData = await getEntries(technologies);
 
     <Icon
       icon="arrow-right"
-      class="cs-preview__link"
+      class="bold"
       link={`/case-studies/${slug}`}
       label="View case study"
       ratio="100 / 65"
       labelPos="left"
-      size="1.5em"
+      size="1.25em"
+      hoverShift={true}
+      fontSize="var(--type-scale-h5)"
     />
   </div>
 </section>

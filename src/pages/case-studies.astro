@@ -1,7 +1,21 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { objectSorter } from '../scripts/helpers';
+import CaseStudyPreview from '../components/CaseStudyPreview/CaseStudyPreview.astro';
+import PageHeader from '../components/PageHeader/PageHeader.astro';
+
+const allCaseStudies = await getCollection('case-studies').then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+);
 ---
 
 <BaseLayout pageTitle="Case Studies">
-  <h1>Case Studies</h1>
+  <PageHeader title="Case Studies" />
+
+  {
+    allCaseStudies.map((cs, index) => (
+      <CaseStudyPreview cs={cs} index={index} count={allCaseStudies.length} />
+    ))
+  }
 </BaseLayout>

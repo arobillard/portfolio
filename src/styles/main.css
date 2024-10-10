@@ -16,7 +16,7 @@
   --color-blue--dark: #2c6593;
   --color-purple: #c678dd;
 
-  --color-white: #efe;
+  --color-white: #f6fdf0;
 
   --color-bg: var(--color-primary);
   --color-text: var(--color-white);
@@ -32,14 +32,20 @@
   --type-scale-h6: clamp(1.2rem, 2.575cqi, 1.375rem);
 
   /* Sizing */
-  --container: clamp(70rem, 80vw, 100rem);
+  --container: 70rem;
   --section-padding-block: clamp(3rem, 9vw, 6rem);
+  --gap: clamp(1.5rem, 3vw, 3rem);
 
   /* Standardization */
-  --transition: 0.2s;
+  --transition: 0.3s;
   --shadow: 0 0.25rem 0.75rem #0004;
   --shadow--large: 0 0.5rem 1.5rem #0004;
   --radius: 0.5em;
+
+  @media (prefers-color-scheme: light) {
+    --color-bg: var(--color-white);
+    --color-text: var(--color-primary);
+  }
 }
 
 /*
@@ -119,7 +125,7 @@ h4 {
 
 /* A elements that don't have a class get default styles */
 a {
-  transition: all var(--transition);
+  transition: color var(--transition);
 }
 
 a:where(:not([class])) {
@@ -254,7 +260,6 @@ textarea:not([rows]) {
 
 .grid-layout {
   --cols: 12;
-  --gap: 1.5rem;
 
   display: grid;
   gap: 0 var(--gap);
@@ -294,7 +299,7 @@ textarea:not([rows]) {
 .divider {
   height: 0.0625rem;
   width: 100%;
-  background-color: var(--color-text);
+  background-color: var(--color-highlight);
 }
 
 .divider--desktop {

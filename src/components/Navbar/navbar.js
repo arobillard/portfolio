@@ -1,3 +1,5 @@
+import { animationDisabled, gsap } from "../../scripts/gsap";
+
 function useNavbar() {
   const navbar = document.querySelector(".navbar");
   const body = document.querySelector("body");
@@ -9,6 +11,16 @@ function useNavbar() {
   });
 
   resizeObserver.observe(navbar);
+
+  function navbarAnimations() {
+    navbar.classList.add("out");
+    const navbar_timeline = gsap.timeline({ delay: 2 });
+    navbar_timeline.call(() => {
+      navbar.classList.remove("out");
+    });
+  }
+
+  if (!animationDisabled()) navbarAnimations();
 }
 
 useNavbar();

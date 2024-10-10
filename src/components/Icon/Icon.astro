@@ -11,6 +11,8 @@ const {
   labelPos,
   ratio,
   fontSize,
+  hoverShift,
+  hoverExpand,
   class: extraClasses,
 } = Astro.props;
 
@@ -18,6 +20,14 @@ const classes = ['icon'];
 
 if (extraClasses) {
   classes.push(extraClasses);
+}
+
+if (hoverShift) {
+  classes.push('icon--hover-shift');
+}
+
+if (hoverExpand) {
+  classes.push('icon--hover-expand');
 }
 
 const styles: object[] = [];

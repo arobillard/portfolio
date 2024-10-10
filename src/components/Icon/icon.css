@@ -1,8 +1,10 @@
 .icon {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  transition: all var(--transition);
+  gap: 0.75em;
+  transition:
+    color var(--transition),
+    gap var(--transition);
   color: var(--color, var(--color-text));
 
   text-decoration: none;
@@ -20,4 +22,14 @@
   svg {
     aspect-ratio: var(--ratio, 1);
   }
+}
+
+.icon--hover-shift:where(:hover, :focus-visible) {
+  gap: 1.5em;
+}
+
+.icon--hover-expand::before {
+  content: " ";
+  position: absolute;
+  inset: 0;
 }

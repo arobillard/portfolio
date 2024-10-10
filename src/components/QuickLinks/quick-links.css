@@ -34,7 +34,8 @@
     grid-template-columns: subgrid;
 
     &:where(:not(:first-child)) {
-      border-block-start: 0.0625rem solid var(--color-text);
+      border-block-start: 0.0625rem solid
+        var(--color-highlight, var(--color-text));
       padding-block-start: 3rem;
     }
   }
@@ -59,6 +60,10 @@
   align-items: center;
   gap: var(--gap);
   margin-block-end: 1.5rem;
+
+  .divider {
+    transform-origin: left center;
+  }
 
   @media (min-width: 35rem) and (max-width: 65rem) {
     grid-column: span 4;

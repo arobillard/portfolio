@@ -12,17 +12,19 @@ if (shortTitles) {
 ---
 
 <section class={combineClasses(classes)}>
-  <h2 class="quick-links__heading">{title}</h2>
+  <h2 class="quick-links__heading scroll-item">{title}</h2>
 
   <ul class="quick-links__list">
     {
       items.map(({ title: catTitle, text, link, label }) => (
         <li class="quick-links__item">
-          <div class="quick-links__header">
+          <div class="quick-links__header scroll-item">
             <h3 class="quick-links__title">{catTitle}</h3>
-            {shortTitles && <div class="divider" />}
+            {shortTitles && (
+              <div class="divider scroll-item scroll-item--divider" />
+            )}
           </div>
-          <div class="quick-links__content">
+          <div class="quick-links__content scroll-item scroll-item--grouped">
             <p class="quick-links__desc">{text}</p>
             <Icon
               icon="arrow-right"
@@ -47,3 +49,7 @@ if (shortTitles) {
 <style>
   @import './quick-links.css';
 </style>
+
+<script>
+  import './quick-links.js';
+</script>

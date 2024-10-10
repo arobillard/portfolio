@@ -1,14 +1,14 @@
 import { animationDisabled, gsap } from "../../scripts/gsap";
 
-const hero = document.querySelector(".hero");
-const heroAnimated = hero.querySelectorAll(".hero__animated");
-const heroByline = hero.querySelector(".hero__byline");
-const first_line = hero.querySelector(".divider:first-child");
-const last_line = hero.querySelector(".divider:last-child");
-const heroLink = hero.querySelector(".hero__link");
-
 function heroAnimations() {
   const hero_timeline = gsap.timeline();
+
+  const hero = document.querySelector(".hero");
+  const heroAnimated = hero.querySelectorAll(".hero__animated");
+  const heroByline = hero.querySelector(".hero__byline");
+  const first_line = hero.querySelector(".divider:first-child");
+  const last_line = hero.querySelector(".divider:last-child");
+  const heroLink = hero.querySelector(".hero__link");
 
   heroAnimated.forEach((ha, i) => {
     const pos = i === 0 ? null : "-=50%";

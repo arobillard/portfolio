@@ -20,7 +20,8 @@ function useNavbar() {
     });
   }
 
-  if (!animationDisabled()) navbarAnimations();
+  // TODO: look into making this only play when hero is in view on page load?
+  // if (!animationDisabled()) navbarAnimations();
 }
 
 useNavbar();

@@ -11,30 +11,31 @@ const technologiesData = await getEntries(technologies);
 ---
 
 <section id={slug} class="cs-preview">
+  <!-- <div class="scroll-trigger"></div> -->
   <div class="cs-preview__img"></div>
 
   <div class="cs-preview__content">
-    <strong class="cs-preview__number">
+    <strong class="cs-preview__number scroll-item">
       Case Study <span class="bold color-highlight">0{index + 1}</span>/0{count}
     </strong>
-    <h2 class="cs-preview__title">{title}</h2>
-    <p class="cs-preview__desc">{description}</p>
-    <div class="cs-preview__info">
+    <h2 class="cs-preview__title scroll-item">{title}</h2>
+    <p class="cs-preview__desc scroll-item">{description}</p>
+    <div class="cs-preview__info scroll-item">
       <h3 class="cs-preview__subtitle">Roles</h3>
       <ul class="cs-preview__list">
-        {rolesData.map((role) => <li>{role.data.title}</li>)}
+        {rolesData.map((role) => <li class="">{role.data.title}</li>)}
       </ul>
     </div>
-    <div class="cs-preview__info">
+    <div class="cs-preview__info scroll-item">
       <h3 class="cs-preview__subtitle">Technologies</h3>
       <ul class="cs-preview__list">
-        {technologiesData.map((tech) => <li>{tech.data.title}</li>)}
+        {technologiesData.map((tech) => <li class="">{tech.data.title}</li>)}
       </ul>
     </div>
 
     <Icon
       icon="arrow-right"
-      class="bold"
+      class="bold scroll-item"
       link={`/case-studies/${slug}`}
       label="View case study"
       ratio="100 / 65"
@@ -50,3 +51,7 @@ const technologiesData = await getEntries(technologies);
 <style>
   @import './case-study-preview.css';
 </style>
+
+<script>
+  import './case-study-preview.js';
+</script>

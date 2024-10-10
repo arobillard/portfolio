@@ -1,0 +1,19 @@
+---
+const { section } = Astro.props;
+
+const { title, content, img } = section;
+---
+
+<section class="split-content">
+  <div class="split-content__img">
+    <img src={img.src} alt={img.alt} />
+  </div>
+  <div class="split-content__content">
+    <h2>{title}</h2>
+    <p>{content}</p>
+  </div>
+</section>
+
+<style>
+  @import './split-content.css';
+</style>

@@ -6,6 +6,12 @@ const caseStudyCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     order: z.number(),
+    featureImg: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    externalLink: z.string().optional(),
+    sections: z.array(z.object({})),
     roles: z.array(reference("roles")),
     technologies: z.array(reference("technologies")),
   }),

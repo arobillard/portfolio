@@ -1,0 +1,16 @@
+---
+import SplitContent from '../sections/SplitContent/SplitContent.astro';
+
+const { sections } = Astro.props;
+---
+
+{
+  sections.map((section) => {
+    switch (section.type) {
+      case 'split-content':
+        return <SplitContent section={section} />;
+      default:
+        return <section>Cool Section!</section>;
+    }
+  })
+}

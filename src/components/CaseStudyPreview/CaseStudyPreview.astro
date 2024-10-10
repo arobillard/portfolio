@@ -1,18 +1,29 @@
 ---
 import { getEntries } from 'astro:content';
 import Icon from '../Icon/Icon.astro';
+import { combineClasses } from '../../scripts/helpers';
 
 const { cs, index, count } = Astro.props;
 const { slug, data } = cs;
-const { title, description, roles, technologies } = data;
+const { title, description, roles, technologies, featureImg } = data;
 
 const rolesData = await getEntries(roles);
 const technologiesData = await getEntries(technologies);
+
+const flipped = index % 2 === 1;
+
+const classes = ['cs-preview'];
+
+if (flipped) {
+  classes.push('cs-preview--flipped');
+}
 ---
 
-<section id={slug} class="cs-preview">
+<section id={slug} class={combineClasses(classes)}>
   <!-- <div class="scroll-trigger"></div> -->
-  <div class="cs-preview__img"></div>
+  <div class="cs-preview__img">
+    <img src={featureImg.src} alt={featureImg.alt} />
+  </div>
 
   <div class="cs-preview__content">
     <strong class="cs-preview__number scroll-item">

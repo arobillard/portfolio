@@ -13,23 +13,27 @@
 .about-me__img {
   grid-column: 1 / -1;
   border-block-end: 0.0625rem solid var(--color-highlight, var(--color-green));
+  overflow: hidden;
 
-  @media (min-width: 45rem) {
+  /* @media (min-width: 45rem) {
     grid-column: span 4;
-  }
+  } */
 
   @media (min-width: 65rem) {
     grid-column: span 6;
     border-block-end: 0;
     align-self: end;
+    overflow: visible;
   }
 
   img {
-    width: 100%;
+    width: min(100%, 30rem);
+    margin-inline: auto;
     mask-image: url("/images/headshot-sq-mask.png");
     mask-size: cover;
 
-    @media (min-width: 45rem) {
+    @media (min-width: 65rem) {
+      width: 100%;
       mask-image: url("/images/headshot-tall-mask.png");
     }
   }
@@ -38,12 +42,12 @@
 .about-me__content {
   grid-column: 1 / -1;
 
-  @media (min-width: 45rem) {
+  /* @media (min-width: 45rem) {
     grid-column: span 8;
-    order: -1;
-  }
+  } */
 
   @media (min-width: 65rem) {
+    order: -1;
     grid-column: span 6;
     padding-block: 3rem;
   }

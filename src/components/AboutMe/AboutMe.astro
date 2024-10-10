@@ -1,17 +1,19 @@
 ---
 import Icon from '../Icon/Icon.astro';
+
+const { id } = Astro.props;
 ---
 
-<section class="about-me">
+<section id={id || 'about'} class="about-me">
   <div class="about-me__img">
     <picture>
       <source
         srcset="/images/headshot-tall-light-bg.jpg"
-        media="(min-width: 45rem) and (prefers-color-scheme: light)"
+        media="(min-width: 65rem) and (prefers-color-scheme: light)"
       />
       <source
         srcset="/images/headshot-tall-dark-bg.jpg"
-        media="(min-width: 45rem)"
+        media="(min-width: 65rem)"
       />
       <source
         srcset="/images/headshot-sq-light-bg.jpg"
@@ -21,8 +23,8 @@ import Icon from '../Icon/Icon.astro';
     </picture>
   </div>
   <div class="about-me__content">
-    <h2>Get to Know Me</h2>
-    <p>
+    <h2 class="scroll-item">Get to Know Me</h2>
+    <p class="scroll-item">
       Lorem ipsum odor amet, consectetuer adipiscing elit. Sociosqu tristique
       volutpat porttitor vitae ultricies, mus velit. Consectetur sit magna proin
       velit diam vitae. Sit lobortis primis pharetra nullam dolor lorem gravida
@@ -32,7 +34,7 @@ import Icon from '../Icon/Icon.astro';
       ullamcorper.
     </p>
 
-    <p>
+    <p class="scroll-item scroll-item--grouped">
       Pellentesque erat aenean platea; phasellus morbi placerat hac inceptos.
       Suscipit parturient eros aptent risus habitant neque ornare. Augue varius
       nullam cras magna ultrices facilisis. Iaculis sagittis vestibulum
@@ -41,9 +43,10 @@ import Icon from '../Icon/Icon.astro';
       kivluck sit molan.
     </p>
 
-    <h3 class="about-me__reach-out">Feel free to reach out:</h3>
+    <h3 class="about-me__reach-out scroll-item">Feel free to reach out:</h3>
     <Icon
       icon="email"
+      class="scroll-item scroll-item--grouped"
       size="1.5em"
       label="hello@adamrobillard.ca"
       link="mailto:hello@adamrobillard.ca"
@@ -56,3 +59,7 @@ import Icon from '../Icon/Icon.astro';
 <style>
   @import './about-me.css';
 </style>
+
+<script>
+  import './about-me.js';
+</script>

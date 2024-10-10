@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^3.1.8",
     "@astrojs/preact": "^3.5.3",
     "astro": "^4.15.4",
-    "gsap": "^3.12.5",
-    "preact": "^10.23.2"
+    "gsap": "^3.12.5"
   },
   "devDependencies": {
     "prettier": "^3.3.3",

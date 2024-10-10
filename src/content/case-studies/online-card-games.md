@@ -1,10 +1,18 @@
 ---
-layout: ../../layouts/CaseStudyLayout.astro
+layout: ../../layouts/CaseStudyLayout/CaseStudyLayout.astro
 title: Online Card Games
 description: Created a small app that generates responsive typography styles for the web.
 order: 3
+featureImg:
+  src: /images/racerocks3d/racerocks3d-laptop-no-phone.png
+  alt: "A laptop showing the home page of RaceRocks3D"
 roles: ["developer", "designer"]
 technologies: ["react", "firebase", "styled-components"]
+sections:
+  - type: split-content
+    title: About Project
+    content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam iste dolore aut eaque voluptate ex atque delectus obcaecati. Ducimus animi aspernatur voluptatibus molestias natus et blanditiis eligendi eius praesentium sapiente?
+    img: /images/racerocks3d/racerocks3d-laptop.png
 ---
 
 ## About Online Card Games

@@ -1,9 +1,18 @@
 ---
+layout: ../../layouts/CaseStudyLayout/CaseStudyLayout.astro
 title: Responsive Type
 description: Created a small app that generates responsive typography styles for the web.
-order: 1
+order: 2
+featureImg:
+  src: /images/racerocks3d/racerocks3d-laptop-no-phone.png
+  alt: "A laptop showing the home page of RaceRocks3D"
 roles: ["developer", "designer"]
 technologies: ["react", "next-js"]
+sections:
+  - type: split-content
+    title: About Project
+    content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam iste dolore aut eaque voluptate ex atque delectus obcaecati. Ducimus animi aspernatur voluptatibus molestias natus et blanditiis eligendi eius praesentium sapiente?
+    img: /images/racerocks3d/racerocks3d-laptop.png
 ---
 
 ## About Responsive Type

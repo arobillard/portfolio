@@ -3,18 +3,23 @@
 
   display: grid;
   grid-template-columns: subgrid;
+  align-items: center;
   row-gap: 3rem;
 
   padding-block: var(--section-padding-block);
 
-  &:nth-of-type(even) {
+  &.cs-preview--flipped {
     .cs-preview__img {
-      @media (min-width: 45rem) {
+      @media (min-width: 65rem) {
         grid-column: 1 / span 6;
+
+        img {
+          object-position: center right;
+        }
       }
     }
     .cs-preview__content {
-      @media (min-width: 45rem) {
+      @media (min-width: 65rem) {
         grid-column: 8 / span 6;
       }
     }
@@ -22,15 +27,29 @@
 }
 
 .cs-preview__img {
-  background-color: var(--color-green--light);
-  aspect-ratio: 4 / 3;
-
   grid-column: 2 / -2;
 
-  @media (min-width: 45rem) {
+  @media (min-width: 45rem) and (max-width: 65rem) {
+    max-width: 30rem;
+    justify-self: center;
+  }
+
+  @media (min-width: 65rem) {
     grid-column: 9 / span 6;
     aspect-ratio: unset;
+    min-height: 30rem;
+
+    display: flex;
+
+    img {
+      object-fit: cover;
+      object-position: center left;
+    }
   }
+
+  /* @media (min-width: 90rem) {
+    min-height: 42rem;
+  } */
 }
 
 .cs-preview__content {
@@ -44,7 +63,7 @@
     grid-column: 1 / -1;
   }
 
-  @media (min-width: 45rem) {
+  @media (min-width: 65rem) {
     grid-column: 2 / span 6;
     grid-row: 1 / 2;
   }

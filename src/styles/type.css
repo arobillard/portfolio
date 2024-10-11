@@ -41,3 +41,7 @@ h6 {
 .color-highlight-hov:where(:hover, :focus-visible) {
   color: var(--color-highlight, var(--color-green));
 }
+
+.no-break {
+  white-space: nowrap;
+}

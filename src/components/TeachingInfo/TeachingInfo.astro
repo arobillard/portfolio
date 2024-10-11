@@ -1,0 +1,114 @@
+---
+import Icon from '../Icon/Icon.astro';
+
+const { course } = Astro.props;
+
+const { slug } = course;
+
+const { title, description, introduction, courseSite, programs, highlights } =
+  course.data;
+
+// const startDate = new Intl.DateTimeFormat('en-CA', {
+//   year: 'numeric',
+//   month: 'long',
+//   timeZone: 'UTC',
+// }).format(timeline.start);
+
+// const endDate = timeline.end
+//   ? new Intl.DateTimeFormat('en-CA', {
+//       year: 'numeric',
+//       month: 'long',
+//       timeZone: 'UTC',
+//     }).format(timeline.end)
+//   : 'Present';
+---
+
+<article id={slug} class="teaching-info">
+  <header class="teaching-info__header">
+    <h2 class="teaching-info__title">{title}</h2>
+    <p class="teaching-info__introduction">{introduction}</p>
+  </header>
+
+  <div class="teaching-info__highlights">
+    <h3 class="teaching-info__heading">Course Highlights</h3>
+    <ul class="teaching-info__highlights-list">
+      {
+        highlights.map((h) => (
+          <li class="teaching-info__highlight">
+            <h4 class="teaching-info__highlight-title">{h.title}</h4>
+            <p>{h.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <Icon
+      icon="arrow-right"
+      link={courseSite}
+      label="View course content"
+      labelPos="left"
+      size="1em"
+      fontSize="var(--type-scale-h5)"
+      hoverShift
+      newTab
+    />
+  </div>
+
+  <div class="teaching-info__programs">
+    <h3 class="teaching-info__heading">
+      Program{programs.length > 1 ? 's' : ''}
+    </h3>
+    <ul class="teaching-info__programs-list">
+      {
+        programs.map((p) => {
+          const startDate = new Intl.DateTimeFormat('en-CA', {
+            year: 'numeric',
+            month: 'long',
+            timeZone: 'UTC',
+          }).format(p.timeline.start);
+
+          const endDate = p.timeline.end
+            ? new Intl.DateTimeFormat('en-CA', {
+                year: 'numeric',
+                month: 'long',
+                timeZone: 'UTC',
+              }).format(p.timeline.end)
+            : 'Present';
+
+          return (
+            <li class="teaching-info__program">
+              <h4 class="teaching-info__program-name">{p.title}</h4>
+              <div class="teaching-info__program-info">
+                <p class="teaching-info__program-institution">
+                  {p.institution}
+                </p>
+                <p class="teaching-info__program-timeline">
+                  <span class="no-break">{startDate}</span> —{' '}
+                  <span class="no-break">{endDate}</span>
+                </p>
+              </div>
+              <p class="teaching-info__program-desc">{p.description}</p>
+              <Icon
+                class="teaching-info__program-link"
+                icon="arrow-right"
+                link={p.link}
+                label="Learn more"
+                labelPos="left"
+                size="1em"
+                fontSize="var(--type-scale-h6)"
+                hoverShift
+                hoverExpand
+                newTab
+              />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</article>
+
+<div class="divider"></div>
+
+<style>
+  @import './teaching-info.css';
+</style>

@@ -14,6 +14,7 @@ const {
   hoverShift,
   hoverExpand,
   class: extraClasses,
+  newTab,
 } = Astro.props;
 
 const classes = ['icon'];
@@ -63,6 +64,7 @@ const IconTag = link ? 'a' : 'span';
   class={combineClasses(classes)}
   href={link}
   style={combineStyles(styles)}
+  target={newTab ? '_blank' : null}
 >
   {labelPos === 'left' && <span>{label}</span>}
   <i>

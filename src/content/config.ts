@@ -41,12 +41,21 @@ const teachingCollection = defineCollection({
     order: z.number(),
     courseSite: z.string().optional(),
     introduction: z.string(),
-    institution: z.string(),
-    timeline: z.string(),
     programs: z.array(
       z.object({
         title: z.string(),
         link: z.string(),
+        description: z.string().optional(),
+        institution: z.string(),
+        timeline: z.object({
+          start: z.date(),
+          end: z.date().optional(),
+        }),
+      }),
+    ),
+    highlights: z.array(
+      z.object({
+        title: z.string(),
         description: z.string().optional(),
       }),
     ),

@@ -21,7 +21,7 @@ allTeaching.forEach((teach) => {
   teachingQuickLinks.push({
     title: teach.data.title,
     text: teach.data.description,
-    link: `/teaching#${teach.id}`,
+    link: `/teaching#${teach.slug}`,
     label: `View course`,
   });
 });

@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import PageHeader from '../components/PageHeader/PageHeader.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { objectSorter } from '../scripts/helpers';
+import TeachingInfo from '../components/TeachingInfo/TeachingInfo.astro';
+
+const allTeaching = await getCollection('teaching').then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+);
+---
+
+<BaseLayout pageTitle="Teaching">
+  <PageHeader title="Teaching" />
+
+  {allTeaching.map((course) => <TeachingInfo course={course} />)}
+</BaseLayout>

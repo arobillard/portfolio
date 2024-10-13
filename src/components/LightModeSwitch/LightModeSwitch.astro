@@ -1,0 +1,20 @@
+<label class="light-mode-switch">
+  <input type="checkbox" name="light-mode-toggle" id="light-mode-toggle" />
+  <span class="srt">Click to toggle light mode</span>
+
+  <svg class="light-mode-switch__icon light-mode-switch__icon--sun">
+    <use xlink:href="/images/icons.svg#sun"></use>
+  </svg>
+  <div class="light-mode-switch__toggle"></div>
+  <svg class="light-mode-switch__icon light-mode-switch__icon--moon">
+    <use xlink:href="/images/icons.svg#moon"></use>
+  </svg>
+</label>
+
+<style>
+  @import './light-mode-switch.css';
+</style>
+
+<script>
+  import './light-mode-switch.js';
+</script>

@@ -6,6 +6,8 @@
   --color-primary--dark: #21252c;
   --color-red: #d86972;
   --color-red--dark: #a94c54;
+  --color-yellow: #e8e397;
+  --color-yellow--light: #cfc75b;
   --color-orange: #bb8b5e;
   --color-green: #97c278;
   --color-green--medium: #bedfa5;
@@ -15,6 +17,7 @@
   --color-blue--light: #8eb9dd;
   --color-blue--dark: #2c6593;
   --color-purple: #c678dd;
+  --color-night: #1b1241;
 
   --color-white: #f6fdf0;
 
@@ -41,11 +44,11 @@
   --shadow: 0 0.25rem 0.75rem #0004;
   --shadow--large: 0 0.5rem 1.5rem #0004;
   --radius: 0.5em;
+}
 
-  @media (prefers-color-scheme: light) {
-    --color-bg: var(--color-white);
-    --color-text: var(--color-primary);
-  }
+.light-mode {
+  --color-bg: var(--color-white);
+  --color-text: var(--color-primary);
 }
 
 /*
@@ -73,6 +76,9 @@ html {
   line-height: 1.5;
   scroll-behavior: smooth;
   scroll-padding-block-start: var(--navbar-height, 3.728rem);
+  transition:
+    color var(--transition),
+    background-color var(--transition);
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -160,6 +166,10 @@ textarea,
 select {
   font-family: inherit;
   font-size: inherit;
+}
+
+label {
+  cursor: pointer;
 }
 
 /* Make sure textareas without a rows attribute are not tiny */

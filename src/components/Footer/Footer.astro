@@ -1,5 +1,6 @@
 ---
 import { socials } from '../../scripts/socials';
+import LightModeSwitch from '../LightModeSwitch/LightModeSwitch.astro';
 import Icon from '../Icon/Icon.astro';
 import './footer.css';
 const now = new Date(Date.now());
@@ -8,6 +9,8 @@ const now = new Date(Date.now());
 <div class="divider"></div>
 <footer class="footer">
   <small>&copy; {now.getFullYear()} Adam Robillard</small>
+
+  <LightModeSwitch />
 
   <ul class="footer__socials">
     {

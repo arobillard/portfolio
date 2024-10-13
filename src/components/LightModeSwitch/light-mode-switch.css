@@ -1,0 +1,60 @@
+.light-mode-switch {
+  font-size: var(--type-scale-h6);
+  width: 3em;
+  height: 1.375em;
+  /* background-color: var(--color-blue--light); */
+  border-radius: 3em;
+  position: relative;
+  overflow: hidden;
+  border: 0.0625em solid var(--color-text);
+  transition: background-color var(--transition);
+
+  input {
+    position: absolute;
+    appearance: none;
+  }
+}
+
+.light-mode-switch__toggle {
+  aspect-ratio: 1;
+  position: absolute;
+  width: 1em;
+  inset-block-start: 50%;
+  translate: 0 -50%;
+  background-color: var(--color-text);
+  border-radius: 50%;
+  inset-inline-end: 0.125em;
+  transition:
+    inset var(--transition),
+    translate var(--transition);
+  input:where(:not(:checked)) ~ & {
+    inset-inline-end: 100%;
+    translate: calc(100% + 0.125em + 0.0625em) -50%;
+  }
+}
+
+.light-mode-switch__icon {
+  aspect-ratio: 1;
+  position: absolute;
+  width: 1em;
+  inset-block-start: 50%;
+  opacity: 0.5;
+  translate: 0 -50%;
+  transition: inset var(--transition);
+}
+
+.light-mode-switch__icon--sun {
+  inset-inline-start: 0.25em;
+
+  input:where(:not(:checked)) ~ & {
+    inset-block-start: 200%;
+  }
+}
+
+.light-mode-switch__icon--moon {
+  inset-inline-end: 0.25em;
+
+  input:checked ~ & {
+    inset-block-start: 200%;
+  }
+}

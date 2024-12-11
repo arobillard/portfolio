@@ -1,12 +1,10 @@
 ---
-import { getEntries } from 'astro:content';
-import BaseLayout from '../BaseLayout.astro';
-import { getEntry } from 'astro:content';
-import type { string } from 'astro:schema';
-import SectionLoop from '../../components/SectionLoop/SectionLoop.astro';
-import { getCollection } from 'astro:content';
-import Icon from '../../components/Icon/Icon.astro';
-import { objectSorter } from '../../scripts/helpers';
+import BaseLayout from "../BaseLayout.astro";
+import { getEntry } from "astro:content";
+import SectionLoop from "../../components/SectionLoop/SectionLoop.astro";
+import { getCollection } from "astro:content";
+import Icon from "../../components/Icon/Icon.astro";
+import { objectSorter } from "../../scripts/helpers";
 
 const { frontmatter } = Astro.props;
 
@@ -20,7 +18,7 @@ const rolesData: {
 }[] = [];
 
 for (const role of roles) {
-  const roleData = await getEntry('roles', role);
+  const roleData = await getEntry("roles", role);
   rolesData.push(roleData);
 }
 
@@ -31,14 +29,14 @@ const technologiesData: {
 }[] = [];
 
 for (const tech of technologies) {
-  const techData = await getEntry('technologies', tech);
+  const techData = await getEntry("technologies", tech);
   technologiesData.push(techData);
 }
 
 // console.log(order + 1);
 
-const allCS = await getCollection('case-studies').then((data) =>
-  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+const allCS = await getCollection("case-studies").then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order)),
 );
 
 const nextCS =
@@ -50,12 +48,6 @@ const prevCS =
   allCS.filter((cs) => {
     return cs.data.order === order - 1;
   })[0] || allCS[allCS.length - 1];
-
-console.log('nextCS', nextCS);
-console.log('prevCS', prevCS);
-// const [nextCS] = await getCollection('case-studies', ({ data }) => {
-//   return data.order === order + 1;
-// });
 ---
 
 <BaseLayout pageTitle={title}>
@@ -81,9 +73,10 @@ console.log('prevCS', prevCS);
 
   <SectionLoop sections={sections} />
 
-  <footer>
+  <footer class="cs-footer">
     <Icon
       icon="arrow-left"
+      size="2rem"
       link={`/case-studies/${prevCS.slug}`}
       label={prevCS.data.title}
       labelPos="right"
@@ -92,6 +85,7 @@ console.log('prevCS', prevCS);
     />
     <Icon
       icon="arrow-right"
+      size="2rem"
       link={`/case-studies/${nextCS.slug}`}
       label={nextCS.data.title}
       labelPos="left"
@@ -102,5 +96,5 @@ console.log('prevCS', prevCS);
 </BaseLayout>
 
 <style>
-  @import './case-study-layout.css';
+  @import "./case-study-layout.css";
 </style>

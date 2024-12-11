@@ -1,8 +1,7 @@
 ---
-import { socials } from '../../scripts/socials';
-import LightModeSwitch from '../LightModeSwitch/LightModeSwitch.astro';
-import Icon from '../Icon/Icon.astro';
-import './footer.css';
+import { socials } from "../../scripts/socials";
+import LightModeSwitch from "../LightModeSwitch/LightModeSwitch.astro";
+import Icon from "../Icon/Icon.astro";
 const now = new Date(Date.now());
 ---
 
@@ -28,3 +27,7 @@ const now = new Date(Date.now());
     }
   </ul>
 </footer>
+
+<style>
+  @import "./footer.css";
+</style>

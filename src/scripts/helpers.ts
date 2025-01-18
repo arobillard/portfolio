@@ -2,11 +2,35 @@ export function wait(ms = 0) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function combineClasses(classList) {
-  return classList.join(" ");
+export function combineClasses(
+  classes: string[] | string,
+  additionalClasses?: string[] | string,
+): string {
+  if (!classes) return "";
+
+  if (typeof classes === "string") {
+    if (!additionalClasses) return classes;
+
+    if (typeof additionalClasses === "string")
+      return `${classes} ${additionalClasses}`;
+  }
+
+  const updatedClassesArray = [...classes];
+
+  if (additionalClasses) {
+    if (typeof additionalClasses === "string") {
+      updatedClassesArray.push(additionalClasses);
+    } else {
+      updatedClassesArray.forEach((c) => {
+        updatedClassesArray.push(c);
+      });
+    }
+  }
+
+  return updatedClassesArray.join(" ");
 }
 
-export function combineStyles(styles) {
+export function combineStyles(styles: Style[]) {
   if (!styles?.length) return null;
 
   let styleString = "";
@@ -22,7 +46,7 @@ export function combineStyles(styles) {
   return styleString;
 }
 
-export function objectSorter(a, b) {
+export function objectSorter<T>(a: T, b: T): number {
   const valueA = a; // ignore upper and lowercase
   const valueB = b; // ignore upper and lowercase
   if (valueA < valueB) {

@@ -1,8 +1,12 @@
 function useLightModeToggle() {
   const html = document.querySelector("html");
-  const lightModeToggle = document.getElementById("light-mode-toggle");
+  const lightModeToggle = <HTMLInputElement>(
+    document.getElementById("light-mode-toggle")
+  );
 
   function updateTheme(lightModeActive) {
+    if (!html) return;
+
     if (lightModeActive) {
       html.classList.add("light-mode");
     } else {
@@ -11,7 +15,11 @@ function useLightModeToggle() {
   }
 
   function checkLightMode() {
-    const lightModeActive = JSON.parse(localStorage.getItem("ar-light-mode"));
+    if (!lightModeToggle) return;
+
+    const lightModeActive: boolean = JSON.parse(
+      localStorage.getItem("ar-light-mode") || "",
+    );
 
     updateTheme(lightModeActive);
 

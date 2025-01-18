@@ -1,3 +1,5 @@
+// TODO: change these to a collection
+
 export const socials = [
   {
     link: "https://github.com/arobillard",

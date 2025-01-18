@@ -2,8 +2,10 @@ import { gsap } from "../../scripts/gsap";
 import { prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function useNavbar() {
-  const navbar = document.querySelector(".navbar");
+  const navbar = <HTMLElement>document.querySelector(".navbar");
   const body = document.querySelector("body");
+
+  if (!navbar || !body) return;
 
   const resizeObserver = new ResizeObserver(() => {
     const navbarHeight = navbar.offsetHeight;

@@ -7,6 +7,9 @@ import {
 
 function aboutMeAnimations() {
   const aboutMe = document.querySelector(".about-me");
+
+  if (!aboutMe) return;
+
   const aboutMeContent = aboutMe.querySelector(".about-me__content");
   const aboutMeImg = aboutMe.querySelector(".about-me__img img");
 
@@ -31,12 +34,12 @@ function aboutMeAnimations() {
     tl.from(
       item,
       { y: "6rem", opacity: 0, duration: 0.5 },
-      i !== 0 ? pos : null,
+      i !== 0 ? pos : undefined,
     );
   });
 
   if (mqMedium()) {
-    const animation = { y: "6rem", opacity: 0, duration: 0.5 };
+    const animation: gsap.TweenVars = { y: "6rem", opacity: 0, duration: 0.5 };
 
     if (mqLarge()) {
       delete animation.y;

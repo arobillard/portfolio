@@ -27,7 +27,7 @@ function quickLinksAnimations() {
         tl.from(
           item,
           { y: 100, opacity: 0, duration: 0.5 },
-          i === 0 ? null : pos,
+          i === 0 ? undefined : pos,
         );
       }
     });

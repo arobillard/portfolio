@@ -4,8 +4,3 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
-export function animationDisabled() {
-  const { matches } = window.matchMedia("(prefers-reduced-motion: reduce)");
-  return matches;
-}

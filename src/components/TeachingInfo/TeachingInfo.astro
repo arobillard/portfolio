@@ -1,5 +1,6 @@
 ---
-import Icon from '../Icon/Icon.astro';
+import { dateFormat } from "../../scripts/helpers";
+import Icon from "../Icon/Icon.astro";
 
 const { course } = Astro.props;
 
@@ -55,24 +56,16 @@ const { title, description, introduction, courseSite, programs, highlights } =
 
   <div class="teaching-info__programs">
     <h3 class="teaching-info__heading">
-      Program{programs.length > 1 ? 's' : ''}
+      Program{programs.length > 1 ? "s" : ""}
     </h3>
     <ul class="teaching-info__programs-list">
       {
         programs.map((p) => {
-          const startDate = new Intl.DateTimeFormat('en-CA', {
-            year: 'numeric',
-            month: 'long',
-            timeZone: 'UTC',
-          }).format(p.timeline.start);
+          const startDate = dateFormat(p.timeline.start);
 
           const endDate = p.timeline.end
-            ? new Intl.DateTimeFormat('en-CA', {
-                year: 'numeric',
-                month: 'long',
-                timeZone: 'UTC',
-              }).format(p.timeline.end)
-            : 'Present';
+            ? dateFormat(p.timeline.end)
+            : "Present";
 
           return (
             <li class="teaching-info__program">
@@ -82,7 +75,7 @@ const { title, description, introduction, courseSite, programs, highlights } =
                   {p.institution}
                 </p>
                 <p class="teaching-info__program-timeline">
-                  <span class="no-break">{startDate}</span> —{' '}
+                  <span class="no-break">{startDate}</span> —{" "}
                   <span class="no-break">{endDate}</span>
                 </p>
               </div>
@@ -110,5 +103,5 @@ const { title, description, introduction, courseSite, programs, highlights } =
 <div class="divider"></div>
 
 <style>
-  @import './teaching-info.css';
+  @import "./teaching-info.css";
 </style>

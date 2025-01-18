@@ -1,5 +1,9 @@
-import { animationDisabled, gsap } from "../../scripts/gsap";
-import { mqLarge, mqMedium } from "../../scripts/mediaCheckers";
+import { gsap } from "../../scripts/gsap";
+import {
+  mqLarge,
+  mqMedium,
+  prefersReducedMotion,
+} from "../../scripts/mediaCheckers";
 
 function aboutMeAnimations() {
   const aboutMe = document.querySelector(".about-me");
@@ -43,4 +47,4 @@ function aboutMeAnimations() {
   }
 }
 
-if (!animationDisabled()) aboutMeAnimations();
+if (!prefersReducedMotion()) aboutMeAnimations();

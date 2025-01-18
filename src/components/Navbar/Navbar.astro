@@ -1,28 +1,28 @@
 ---
-import Toggle from '../Toggle/Toggle.astro';
-import Icon from '../Icon/Icon.astro';
-import { getCollection } from 'astro:content';
-import { objectSorter } from '../../scripts/helpers';
-import { socials } from '../../scripts/socials';
+import Toggle from "../Toggle/Toggle.astro";
+import Icon from "../Icon/Icon.astro";
+import { getCollection } from "astro:content";
+import { objectSorter } from "../../scripts/helpers";
+import { socials } from "../../scripts/socials";
 
-const LogoTag = Astro.url.pathname === '/' ? 'h1' : 'strong';
+const LogoTag = Astro.url.pathname === "/" ? "h1" : "strong";
 
-const allCaseStudies = await getCollection('case-studies').then((data) =>
-  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+const allCaseStudies = await getCollection("case-studies").then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order)),
 );
 
 const links = [
   {
-    href: `/#${allCaseStudies[0].slug}`,
-    label: 'Work',
+    href: `/#${allCaseStudies[0].id}`,
+    label: "Work",
   },
   {
-    href: '/#about',
-    label: 'About',
+    href: "/#about",
+    label: "About",
   },
   {
-    href: '/teaching',
-    label: 'Teaching',
+    href: "/teaching",
+    label: "Teaching",
   },
 ];
 ---
@@ -73,9 +73,9 @@ const links = [
 </header>
 
 <style>
-  @import './navbar.css';
+  @import "./navbar.css";
 </style>
 
 <script>
-  import './navbar.js';
+  import "./navbar.js";
 </script>

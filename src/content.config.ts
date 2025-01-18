@@ -1,7 +1,9 @@
+import { glob } from "astro/loaders";
 import { defineCollection, reference, z } from "astro:content";
 
 const caseStudyCollection = defineCollection({
-  type: "content",
+  // type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/case-studies" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -11,14 +13,27 @@ const caseStudyCollection = defineCollection({
       alt: z.string(),
     }),
     externalLink: z.string().optional(),
-    sections: z.array(z.object({})),
+    sections: z.array(
+      z.object({
+        type: z.string(),
+        title: z.string(),
+        content: z.string().optional(),
+        img: z
+          .object({
+            src: z.string(),
+            alt: z.string(),
+          })
+          .optional(),
+      }),
+    ),
     roles: z.array(reference("roles")),
     technologies: z.array(reference("technologies")),
   }),
 });
 
 const technologiesCollection = defineCollection({
-  type: "data",
+  // type: "data",
+  loader: glob({ pattern: "**/*.yml", base: "./src/content/technologies" }),
   schema: z.object({
     title: z.string(),
     url: z.string(),
@@ -26,7 +41,8 @@ const technologiesCollection = defineCollection({
 });
 
 const rolesCollection = defineCollection({
-  type: "data",
+  // type: "data",
+  loader: glob({ pattern: "**/*.yml", base: "./src/content/roles" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -34,7 +50,8 @@ const rolesCollection = defineCollection({
 });
 
 const teachingCollection = defineCollection({
-  type: "content",
+  // type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/teaching" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -63,7 +80,8 @@ const teachingCollection = defineCollection({
 });
 
 const coolStuffCollection = defineCollection({
-  type: "content",
+  // type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/cool-stuff" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -73,7 +91,10 @@ const coolStuffCollection = defineCollection({
 });
 
 const coolStuffCategories = defineCollection({
-  type: "data",
+  loader: glob({
+    pattern: "**/*.yml",
+    base: "./src/content/cool-stuff-categories",
+  }),
   schema: z.object({
     title: z.string(),
     order: z.number(),

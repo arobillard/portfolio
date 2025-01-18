@@ -33,3 +33,20 @@ export function objectSorter(a, b) {
   }
   return 0;
 }
+
+export function dateFormat(
+  dateString: Date,
+  format?: {
+    year?: "numeric" | "2-digit" | undefined;
+    month?: "numeric" | "2-digit" | "long" | "short" | "narrow" | undefined;
+    day?: "numeric" | "2-digit" | undefined;
+    lang?: "en-CA" | "fr-CA";
+  },
+) {
+  return new Intl.DateTimeFormat(format?.lang || "en-CA", {
+    year: format?.year || "numeric",
+    month: format?.month || "long",
+    day: format?.day,
+    timeZone: "UTC",
+  }).format(dateString);
+}

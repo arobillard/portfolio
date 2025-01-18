@@ -1,4 +1,5 @@
-import { animationDisabled, gsap } from "../../scripts/gsap";
+import { gsap } from "../../scripts/gsap";
+import { prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function quickLinksAnimations() {
   const quickLinks = document.querySelectorAll(".quick-links");
@@ -33,4 +34,4 @@ function quickLinksAnimations() {
   });
 }
 
-if (!animationDisabled()) quickLinksAnimations();
+if (!prefersReducedMotion()) quickLinksAnimations();

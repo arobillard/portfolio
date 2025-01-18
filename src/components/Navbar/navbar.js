@@ -1,4 +1,5 @@
-import { animationDisabled, gsap } from "../../scripts/gsap";
+import { gsap } from "../../scripts/gsap";
+import { prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function useNavbar() {
   const navbar = document.querySelector(".navbar");
@@ -21,7 +22,8 @@ function useNavbar() {
   }
 
   // TODO: look into making this only play when hero is in view on page load?
-  // if (!animationDisabled()) navbarAnimations();
+  // presumably an intersection observer
+  // if (!prefersReducedMotion()) navbarAnimations();
 }
 
 useNavbar();

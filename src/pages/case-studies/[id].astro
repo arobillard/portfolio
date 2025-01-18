@@ -1,0 +1,111 @@
+---
+import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import { objectSorter } from "../../scripts/helpers";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionLoop from "../../components/SectionLoop/SectionLoop.astro";
+import Icon from "../../components/Icon/Icon.astro";
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection("case-studies");
+
+  return caseStudies.map((cs) => ({
+    params: { id: cs.id },
+    props: { cs },
+  }));
+}
+
+const { cs } = Astro.props;
+
+const { title, description, order, roles, technologies, sections } = cs.data;
+
+const rolesData: Category[] = [];
+
+for (const role of roles) {
+  const roleData = await getEntry("roles", role.id);
+  if (roleData) {
+    rolesData.push({
+      id: roleData.id,
+      data: roleData.data,
+      collection: role.collection,
+    });
+  }
+}
+
+const technologiesData: Category[] = [];
+
+for (const tech of technologies) {
+  const techData = await getEntry("technologies", tech.id);
+  if (techData) {
+    technologiesData.push({
+      id: techData.id,
+      data: techData.data,
+      collection: tech.collection,
+    });
+  }
+}
+
+const allCS = await getCollection("case-studies").then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order)),
+);
+
+const nextCS =
+  allCS.filter((cs) => {
+    return cs.data.order === order + 1;
+  })[0] || allCS[0];
+
+const prevCS =
+  allCS.filter((cs) => {
+    return cs.data.order === order - 1;
+  })[0] || allCS[allCS.length - 1];
+---
+
+<BaseLayout pageTitle={title}>
+  <header>
+    <h1>{title}</h1>
+    <p>{description}</p>
+    <h2>Roles</h2>
+    <ul>
+      {rolesData.map((role) => <li>{role.data.title}</li>)}
+    </ul>
+    <h2>Technologies</h2>
+    <ul>
+      {
+        technologiesData.map((tech) => (
+          <li>
+            <a href={tech.data.url} target="_blank">
+              {tech.data.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </header>
+
+  <SectionLoop sections={sections} />
+
+  <footer class="cs-footer">
+    <Icon
+      icon="arrow-left"
+      size="2rem"
+      link={`/case-studies/${prevCS.id}`}
+      label={prevCS.data.title}
+      labelPos="right"
+      fontSize="var(--type-scale-h5)"
+      hoverShift
+    />
+    <Icon
+      icon="arrow-right"
+      size="2rem"
+      link={`/case-studies/${nextCS.id}`}
+      label={nextCS.data.title}
+      labelPos="left"
+      fontSize="var(--type-scale-h5)"
+      hoverShift
+    />
+  </footer>
+</BaseLayout>
+
+<style>
+  @import "./_case-study-layout.css";
+</style>

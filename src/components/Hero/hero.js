@@ -1,4 +1,5 @@
-import { animationDisabled, gsap } from "../../scripts/gsap";
+import { gsap } from "../../scripts/gsap";
+import { prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function heroAnimations() {
   const hero_timeline = gsap.timeline();
@@ -53,4 +54,4 @@ function heroAnimations() {
   });
 }
 
-if (!animationDisabled()) heroAnimations();
+if (!prefersReducedMotion()) heroAnimations();

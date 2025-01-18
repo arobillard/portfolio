@@ -1,26 +1,25 @@
 ---
-import { getEntries } from 'astro:content';
-import Icon from '../Icon/Icon.astro';
-import { combineClasses } from '../../scripts/helpers';
+import { getEntries } from "astro:content";
+import Icon from "../Icon/Icon.astro";
+import { combineClasses } from "../../scripts/helpers";
 
 const { cs, index, count } = Astro.props;
-const { slug, data } = cs;
+const { id, data } = cs;
 const { title, description, roles, technologies, featureImg } = data;
 
-const rolesData = await getEntries(roles);
-const technologiesData = await getEntries(technologies);
+const rolesData: Category[] = await getEntries(roles);
+const technologiesData: Category[] = await getEntries(technologies);
 
 const flipped = index % 2 === 1;
 
-const classes = ['cs-preview'];
+const classes = ["cs-preview"];
 
 if (flipped) {
-  classes.push('cs-preview--flipped');
+  classes.push("cs-preview--flipped");
 }
 ---
 
-<section id={slug} class={combineClasses(classes)}>
-  <!-- <div class="scroll-trigger"></div> -->
+<section id={id} class={combineClasses(classes)}>
   <div class="cs-preview__img">
     <img src={featureImg.src} alt={featureImg.alt} />
   </div>
@@ -47,7 +46,7 @@ if (flipped) {
     <Icon
       icon="arrow-right"
       class="bold scroll-item"
-      link={`/case-studies/${slug}`}
+      link={`/case-studies/${id}`}
       label="View case study"
       ratio="100 / 65"
       labelPos="left"
@@ -60,9 +59,9 @@ if (flipped) {
 <div class="divider"></div>
 
 <style>
-  @import './case-study-preview.css';
+  @import "./case-study-preview.css";
 </style>
 
 <script>
-  import './case-study-preview.js';
+  import "./case-study-preview.js";
 </script>

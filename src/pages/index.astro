@@ -1,18 +1,18 @@
 ---
-import { getCollection } from 'astro:content';
-import { objectSorter } from '../scripts/helpers';
-import CaseStudyPreview from '../components/CaseStudyPreview/CaseStudyPreview.astro';
-import Hero from '../components/Hero/Hero.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import QuickLinks from '../components/QuickLinks/QuickLinks.astro';
-import AboutMe from '../components/AboutMe/AboutMe.astro';
+import { getCollection } from "astro:content";
+import { objectSorter } from "../scripts/helpers";
+import CaseStudyPreview from "../components/CaseStudyPreview/CaseStudyPreview.astro";
+import Hero from "../components/Hero/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuickLinks from "../components/QuickLinks/QuickLinks.astro";
+import AboutMe from "../components/AboutMe/AboutMe.astro";
 
-const allCaseStudies = await getCollection('case-studies').then((data) =>
-  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+const allCaseStudies = await getCollection("case-studies").then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order)),
 );
 
-const allTeaching = await getCollection('teaching').then((data) =>
-  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+const allTeaching = await getCollection("teaching").then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order)),
 );
 
 const teachingQuickLinks: object[] = [];
@@ -21,13 +21,13 @@ allTeaching.forEach((teach) => {
   teachingQuickLinks.push({
     title: teach.data.title,
     text: teach.data.description,
-    link: `/teaching#${teach.slug}`,
+    link: `/teaching#${teach.id}`,
     label: `View course`,
   });
 });
 
-const allCSCats = await getCollection('cool-stuff-categories').then((data) =>
-  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+const allCSCats = await getCollection("cool-stuff-categories").then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order)),
 );
 
 const coolStuffQuickLinks: object[] = [];
@@ -43,7 +43,7 @@ allCSCats.forEach((cat) => {
 ---
 
 <BaseLayout>
-  <Hero link={`#${allCaseStudies[0].slug}`} />
+  <Hero link={`#${allCaseStudies[0].id}`} />
 
   {
     allCaseStudies.map((cs, index) => (

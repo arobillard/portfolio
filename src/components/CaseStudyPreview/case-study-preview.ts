@@ -1,5 +1,5 @@
-import { animationDisabled, gsap } from "../../scripts/gsap";
-import { mqLarge } from "../../scripts/mediaCheckers";
+import { gsap } from "../../scripts/gsap";
+import { mqLarge, prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function caseStudyPreviewAnimations() {
   const caseStudyPreviews = document.querySelectorAll(".cs-preview");
@@ -41,4 +41,4 @@ function caseStudyPreviewAnimations() {
   });
 }
 
-if (!animationDisabled()) caseStudyPreviewAnimations();
+if (!prefersReducedMotion()) caseStudyPreviewAnimations();

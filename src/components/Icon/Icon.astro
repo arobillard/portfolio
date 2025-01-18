@@ -1,5 +1,5 @@
 ---
-import { combineClasses, combineStyles } from '../../scripts/helpers';
+import { combineClasses, combineStyles } from "../../scripts/helpers";
 
 const {
   link,
@@ -17,64 +17,64 @@ const {
   newTab,
 } = Astro.props;
 
-const classes = ['icon'];
+const classes = ["icon"];
 
 if (extraClasses) {
   classes.push(extraClasses);
 }
 
 if (hoverShift) {
-  classes.push('icon--hover-shift');
+  classes.push("icon--hover-shift");
 }
 
 if (hoverExpand) {
-  classes.push('icon--hover-expand');
+  classes.push("icon--hover-expand");
 }
 
-const styles: object[] = [];
+const styles: Style[] = [];
 
 if (size) {
-  styles.push({ prop: '--size', value: size });
+  styles.push({ prop: "--size", value: size });
 }
 
 if (color) {
-  styles.push({ prop: '--color', value: color });
+  styles.push({ prop: "--color", value: color });
 }
 
 if (hover) {
-  styles.push({ prop: '--hover', value: hover });
+  styles.push({ prop: "--hover", value: hover });
 }
 
 if (ratio) {
-  styles.push({ prop: '--ratio', value: ratio });
+  styles.push({ prop: "--ratio", value: ratio });
 }
 
 if (fontSize) {
-  styles.push({ prop: '--fontSize', value: fontSize });
+  styles.push({ prop: "--fontSize", value: fontSize });
 }
 
-const IconTag = link ? 'a' : 'span';
+const IconTag = link ? "a" : "span";
 ---
 
 <style define:vars={{ size, color, hover }}>
-  @import './icon.css';
+  @import "./icon.css";
 </style>
 
 <IconTag
   class={combineClasses(classes)}
   href={link}
   style={combineStyles(styles)}
-  target={newTab ? '_blank' : null}
+  target={newTab ? "_blank" : null}
 >
-  {labelPos === 'left' && <span>{label}</span>}
+  {labelPos === "left" && <span>{label}</span>}
   <i>
     <svg>
       <use xlink:href={`/images/icons.svg#${icon}`}></use>
     </svg>
   </i>
   {
-    labelPos !== 'left' && (
-      <span class={labelPos !== 'right' ? 'srt' : ''}>{label}</span>
+    labelPos !== "left" && (
+      <span class={labelPos !== "right" ? "srt" : ""}>{label}</span>
     )
   }
 </IconTag>

@@ -1,4 +1,5 @@
-import { animationDisabled, gsap } from "../../scripts/gsap";
+import { gsap } from "../../scripts/gsap";
+import { prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function quickLinksAnimations() {
   const quickLinks = document.querySelectorAll(".quick-links");
@@ -26,11 +27,11 @@ function quickLinksAnimations() {
         tl.from(
           item,
           { y: 100, opacity: 0, duration: 0.5 },
-          i === 0 ? null : pos,
+          i === 0 ? undefined : pos,
         );
       }
     });
   });
 }
 
-if (!animationDisabled()) quickLinksAnimations();
+if (!prefersReducedMotion()) quickLinksAnimations();

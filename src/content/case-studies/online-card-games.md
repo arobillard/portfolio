@@ -12,7 +12,9 @@ sections:
   - type: split-content
     title: About Project
     content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam iste dolore aut eaque voluptate ex atque delectus obcaecati. Ducimus animi aspernatur voluptatibus molestias natus et blanditiis eligendi eius praesentium sapiente?
-    img: /images/racerocks3d/racerocks3d-laptop.png
+    img:
+      src: /images/racerocks3d/racerocks3d-laptop.png
+      alt: Great image
 ---
 
 ## About Online Card Games

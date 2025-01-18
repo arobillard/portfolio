@@ -1,17 +1,20 @@
-import { animationDisabled, gsap } from "../../scripts/gsap";
+import { gsap } from "../../scripts/gsap";
+import { prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function heroAnimations() {
-  const hero_timeline = gsap.timeline();
-
   const hero = document.querySelector(".hero");
+  if (!hero) return;
+
   const heroAnimated = hero.querySelectorAll(".hero__animated");
   const heroByline = hero.querySelector(".hero__byline");
   const first_line = hero.querySelector(".divider:first-child");
   const last_line = hero.querySelector(".divider:last-child");
   const heroLink = hero.querySelector(".hero__link");
 
+  const hero_timeline = gsap.timeline();
+
   heroAnimated.forEach((ha, i) => {
-    const pos = i === 0 ? null : "-=50%";
+    const pos = i === 0 ? undefined : "-=50%";
 
     hero_timeline.from(ha, { y: "6rem", opacity: 0, duration: 0.5 }, pos);
     hero_timeline.call(
@@ -53,4 +56,4 @@ function heroAnimations() {
   });
 }
 
-if (!animationDisabled()) heroAnimations();
+if (!prefersReducedMotion()) heroAnimations();

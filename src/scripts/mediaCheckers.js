@@ -9,3 +9,7 @@ export function mqMedium() {
 export function mqLarge() {
   return mq(`60rem`);
 }
+
+export function prefersReducedMotion() {
+  return window.matchMedia("prefers-reduced-motion");
+}

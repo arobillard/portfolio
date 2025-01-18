@@ -1,4 +1,7 @@
+import { prefersReducedMotion } from "./mediaCheckers";
+
 function init() {
+  if (prefersReducedMotion()) return;
   const body = document.querySelector("body");
 
   function setHighlightColor() {

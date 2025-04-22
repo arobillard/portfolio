@@ -1,10 +1,12 @@
 ---
 layout: ../../layouts/CaseStudyLayout/CaseStudyLayout.astro
 title: Online Card Games
+shortDesc: Created a small app that generates responsive typography styles for the web.
 description: Created a small app that generates responsive typography styles for the web.
 order: 3
+active: true
 featureImg:
-  src: /images/racerocks3d/racerocks3d-laptop-no-phone.png
+  src: /images/online-games/online-games-laptop.png
   alt: "A laptop showing the home page of RaceRocks3D"
 roles: ["developer", "designer"]
 technologies: ["react", "firebase", "styled-components"]

@@ -1,15 +1,15 @@
 ---
 layout: ../../layouts/CaseStudyLayout/CaseStudyLayout.astro
-title: RaceRocks3D
-shortDesc: Designed, developed, and project managed the creation of a new website for RaceRocks3D.
-description: Designed, developed, and project managed the creation of a new website for RaceRocks3D.
-order: 4
+title: Leagrr
+shortDesc: A league management application that allows users to create and manage sports leagues and teams.
+description: A league management application that allows users to create and manage sports leagues and teams.
+order: 1
 active: true
 featureImg:
-  src: /images/racerocks3d/racerocks3d-laptop-no-phone.png
-  alt: A laptop showing the home page of RaceRocks3D
+  src: /images/leagrr/leagrr-laptop.png
+  alt: A laptop showing the division overview page of the Leagrr app
 roles: ["developer", "designer", "project-manager"]
-technologies: ["wordpress", "gsap", "adobe-xd"]
+technologies: ["next-js", "postgresql", "css-modules"]
 sections:
   - type: split-content
     title: About Project

@@ -2,31 +2,28 @@
 :root {
   /* Colors */
   --color-primary: #23272e;
-  --color-primary--light: #303641;
-  --color-primary--dark: #21252c;
+  --color-primary-light: #303641;
+  --color-primary-dark: #21252c;
   --color-red: #d86972;
-  --color-red--dark: #a94c54;
+  --color-red-dark: #a94c54;
   --color-yellow: #e8e397;
-  --color-yellow--light: #cfc75b;
+  --color-yellow-light: #cfc75b;
   --color-orange: #bb8b5e;
   --color-green: #97c278;
-  --color-green--medium: #bedfa5;
-  --color-green--light: #c3e1ad;
-  --color-green--lighter: #c6e3b0;
+  --color-green-medium: #bedfa5;
+  --color-green-light: #c3e1ad;
+  --color-green-lighter: #c6e3b0;
   --color-blue: #387bb2;
-  --color-blue--light: #8eb9dd;
-  --color-blue--dark: #2c6593;
+  --color-blue-light: #8eb9dd;
+  --color-blue-dark: #2c6593;
   --color-purple: #c678dd;
   --color-night: #1b1241;
-
   --color-white: #f6fdf0;
-
   --color-bg: var(--color-primary);
   --color-text: var(--color-white);
 
   /* Typography */
   --font-primary: "Nunito Sans", sans-serif;
-
   --type-scale-h1: clamp(2.986rem, 9.744cqi, 6.758rem);
   --type-scale-h2: clamp(2.488rem, 7.406cqi, 4.915rem);
   --type-scale-h3: clamp(2.074rem, 5.648cqi, 3.574rem);
@@ -42,7 +39,7 @@
   /* Standardization */
   --transition: 0.3s;
   --shadow: 0 0.25rem 0.75rem #0004;
-  --shadow--large: 0 0.5rem 1.5rem #0004;
+  --shadow-large: 0 0.5rem 1.5rem #0004;
   --radius: 0.5em;
 }
 
@@ -67,8 +64,6 @@ Adapted from: https://piccalil.li/blog/a-more-modern-css-reset/
 
 /* Prevent font size inflation */
 html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
   text-size-adjust: none;
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -136,7 +131,7 @@ a {
 
 a:where(:not([class])) {
   text-decoration-skip-ink: auto;
-  color: var(--color-green--light);
+  color: var(--color-green-light);
 }
 
 a:where(:not([class])):where(:hover, :focus-visible) {
@@ -152,7 +147,7 @@ svg {
 }
 
 svg {
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 svg:not(:root) {
@@ -315,7 +310,7 @@ textarea:not([rows]) {
 .divider--desktop {
   display: none;
 
-  @media (min-width: 60rem) {
+  @media (width >= 60rem) {
     display: block;
   }
 }

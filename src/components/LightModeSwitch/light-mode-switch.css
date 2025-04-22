@@ -2,7 +2,8 @@
   font-size: var(--type-scale-h6);
   width: 3em;
   height: 1.375em;
-  /* background-color: var(--color-blue--light); */
+
+  /* background-color: var(--color-blue-light); */
   border-radius: 3em;
   position: relative;
   overflow: hidden;
@@ -27,6 +28,7 @@
   transition:
     inset var(--transition),
     translate var(--transition);
+
   input:where(:not(:checked)) ~ & {
     inset-inline-end: 100%;
     translate: calc(100% + 0.125em + 0.0625em) -50%;

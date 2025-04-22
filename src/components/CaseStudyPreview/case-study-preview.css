@@ -1,44 +1,24 @@
 .cs-preview {
   grid-column: 1 / -1;
-
   display: grid;
   grid-template-columns: subgrid;
   align-items: center;
   row-gap: 3rem;
-
   padding-block: var(--section-padding-block);
-
-  &.cs-preview--flipped {
-    .cs-preview__img {
-      @media (min-width: 65rem) {
-        grid-column: 1 / span 6;
-
-        img {
-          object-position: center right;
-        }
-      }
-    }
-    .cs-preview__content {
-      @media (min-width: 65rem) {
-        grid-column: 8 / span 6;
-      }
-    }
-  }
 }
 
 .cs-preview__img {
   grid-column: 2 / -2;
 
-  @media (min-width: 45rem) and (max-width: 65rem) {
+  @media (width >= 45rem) and (width <= 65rem) {
     max-width: 30rem;
     justify-self: center;
   }
 
-  @media (min-width: 65rem) {
+  @media (width >= 65rem) {
     grid-column: 9 / span 6;
     aspect-ratio: unset;
     min-height: 30rem;
-
     display: flex;
 
     img {
@@ -54,7 +34,6 @@
 
 .cs-preview__content {
   grid-column: 2 / -2;
-
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 1.5rem;
@@ -63,7 +42,7 @@
     grid-column: 1 / -1;
   }
 
-  @media (min-width: 65rem) {
+  @media (width >= 65rem) {
     grid-column: 2 / span 6;
     grid-row: 1 / 2;
   }
@@ -96,4 +75,22 @@
   list-style-type: none;
   display: grid;
   gap: 0.5rem;
+}
+
+.cs-preview--flipped {
+  .cs-preview__img {
+    @media (width >= 65rem) {
+      grid-column: 1 / span 6;
+
+      img {
+        object-position: center right;
+      }
+    }
+  }
+
+  .cs-preview__content {
+    @media (width >= 65rem) {
+      grid-column: 8 / span 6;
+    }
+  }
 }

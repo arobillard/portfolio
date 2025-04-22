@@ -6,9 +6,8 @@
     color var(--transition),
     gap var(--transition);
   color: var(--color, var(--color-text));
-
   text-decoration: none;
-  font-size: var(--fontSize, 1em);
+  font-size: var(--font-size, 1em);
 
   &:where(:hover, :focus-visible) {
     color: var(--hover, var(--color-highlight, var(--color-green)));

@@ -1,14 +1,16 @@
 ---
 import { getCollection } from "astro:content";
-import { objectSorter } from "../scripts/helpers";
+import AboutMe from "../components/AboutMe/AboutMe.astro";
 import CaseStudyPreview from "../components/CaseStudyPreview/CaseStudyPreview.astro";
 import Hero from "../components/Hero/Hero.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
 import QuickLinks from "../components/QuickLinks/QuickLinks.astro";
-import AboutMe from "../components/AboutMe/AboutMe.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { objectSorter } from "../scripts/helpers";
 
 const allCaseStudies = await getCollection("case-studies").then((data) =>
-  data.sort((a, b) => objectSorter(a.data.order, b.data.order)),
+  data
+    .filter((cs) => cs.data.active === true)
+    .sort((a, b) => objectSorter(a.data.order, b.data.order)),
 );
 
 const allTeaching = await getCollection("teaching").then((data) =>

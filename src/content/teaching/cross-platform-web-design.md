@@ -13,11 +13,11 @@ programs:
       start: 2021-09-01
 highlights:
   - title: HTML
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    description: Students learn the core concepts of HTML needed to build well structured, accessible websites.
   - title: CSS
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    description: Students learn how to create responsive layouts through modern CSS best practices.
   - title: Git & GitHub
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    description: Students learn and utilize Git and GitHub to back up, share, and publish their code online.
   - title: TailwindCSS
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    description: Students learn TailwindCSS to help streamline styling and create consistent theming.
 ---

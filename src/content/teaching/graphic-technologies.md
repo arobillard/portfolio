@@ -21,11 +21,11 @@ programs:
       end: 2021-04-30
 highlights:
   - title: Adobe CC
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    description: Students learn the basics of Illustrator, Photoshop, and Xd necessary to support web development and design.
   - title: Animated SVG
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    description: Students learn how to create SVG images in Illustrator and then use CSS code to manipulate and animate them.
   - title: Design Basics
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    description: Students learn the basics of good design principles including basic layout, colour, and typography theory.
   - title: Peer Critiques
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    description: Students learn how to communicate design feedback constructively through critiquing project drafts.
 ---

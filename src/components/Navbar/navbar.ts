@@ -1,5 +1,4 @@
 import { gsap } from "../../scripts/gsap";
-import { prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function useNavbar() {
   const navbar = <HTMLElement>document.querySelector(".navbar");

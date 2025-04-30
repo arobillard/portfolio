@@ -4,7 +4,7 @@ title: RaceRocks3D
 shortDesc: Designed, developed, and project managed the creation of a new website for RaceRocks3D.
 description: Designed, developed, and project managed the creation of a new website for RaceRocks3D.
 order: 4
-active: true
+active: false
 featureImg:
   src: /images/racerocks3d/racerocks3d-laptop-no-phone.png
   alt: A laptop showing the home page of RaceRocks3D

@@ -1,7 +1,7 @@
 ---
 import { getEntries } from "astro:content";
 import Icon from "../Icon/Icon.astro";
-import { combineClasses } from "../../scripts/helpers";
+import { applyClasses } from "../../scripts/helpers";
 
 const { cs, index, count } = Astro.props;
 const { id, data } = cs;
@@ -19,7 +19,7 @@ const classes = ["cs-preview"];
 // }
 ---
 
-<section id={id} class={combineClasses(classes)}>
+<section id={id} class={applyClasses(classes)} tabindex="0">
   <div class="cs-preview__img">
     <img src={featureImg.src} alt={featureImg.alt} />
   </div>

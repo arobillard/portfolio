@@ -1,0 +1,130 @@
+.cool-stuff-item {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  row-gap: 3rem;
+  padding-block: 3rem;
+  align-items: center;
+
+  @media (width >= 45rem) {
+    padding-block: 4.5rem;
+  }
+
+  @media (width >= 60rem) {
+    padding-block: 6rem;
+  }
+}
+
+.cool-stuff-item__img {
+  grid-column: 2 / -2;
+  width: min(35rem, 100%);
+  justify-self: center;
+
+  @media (width >= 60rem) {
+    grid-column: 9 / -2;
+    grid-row: 1 / 2;
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.cool-stuff-item__content {
+  grid-column: 2 / -2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media (width >= 60rem) {
+    grid-column: 2 / 8;
+    grid-row: 1 / 2;
+  }
+}
+
+.cool-stuff-item__title {
+  font-size: var(--type-scale-h4);
+  color: var(--color-highlight, var(--color-green));
+}
+
+.cool-stuff-item__title,
+.cool-stuff-item__desc {
+  grid-column: 1 / -1;
+  text-wrap: balance;
+}
+
+.cool-stuff-item__desc {
+  margin-block-end: 3rem;
+}
+
+/* .cool-stuff-item__info {
+  grid-column: span 6;
+} */
+
+.cool-stuff-item__content:has(.icon) {
+  .cool-stuff-item__info {
+    margin-block-end: 3rem;
+  }
+
+  .icon {
+    justify-self: start;
+  }
+}
+
+.cool-stuff-item__subtitle {
+  font-size: var(--type-scale-h5);
+}
+
+.cool-stuff-item__list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: grid;
+  gap: 0.5rem;
+
+  a {
+    text-decoration: none;
+    color: var(--color-highlight, var(--color-green));
+
+    &:where(:hover, :focus-visible) {
+      color: var(--color-text);
+    }
+  }
+}
+
+.cool-stuff-item__link {
+  grid-column: 2 / -2;
+}
+
+.cool-stuff-item__video {
+  grid-column: 2 / -2;
+  display: flex;
+  aspect-ratio: 16 / 9;
+
+  @media (width >= 60rem) {
+    grid-column: 8 / -2;
+  }
+}
+
+.cool-stuff-item--websites {
+  .cool-stuff-item__img {
+    @media (width >= 60rem) {
+      grid-column: 9 / -1;
+      display: flex;
+      width: 100%;
+      min-height: 30rem;
+
+      img {
+        object-fit: cover;
+        object-position: left center;
+      }
+    }
+  }
+}
+
+.cool-stuff-item--amces {
+  .cool-stuff-item__img {
+    width: min(25rem, 100%);
+  }
+}

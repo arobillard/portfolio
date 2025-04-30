@@ -1,17 +1,17 @@
 ---
-import { combineClasses } from '../../scripts/helpers';
-import Icon from '../Icon/Icon.astro';
+import { applyClasses } from "../../scripts/helpers";
+import Icon from "../Icon/Icon.astro";
 
 const { title, items, shortTitles } = Astro.props;
 
-const classes = ['quick-links'];
+const classes = ["quick-links"];
 
 if (shortTitles) {
-  classes.push('quick-links--short-titles');
+  classes.push("quick-links--short-titles");
 }
 ---
 
-<section class={combineClasses(classes)}>
+<section class={applyClasses(classes)} tabindex="0">
   <h2 class="quick-links__heading scroll-item">{title}</h2>
 
   <ul class="quick-links__list">
@@ -30,7 +30,7 @@ if (shortTitles) {
               icon="arrow-right"
               class="bold"
               link={link}
-              label={label || 'Learn more'}
+              label={label || "Learn more"}
               ratio="100 / 65"
               labelPos="left"
               size="1.25em"
@@ -47,9 +47,9 @@ if (shortTitles) {
 <div class="divider"></div>
 
 <style>
-  @import './quick-links.css';
+  @import "./quick-links.css";
 </style>
 
 <script>
-  import './quick-links.js';
+  import "./quick-links.js";
 </script>

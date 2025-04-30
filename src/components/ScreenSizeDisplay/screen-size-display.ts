@@ -7,6 +7,12 @@ function init() {
 
   const resizeObserver = new ResizeObserver(() => {
     ssd.textContent = `${Math.floor(body.offsetWidth / 16)}rem`;
+
+    ssd.classList.add("show");
+
+    setTimeout(() => {
+      ssd.classList.remove("show");
+    }, 2000);
   });
 
   resizeObserver.observe(body);

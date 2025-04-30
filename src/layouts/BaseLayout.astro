@@ -17,6 +17,10 @@ const { pageTitle } = Astro.props;
 
     <title>{pageTitle && `${pageTitle} | `} Adam Robillard</title>
 
+    <script>
+      import "../scripts/highlight-color";
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,9 +55,5 @@ const { pageTitle } = Astro.props;
     </a>
 
     {import.meta.env.DEV && <ScreenSizeDisplay />}
-
-    <script>
-      import "../scripts/highlight-color";
-    </script>
   </body>
 </html>

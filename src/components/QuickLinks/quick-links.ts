@@ -1,4 +1,4 @@
-import { gsap } from "../../scripts/gsap";
+import { gsap, scrub, timing } from "../../scripts/gsap";
 import { prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function quickLinksAnimations() {
@@ -8,7 +8,7 @@ function quickLinksAnimations() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ql,
-        // scrub: true,
+        scrub: scrub,
         start: "top-=50 center",
         end: "center center",
         // markers: true,
@@ -19,14 +19,14 @@ function quickLinksAnimations() {
 
     scrollItems.forEach((item, i) => {
       if (item.classList.contains("scroll-item--divider")) {
-        tl.from(item, { scale: 0, opacity: 0, duration: 0.5 }, "-=50%");
+        tl.from(item, { scale: 0, opacity: 0, duration: timing.base }, "-=50%");
       } else {
         const pos = item.classList.contains("scroll-item--grouped")
           ? "<"
           : "-=50%";
         tl.from(
           item,
-          { y: 100, opacity: 0, duration: 0.5 },
+          { y: 100, opacity: 0, duration: timing.base },
           i === 0 ? undefined : pos,
         );
       }

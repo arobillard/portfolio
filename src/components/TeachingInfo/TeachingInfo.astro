@@ -8,34 +8,20 @@ const { slug } = course;
 
 const { title, description, introduction, courseSite, programs, highlights } =
   course.data;
-
-// const startDate = new Intl.DateTimeFormat('en-CA', {
-//   year: 'numeric',
-//   month: 'long',
-//   timeZone: 'UTC',
-// }).format(timeline.start);
-
-// const endDate = timeline.end
-//   ? new Intl.DateTimeFormat('en-CA', {
-//       year: 'numeric',
-//       month: 'long',
-//       timeZone: 'UTC',
-//     }).format(timeline.end)
-//   : 'Present';
 ---
 
 <article id={slug} class="teaching-info">
-  <header class="teaching-info__header">
-    <h2 class="teaching-info__title">{title}</h2>
-    <p class="teaching-info__introduction">{introduction}</p>
+  <header class="teaching-info__header scroll-grouping">
+    <h2 class="teaching-info__title scroll-item">{title}</h2>
+    <p class="teaching-info__introduction scroll-item">{introduction}</p>
   </header>
 
-  <div class="teaching-info__highlights">
-    <h3 class="teaching-info__heading">Course Highlights</h3>
+  <div class="teaching-info__highlights scroll-grouping">
+    <h3 class="teaching-info__heading scroll-item">Course Highlights</h3>
     <ul class="teaching-info__highlights-list">
       {
         highlights.map((h) => (
-          <li class="teaching-info__highlight">
+          <li class="teaching-info__highlight scroll-item">
             <h4 class="teaching-info__highlight-title">{h.title}</h4>
             <p>{h.description}</p>
           </li>
@@ -49,13 +35,14 @@ const { title, description, introduction, courseSite, programs, highlights } =
       labelPos="left"
       size="1em"
       fontSize="var(--type-scale-h5)"
+      class="scroll-item"
       hoverShift
       newTab
     />
   </div>
 
-  <div class="teaching-info__programs">
-    <h3 class="teaching-info__heading">
+  <div class="teaching-info__programs scroll-grouping">
+    <h3 class="teaching-info__heading scroll-item">
       Program{programs.length > 1 ? "s" : ""}
     </h3>
     <ul class="teaching-info__programs-list">
@@ -68,7 +55,7 @@ const { title, description, introduction, courseSite, programs, highlights } =
             : "Present";
 
           return (
-            <li class="teaching-info__program">
+            <li class="teaching-info__program scroll-item">
               <h4 class="teaching-info__program-name">{p.title}</h4>
               <div class="teaching-info__program-info">
                 <p class="teaching-info__program-institution">
@@ -105,3 +92,7 @@ const { title, description, introduction, courseSite, programs, highlights } =
 <style>
   @import "./teaching-info.css";
 </style>
+
+<script>
+  import "./teaching-info";
+</script>

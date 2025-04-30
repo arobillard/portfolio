@@ -60,6 +60,7 @@
   align-items: center;
   gap: var(--gap);
   margin-block-end: 1.5rem;
+  color: var(--color-highlight, var(--color-green));
 
   .divider {
     transform-origin: left center;

@@ -1,12 +1,29 @@
 ---
-const { title } = Astro.props;
+import { applyClassesConditional } from "../../scripts/helpers";
+
+const { title, byline } = Astro.props;
 ---
 
 <header class="page-header">
-  <h1 class="page-header__title">{title}</h1>
-  <div class="divider"></div>
+  <div class="page-header__aligner">
+    <div
+      class={applyClassesConditional(
+        "page-header__title-wrap",
+        "page-header__title-wrap--flex",
+        !byline,
+      )}
+    >
+      <h1 class="page-header__title">{title}</h1>
+      <div class="divider"></div>
+    </div>
+    {byline && <p class="page-header__byline">{byline}</p>}
+  </div>
 </header>
 
 <style>
-  @import './page-header.css';
+  @import "./page-header.css";
 </style>
+
+<script>
+  import "./page-header";
+</script>

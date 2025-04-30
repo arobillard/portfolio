@@ -1,5 +1,5 @@
 ---
-import { combineClasses, combineStyles } from "../../scripts/helpers";
+import { applyClasses, applyStyles } from "../../scripts/helpers";
 
 const {
   link,
@@ -61,9 +61,9 @@ const IconTag = link ? "a" : "span";
 </style>
 
 <IconTag
-  class={combineClasses(classes)}
+  class={applyClasses(classes)}
   href={link}
-  style={combineStyles(styles)}
+  style={applyStyles(styles)}
   target={newTab ? "_blank" : null}
 >
   {labelPos === "left" && <span>{label}</span>}

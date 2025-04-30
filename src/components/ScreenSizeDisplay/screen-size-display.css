@@ -12,7 +12,8 @@
   opacity: 0.5;
   transition: all var(--transition);
 
-  &:where(:hover) {
+  &:where(:hover),
+  &.show {
     translate: 0;
     opacity: 1;
   }

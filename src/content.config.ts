@@ -86,9 +86,22 @@ const coolStuffCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/cool-stuff" }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    description: z.string().optional(),
+    shortDesc: z.string(),
     order: z.number(),
     categories: z.array(reference("cool-stuff-categories")),
+    active: z.boolean(),
+    featureImg: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+      })
+      .optional(),
+    externalLink: z.string().optional(),
+    externalLinkText: z.string().optional(),
+    roles: z.array(reference("roles")),
+    technologies: z.array(reference("technologies")),
+    vimeoId: z.string().optional(),
   }),
 });
 

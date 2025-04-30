@@ -4,20 +4,12 @@ import Icon from "../Icon/Icon.astro";
 const { id } = Astro.props;
 ---
 
-<section id={id || "about"} class="about-me">
+<section id={id || "about"} class="about-me" tabindex="0">
   <div class="about-me__img">
     <picture>
       <source
-        srcset="/images/headshot-tall-light-bg.jpg"
-        media="(min-width: 65rem) and (prefers-color-scheme: light)"
-      />
-      <source
         srcset="/images/headshot-tall-dark-bg.jpg"
         media="(min-width: 65rem)"
-      />
-      <source
-        srcset="/images/headshot-sq-light-bg.jpg"
-        media="(prefers-color-scheme: light)"
       />
       <img src="/images/headshot-sq-dark-bg.jpg" alt="Adam Robillard" />
     </picture>

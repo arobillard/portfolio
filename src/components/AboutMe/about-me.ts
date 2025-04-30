@@ -1,4 +1,4 @@
-import { gsap } from "../../scripts/gsap";
+import { gsap, scrub, timing } from "../../scripts/gsap";
 import {
   mqLarge,
   mqMedium,
@@ -16,7 +16,7 @@ function aboutMeAnimations() {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: aboutMe,
-      // scrub: true,
+      scrub: scrub,
       start: "top-=50 center",
       end: "center center",
       // markers: true,
@@ -24,7 +24,7 @@ function aboutMeAnimations() {
   });
 
   if (!mqMedium()) {
-    tl.from(aboutMeImg, { y: "6rem", opacity: 0, duration: 0.5 });
+    tl.from(aboutMeImg, { y: "6rem", opacity: 0, duration: timing.base });
   }
 
   const scrollItems = aboutMe.querySelectorAll(".scroll-item");
@@ -33,13 +33,17 @@ function aboutMeAnimations() {
     const pos = item.classList.contains("scroll-item--grouped") ? "<" : "-=50%";
     tl.from(
       item,
-      { y: "6rem", opacity: 0, duration: 0.5 },
+      { y: "6rem", opacity: 0, duration: timing.base },
       i !== 0 ? pos : undefined,
     );
   });
 
   if (mqMedium()) {
-    const animation: gsap.TweenVars = { y: "6rem", opacity: 0, duration: 0.5 };
+    const animation: gsap.TweenVars = {
+      y: "6rem",
+      opacity: 0,
+      duration: timing.base,
+    };
 
     if (mqLarge()) {
       delete animation.y;

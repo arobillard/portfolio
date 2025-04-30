@@ -4,7 +4,7 @@ function useLightModeToggle() {
     document.getElementById("light-mode-toggle")
   );
 
-  function updateTheme(lightModeActive) {
+  function updateTheme(lightModeActive: boolean) {
     if (!html) return;
 
     if (lightModeActive) {
@@ -18,7 +18,7 @@ function useLightModeToggle() {
     if (!lightModeToggle) return;
 
     const lightModeActive: boolean = JSON.parse(
-      localStorage.getItem("ar-light-mode") || "",
+      localStorage.getItem("ar-light-mode") || "false",
     );
 
     updateTheme(lightModeActive);
@@ -30,8 +30,8 @@ function useLightModeToggle() {
 
   checkLightMode();
 
-  function handleLightModeToggle(e) {
-    const active = e.currentTarget.checked;
+  function handleLightModeToggle(e: any) {
+    const active = e.currentTarget?.checked;
 
     localStorage.setItem("ar-light-mode", active);
 

@@ -2,10 +2,12 @@
 import Toggle from "../Toggle/Toggle.astro";
 import Icon from "../Icon/Icon.astro";
 import { getCollection } from "astro:content";
-import { objectSorter } from "../../scripts/helpers";
+import { applyClassesConditional, objectSorter } from "../../scripts/helpers";
 import { socials } from "../../scripts/socials";
 
-const LogoTag = Astro.url.pathname === "/" ? "h1" : "strong";
+const isHome = Astro.url.pathname === "/";
+
+const LogoTag = isHome ? "h1" : "strong";
 
 const allCaseStudies = await getCollection("case-studies").then((data) =>
   data.sort((a, b) => objectSorter(a.data.order, b.data.order)),
@@ -27,7 +29,10 @@ const links = [
 ];
 ---
 
-<header id="navbar" class="navbar">
+<header
+  id="navbar"
+  class={applyClassesConditional("navbar", "navbar--animate", isHome)}
+>
   <a class="navbar__home" href="/">
     <LogoTag class="navbar__logo">Adam Robillard</LogoTag>
   </a>

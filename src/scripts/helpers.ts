@@ -2,7 +2,7 @@ export function wait(ms = 0) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function combineClasses(
+export function applyClasses(
   initialClass: string | string[],
   additionalClass?: string | string[],
 ): string {
@@ -23,7 +23,19 @@ export function combineClasses(
   return combinedArray.join(" ");
 }
 
-export function combineStyles(styles: Style[]) {
+export function applyClassesConditional(
+  initialClass: string | string[],
+  additionalClass: string | string[],
+  condition: boolean | undefined,
+): string {
+  if (condition) {
+    return applyClasses(initialClass, additionalClass);
+  } else {
+    return applyClasses(initialClass);
+  }
+}
+
+export function applyStyles(styles: Style[]) {
   if (!styles?.length) return null;
 
   let styleString = "";

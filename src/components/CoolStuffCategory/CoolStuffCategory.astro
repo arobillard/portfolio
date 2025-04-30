@@ -1,0 +1,41 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import { objectSorter } from "../../scripts/helpers";
+import CoolStuff from "../CoolStuff/CoolStuff.astro";
+
+const { category } = Astro.props;
+
+const coolStuff = await getCollection("cool-stuff").then((data) =>
+  data
+    .filter((cs) => {
+      if (cs.data.active !== true) return false;
+
+      return cs.data.categories.filter((cat) => cat.id === category).length > 0;
+    })
+    .sort((a, b) => objectSorter(a.data.order, b.data.order)),
+);
+
+if (coolStuff.length === 0) return null;
+
+const categoryInfo = await getEntry("cool-stuff-categories", category);
+
+if (!categoryInfo) return null;
+
+const { title, description } = categoryInfo.data;
+---
+
+<section id={category} class="cool-stuff-category">
+  <h2 class="cool-stuff-category__title">{title}</h2>
+  <p class="cool-stuff-category__desc">{description}</p>
+
+  {coolStuff.map((cs) => <CoolStuff item={cs} category={category} />)}
+</section>
+<div class="divider"></div>
+
+<style>
+  @import "./cool-stuff-category.css";
+</style>
+
+<script>
+  import "./cool-stuff-category";
+</script>

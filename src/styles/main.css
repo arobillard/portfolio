@@ -71,9 +71,10 @@ html {
   line-height: 1.5;
   scroll-behavior: smooth;
   scroll-padding-block-start: var(--navbar-height, 3.728rem);
-  transition:
+
+  /* transition:
     color var(--transition),
-    background-color var(--transition);
+    background-color var(--transition); */
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -154,6 +155,12 @@ svg:not(:root) {
   overflow: hidden;
 }
 
+iframe {
+  width: 100%;
+  display: block;
+  border: 0;
+}
+
 /* Inherit fonts for inputs and buttons */
 input,
 button,
@@ -197,8 +204,12 @@ textarea:not([rows]) {
 
 /* Focus Highlights */
 *:focus-visible {
-  outline: 0.125rem solid var(--color-blue);
+  outline: 0.125rem solid var(--color-highlight, var(--color-green));
   outline-offset: 0.125rem;
+}
+
+section:focus-visible {
+  outline: 0;
 }
 
 /* Skip Links */
@@ -218,6 +229,7 @@ textarea:not([rows]) {
   padding: 0.75rem 1.5rem;
   text-decoration: none;
   border-radius: var(--radius);
+  z-index: 100000;
 }
 
 .skip-links__link:focus {
@@ -284,6 +296,10 @@ textarea:not([rows]) {
   > * {
     grid-column: 2 / -2;
   }
+}
+
+.full {
+  grid-column: 1 / -1;
 }
 
 .main {

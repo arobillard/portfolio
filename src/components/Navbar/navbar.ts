@@ -1,4 +1,5 @@
 import { gsap } from "../../scripts/gsap";
+import { prefersReducedMotion } from "../../scripts/mediaCheckers";
 
 function useNavbar() {
   const navbar = <HTMLElement>document.querySelector(".navbar");
@@ -22,9 +23,10 @@ function useNavbar() {
     });
   }
 
-  // TODO: look into making this only play when hero is in view on page load?
-  // presumably an intersection observer
-  // if (!prefersReducedMotion()) navbarAnimations();
+  const isAtTop = window.scrollY < 50;
+  const flaggedToAnimate = navbar.classList.contains("navbar--animate");
+
+  if (!prefersReducedMotion() && isAtTop) navbarAnimations();
 }
 
 useNavbar();

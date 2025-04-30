@@ -1,0 +1,101 @@
+---
+import { getEntries } from "astro:content";
+import Icon from "../Icon/Icon.astro";
+import { applyClasses } from "../../scripts/helpers";
+
+const { item, category } = Astro.props;
+
+const {
+  title,
+  description,
+  shortDesc,
+  featureImg,
+  roles,
+  technologies,
+  externalLink,
+  externalLinkText,
+  vimeoId,
+} = item.data;
+
+const rolesData: Category[] = await getEntries(roles);
+const technologiesData: Category[] = await getEntries(technologies);
+---
+
+<div
+  id={item.id}
+  class={applyClasses([
+    "cool-stuff-item",
+    `cool-stuff-item--${category}`,
+    `cool-stuff-item--${item.id}`,
+  ])}
+>
+  {
+    featureImg && (
+      <div class="cool-stuff-item__img">
+        <img src={featureImg.src} alt={featureImg.alt} />
+      </div>
+    )
+  }
+
+  <div class="cool-stuff-item__content">
+    <h3 class="cool-stuff-item__title scroll-item">{title}</h3>
+    <p class="cool-stuff-item__desc scroll-item">{description || shortDesc}</p>
+
+    <div class="cool-stuff-item__info scroll-item">
+      <h3 class="cool-stuff-item__subtitle">Roles</h3>
+      <ul class="cool-stuff-item__list">
+        {rolesData.map((role) => <li class="">{role.data.title}</li>)}
+      </ul>
+    </div>
+    <div class="cool-stuff-item__info scroll-item">
+      <h3 class="cool-stuff-item__subtitle">Technologies</h3>
+      <ul class="cool-stuff-item__list">
+        {
+          technologiesData.map((tech) => (
+            <li class="">
+              <a href={tech.data.url} target="_blank">
+                {tech.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    {
+      externalLink && (
+        <Icon
+          icon="arrow-right"
+          class="full bold scroll-item"
+          link={externalLink}
+          label={externalLinkText || "View project"}
+          ratio="100 / 65"
+          labelPos="left"
+          size="1.25em"
+          hoverShift={true}
+          fontSize="var(--type-scale-h5)"
+          newTab
+        />
+      )
+    }
+  </div>
+
+  {
+    vimeoId && (
+      <div class="cool-stuff-item__video">
+        <iframe
+          src={`https://player.vimeo.com/video/${vimeoId}?color=2c8Bd9&title=0&byline=0&portrait=0`}
+          allowfullscreen
+        />
+      </div>
+    )
+  }
+</div>
+
+<style>
+  @import "./cool-stuff.css";
+</style>
+
+<script>
+  import "./cool-stuff";
+</script>

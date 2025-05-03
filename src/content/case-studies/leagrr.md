@@ -46,7 +46,7 @@ sections:
     title: Tech Stack
     cards:
       - id: "next-js"
-        content: Leagrr is build in Next.js and leverages both server-side and client-side rendering to create a seamless interactive experience.
+        content: Leagrr is built in Next.js and leverages both server-side and client-side rendering to create a seamless interactive experience.
       - id: "postgresql"
         content: Leagrr leverages PostgreSQL's powerful object-relational database system to efficiently use interconnected data.
       - id: "css-modules"

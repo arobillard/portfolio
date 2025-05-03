@@ -1,0 +1,35 @@
+---
+import { applyClasses } from "../../../scripts/helpers";
+
+const { section } = Astro.props;
+
+const { title, cards, classes } = section;
+
+const sectionClasses = ["section", "info-cards"];
+---
+
+<section class={applyClasses(sectionClasses, classes)}>
+  <div class="section__content">
+    <h2 class="section__title">{title}</h2>
+  </div>
+
+  {
+    cards.map(({ heading, content, img }) => (
+      <div class="info-cards__card">
+        {img && (
+          <div class="info-cards__img">
+            <img src={img.src} alt={img.alt} />
+          </div>
+        )}
+        <div class="info-cards__content">
+          <h3 class="info-cards__heading">{heading}</h3>
+          <p class="info-cards__text">{content}</p>
+        </div>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  @import "./info-cards.css";
+</style>

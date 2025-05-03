@@ -16,8 +16,16 @@ export async function getStaticPaths() {
 
 const { cs } = Astro.props;
 
-const { title, description, order, roles, technologies, sections, featureImg } =
-  cs.data;
+const {
+  title,
+  description,
+  order,
+  roles,
+  technologies,
+  sections,
+  featureImg,
+  links,
+} = cs.data;
 
 const rolesData: Category[] = [];
 
@@ -68,13 +76,38 @@ const prevCS =
       <h1 class="cs-header__headline">{title}</h1>
       <p class="cs-header__byline">{description}</p>
       <div class="cs-header__block">
-        <h2 class="cs-header__sub-head">Roles</h2>
+        <h2 class="cs-header__sub-head">
+          Role{rolesData.length > 1 ? "s" : ""}
+        </h2>
         <ul class="cs-header__list">
           {rolesData.map((role) => <li>{role.data.title}</li>)}
         </ul>
       </div>
-      <div class="cs-header__block">
-        <h2 class="cs-header__sub-head">Technologies</h2>
+      {
+        links && links.length > 0 && (
+          <div class="cs-header__block">
+            <h2 class="cs-header__sub-head">Links</h2>
+            <ul class="cs-header__list">
+              {links.map(({ label, url, icon }) => (
+                <li>
+                  <Icon
+                    icon={icon}
+                    label={label}
+                    labelPos="right"
+                    size="1.5rem"
+                    link={url}
+                    newTab
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+      <!-- <div class="cs-header__block">
+        <h2 class="cs-header__sub-head">
+          Technolog{technologiesData.length > 1 ? "ies" : "y"}
+        </h2>
         <ul class="cs-header__list">
           {
             technologiesData.map((tech) => (
@@ -86,7 +119,7 @@ const prevCS =
             ))
           }
         </ul>
-      </div>
+      </div> -->
     </div>
   </header>
 

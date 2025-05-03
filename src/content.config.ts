@@ -1,6 +1,11 @@
 import { glob } from "astro/loaders";
 import { defineCollection, reference, z } from "astro:content";
 
+const img = z.object({
+  src: z.string(),
+  alt: z.string(),
+});
+
 const caseStudyCollection = defineCollection({
   // type: "content",
   loader: glob({ pattern: "**/*.md", base: "./src/content/case-studies" }),
@@ -14,17 +19,31 @@ const caseStudyCollection = defineCollection({
       src: z.string(),
       alt: z.string(),
     }),
-    externalLink: z.string().optional(),
+    links: z
+      .array(
+        z.object({
+          label: z.string(),
+          url: z.string(),
+          icon: z.string(),
+        }),
+      )
+      .optional(),
     sections: z.array(
       z.object({
-        type: z.string(),
+        type: z.enum(["split-content", "info-cards", "technologies-cards"]),
         title: z.string(),
         content: z.string().optional(),
-        img: z
-          .object({
-            src: z.string(),
-            alt: z.string(),
-          })
+        classes: z.string().optional(),
+        img: img.optional(),
+        cards: z
+          .array(
+            z.object({
+              id: z.string().optional(),
+              heading: z.string().optional(),
+              content: z.string().optional(),
+              img: img.optional(),
+            }),
+          )
           .optional(),
       }),
     ),
@@ -39,6 +58,7 @@ const technologiesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     url: z.string(),
+    img,
   }),
 });
 

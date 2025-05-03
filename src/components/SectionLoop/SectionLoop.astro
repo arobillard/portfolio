@@ -1,5 +1,7 @@
 ---
+import InfoCards from "../sections/InfoCards/InfoCards.astro";
 import SplitContent from "../sections/SplitContent/SplitContent.astro";
+import TechnologiesCards from "../sections/TechnologiesCards/TechnologiesCards.astro";
 
 const { sections } = Astro.props;
 ---
@@ -9,6 +11,10 @@ const { sections } = Astro.props;
     switch (section.type) {
       case "split-content":
         return <SplitContent section={section} />;
+      case "info-cards":
+        return <InfoCards section={section} />;
+      case "technologies-cards":
+        return <TechnologiesCards section={section} />;
       default:
         return <section>Cool Section!</section>;
     }

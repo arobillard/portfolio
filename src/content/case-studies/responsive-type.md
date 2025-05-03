@@ -8,6 +8,13 @@ active: true
 featureImg:
   src: /images/responsive-type/responsive-type-laptop.png
   alt: "A laptop showing the home page of RaceRocks3D"
+links:
+  - label: Live Site
+    url: "https://responsivetype.ca"
+    icon: responsive-type
+  - label: GitHub
+    url: "https://github.com/LeagrrApp/leagrr"
+    icon: github
 roles: ["developer", "designer"]
 technologies: ["react", "next-js"]
 sections:

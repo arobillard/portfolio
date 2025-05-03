@@ -8,6 +8,16 @@ active: true
 featureImg:
   src: /images/online-games/online-games-laptop.png
   alt: "A laptop showing the home page of RaceRocks3D"
+links:
+  - label: Bohnanza
+    url: "https://ar-bohnanza.netlify.app"
+    icon: bohnanza
+  - label: Sushi Go
+    url: "https://ar-sushi-go.netlify.app"
+    icon: sushi-go
+  - label: Codenames
+    url: "https://ar-codenames.netlify.app"
+    icon: codenames
 roles: ["developer", "designer"]
 technologies: ["react", "firebase", "styled-components"]
 sections:

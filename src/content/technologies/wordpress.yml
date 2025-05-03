@@ -1,2 +1,5 @@
 title: WordPress
 url: https://wordpress.org/
+img:
+  src: /images/technologies/logo-wordpress.svg
+  alt: WordPress

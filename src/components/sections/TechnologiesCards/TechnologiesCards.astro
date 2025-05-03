@@ -1,0 +1,59 @@
+---
+import { getEntry } from "astro:content";
+import { applyClasses } from "../../../scripts/helpers";
+
+const { section } = Astro.props;
+
+const { title, cards, classes } = section;
+
+const sectionClasses = ["section", "technologies-cards"];
+
+const technologiesCards: {
+  id: string;
+  heading: string;
+  img: {
+    src: string;
+    alt: string;
+  };
+  content: string;
+}[] = [];
+
+for (const card of cards) {
+  const techData = await getEntry("technologies", card.id);
+  if (techData) {
+    technologiesCards.push({
+      id: techData.id,
+      heading: techData.data.title,
+      content: card.content,
+      img: techData.data.img,
+    });
+  }
+}
+---
+
+<section class={applyClasses(sectionClasses, classes)}>
+  <div class="section__content">
+    <h2 class="section__title">{title}</h2>
+  </div>
+
+  {
+    technologiesCards.map(({ id, heading, content, img }) => (
+      <div
+        id={id}
+        class={`technologies-cards__card technologies-cards__card--${id}`}
+      >
+        <div class="technologies-cards__img">
+          <img src={img.src} alt={img.alt} />
+        </div>
+        <div class="technologies-cards__content">
+          {/* <h3 class="technologies-cards__heading">{heading}</h3> */}
+          <p class="technologies-cards__text">{content}</p>
+        </div>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  @import "./technologies-cards.css";
+</style>

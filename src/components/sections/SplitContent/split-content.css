@@ -1,0 +1,15 @@
+.split-content {
+  .section__img {
+    grid-column: 1 / -1;
+
+    @media (width >= 60rem) {
+      grid-column: span 6;
+    }
+  }
+
+  .section__content {
+    @media (width >= 60rem) {
+      grid-column: span 6;
+    }
+  }
+}

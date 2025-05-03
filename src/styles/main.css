@@ -334,3 +334,35 @@ section:focus-visible {
 .push-0 {
   margin-block-end: 0;
 }
+
+/* ---------- Sections ---------- */
+
+.section {
+  display: grid;
+  grid-template-columns: subgrid;
+  row-gap: 3rem;
+  padding-block: 3rem;
+
+  @media (width >= 60rem) {
+    padding-block: 6rem;
+  }
+}
+
+.section__content {
+  grid-column: 1 / -1;
+}
+
+.section__title {
+  font-size: var(--type-scale-h3);
+  color: var(--color-highlight, var(--color-green));
+}
+
+.section__text {
+  margin-block-end: 0;
+}
+
+.section__text--long {
+  @media (width >= 60rem) {
+    font-size: 0.875rem;
+  }
+}

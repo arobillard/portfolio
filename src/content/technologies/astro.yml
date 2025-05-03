@@ -1,2 +1,5 @@
 title: Astro
 url: "https://astro.build/"
+img:
+  src: /images/technologies/logo-astro.svg
+  alt: Astro

@@ -14,7 +14,7 @@ programs:
 highlights:
   - title: Thorough Research
     description: Students conduct user research and competitive analysis to understand the needs and goals of their application.
-  - title: Iterative Design
+  - title: Iterative Design Process
     description: Students design a solution through an iterative process of design and testing based on the findings of their research.
   - title: Client Interactions
     description: Students work with real clients, getting invaluable experience in delivering on someone else's ideas while managing expectations.

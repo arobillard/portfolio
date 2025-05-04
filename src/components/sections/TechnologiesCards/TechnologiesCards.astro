@@ -42,12 +42,12 @@ for (const card of cards) {
         id={id}
         class={`technologies-cards__card technologies-cards__card--${id}`}
       >
-        <div class="technologies-cards__img">
+        <div class="technologies-cards__img scroll-item">
           <img src={img.src} alt={img.alt} />
         </div>
         <div class="technologies-cards__content">
           {/* <h3 class="technologies-cards__heading">{heading}</h3> */}
-          <p class="technologies-cards__text">{content}</p>
+          <p class="technologies-cards__text scroll-item">{content}</p>
         </div>
       </div>
     ))
@@ -57,3 +57,7 @@ for (const card of cards) {
 <style>
   @import "./technologies-cards.css";
 </style>
+
+<script>
+  import "./technologies-cards";
+</script>

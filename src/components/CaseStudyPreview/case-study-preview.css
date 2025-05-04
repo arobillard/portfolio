@@ -67,6 +67,7 @@
 
 .cs-preview__subtitle {
   font-size: var(--type-scale-h5);
+  color: var(--color-highlight, var(--color-green));
 }
 
 .cs-preview__list {

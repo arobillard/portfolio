@@ -2,7 +2,7 @@
 layout: ../../layouts/CaseStudyLayout/CaseStudyLayout.astro
 title: Responsive Type
 shortDesc: An app that generates responsive typography styles and CSS code for the web.
-description: An app that generates responsive typography styles and CSS code for the web.
+description: Generate responsive typographic hierarchies and CSS code for websites.
 order: 2
 active: true
 featureImg:
@@ -26,7 +26,6 @@ sections:
       alt: Key features of the Responsive Type app
   - type: info-cards
     title: Key Features
-    classes: key-features
     cards:
       - heading: Configure Settings
         img:
@@ -43,6 +42,9 @@ sections:
           src: /images/responsive-type/features-code.png
           alt: Responsive Type code output and copy functionality
         content: Review and copy generated CSS code that is ready to use in your project.
+  - type: call-out
+    title: Why make it?
+    content: I used to use another tool to generate my type scales until it went freemium and locked the majority of the useful features behind a paywall. I figured instead of paying money for it, I would just make my own version. Doing so also gave me the opportunity to add features that specifically suited my own preferences and include more modern features like fluid type sizing.
   - type: technologies-cards
     title: Tech Stack
     cards:

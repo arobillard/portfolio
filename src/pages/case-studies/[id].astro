@@ -73,9 +73,9 @@ const prevCS =
       <img src={featureImg.src} alt={featureImg.alt} />
     </div>
     <div class="cs-header__content">
-      <h1 class="cs-header__headline">{title}</h1>
-      <p class="cs-header__byline">{description}</p>
-      <div class="cs-header__block">
+      <h1 class="cs-header__headline scroll-item">{title}</h1>
+      <p class="cs-header__byline scroll-item">{description}</p>
+      <div class="cs-header__block scroll-item">
         <h2 class="cs-header__sub-head">
           Role{rolesData.length > 1 ? "s" : ""}
         </h2>
@@ -85,7 +85,7 @@ const prevCS =
       </div>
       {
         links && links.length > 0 && (
-          <div class="cs-header__block">
+          <div class="cs-header__block scroll-item">
             <h2 class="cs-header__sub-head">Links</h2>
             <ul class="cs-header__list">
               {links.map(({ label, url, icon }) => (
@@ -128,21 +128,15 @@ const prevCS =
   <footer class="cs-footer">
     <Icon
       icon="arrow-left"
-      size="2rem"
       link={`/case-studies/${prevCS.id}`}
       label={prevCS.data.title}
       labelPos="right"
-      fontSize="var(--type-scale-h5)"
-      hoverShift
     />
     <Icon
       icon="arrow-right"
-      size="2rem"
       link={`/case-studies/${nextCS.id}`}
       label={nextCS.data.title}
       labelPos="left"
-      fontSize="var(--type-scale-h5)"
-      hoverShift
     />
   </footer>
 </BaseLayout>
@@ -150,3 +144,7 @@ const prevCS =
 <style>
   @import "./_case-study-layout.css";
 </style>
+
+<script>
+  import "./_case-study-layout";
+</script>

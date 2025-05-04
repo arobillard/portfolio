@@ -30,11 +30,23 @@ const caseStudyCollection = defineCollection({
       .optional(),
     sections: z.array(
       z.object({
-        type: z.enum(["split-content", "info-cards", "technologies-cards"]),
+        type: z.enum([
+          "split-content",
+          "info-cards",
+          "technologies-cards",
+          "call-out",
+        ]),
         title: z.string(),
         content: z.string().optional(),
         classes: z.string().optional(),
         img: img.optional(),
+        link: z
+          .object({
+            label: z.string(),
+            url: z.string(),
+            icon: z.string().optional(),
+          })
+          .optional(),
         cards: z
           .array(
             z.object({

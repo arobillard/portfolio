@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/CaseStudyLayout/CaseStudyLayout.astro
 title: Online Card Games
-shortDesc: Created a small app that generates responsive typography styles for the web.
-description: Created a small app that generates responsive typography styles for the web.
+shortDesc: A collection of card games built for realtime online play with friends.
+description: A collection of card games built for realtime online play with friends.
 order: 3
 active: true
 featureImg:
   src: /images/online-games/online-games-laptop.png
-  alt: "A laptop showing the home page of RaceRocks3D"
+  alt: A laptop showing the Bohnanza online card game.
 links:
   - label: Bohnanza
     url: "https://ar-bohnanza.netlify.app"
@@ -19,14 +19,68 @@ links:
     url: "https://ar-codenames.netlify.app"
     icon: codenames
 roles: ["developer", "designer"]
-technologies: ["react", "firebase", "styled-components"]
+technologies: ["react", "firebase", "styled-components", "sass"]
 sections:
   - type: split-content
-    title: About Project
-    content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam iste dolore aut eaque voluptate ex atque delectus obcaecati. Ducimus animi aspernatur voluptatibus molestias natus et blanditiis eligendi eius praesentium sapiente?
+    title: Bohnanza
+    content: Bohnanza is a game all about trading, planting, and harvesting different types of beans. It required a complex chat and trading system to allow players to communicate, offer, accept, and decline trades while following the game's strict rules. The game also features a phase system, where certain actions can only be done by specific players during specific phases. The game utilizes this phasing system to teach the player how to play while ensuring the rules and order are followed.
+    link:
+      label: Check it out
+      url: "https://ar-bohnanza.netlify.app"
+      # icon: bohnanza
     img:
-      src: /images/racerocks3d/racerocks3d-laptop.png
-      alt: Great image
+      src: /images/online-games/online-games-laptop.png
+      alt: A laptop showing the Bohnanza online card game.
+  - type: technologies-cards
+    title: Bohnanza Tech Stack
+    cards:
+      - id: "react"
+        content: Bohnanza is built with React and React Router to provide a fast, reactive UI with routing allowing for different game rooms for concurrent gameplay.
+      - id: "firebase"
+        content: Bohnanza uses Firebase to provide realtime data updates to ensure that all players have up to date game data and a fast seamless experience.
+      - id: "styled-components"
+        content: Bohnanza uses styled-components to create reusable components with consistent theming throughout all of its styling.
+  - type: split-content
+    title: Sushi Go
+    content: In Sushi Go, players are trying to build the best sushi platter by selecting one card from their hand before passing the hand along and select another card from the next hand. You score points by combining different groups of sushi. The complexity of this game is in the scoring. Different cards interact with each other, add multipliers, or cancel out cards for other players, so making sure each unique combination would score correctly was incredibly important.
+    link:
+      label: Check it out
+      url: "https://ar-sushi-go.netlify.app"
+      # icon: sushi-go
+    img:
+      src: /images/online-games/online-games-sushi-go-laptop.png
+      alt: A laptop showing the Sushi Go online card game.
+  - type: technologies-cards
+    title: Sushi Go Tech Stack
+    cards:
+      - id: "react"
+        content: Sushi Go is built with React and React Router to provide a fast, reactive UI with routing allowing for different game rooms for concurrent gameplay.
+      - id: "firebase"
+        content: Sushi Go uses Firebase to provide realtime data updates to ensure that all players have up to date game data and a fast seamless experience.
+      - id: "sass"
+        content: Sushi Go's responsive styling is written in Sass, which simplifies creating reusable, consistent CSS styling.
+  - type: split-content
+    title: Codenames
+    content: In Codenames, one player from each team gives clues to their teammates to help them guess their colour cards, while avoiding the other team's cards and the black assassin card. The game board includes multiple view types, one for the clue giver with colours revealed and one for the guessers that are hidden. Extra features like the chat and "simple cards" view were added to improve the overall usability of the game.
+    link:
+      label: Check it out
+      url: "https://ar-codenames.netlify.app"
+      # icon: codenames
+    img:
+      src: /images/online-games/online-games-codenames-laptop.png
+      alt: A laptop showing the Codenames online card game.
+  - type: technologies-cards
+    title: Codenames Tech Stack
+    cards:
+      - id: "react"
+        content: Codenames is built with React and React Router to provide a fast, reactive UI with routing allowing for different game rooms for concurrent gameplay.
+      - id: "firebase"
+        content: Codenames uses Firebase to provide realtime data updates to ensure that all players have up to date game data and a fast seamless experience.
+      - id: "sass"
+        content: Codenames' responsive styling is written in Sass, which simplifies creating reusable, consistent CSS styling.
+  - type: call-out
+    title: Why did I make all of these?
+    content: I built these over the first two years of COVID when Canada was at the height of its lock downs. My friends and family all connect through games, so building and playing these games was a way to stay connected. It also gave me an opportunity to learn new skills and push myself. I was relatively early in my career at that point and building these games taught me a lot and gave me confidence in my abilities.
 ---
 
 ## About Online Card Games

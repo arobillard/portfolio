@@ -30,6 +30,8 @@
   --type-scale-h4: clamp(1.728rem, 4.328cqi, 2.6rem);
   --type-scale-h5: clamp(1.44rem, 3.331cqi, 1.891rem);
   --type-scale-h6: clamp(1.2rem, 2.575cqi, 1.375rem);
+  --type-scale-s: 0.875rem;
+  --type-scale-xs: 0.75rem;
 
   /* Sizing */
   --container: 70rem;
@@ -104,6 +106,10 @@ ol[role="list"] {
 body {
   min-height: 100vh;
   margin: 0;
+}
+
+main {
+  overflow: hidden;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -357,7 +363,7 @@ section:focus-visible {
   color: var(--color-highlight, var(--color-green));
 }
 
-.section__text {
+.section__text:where(:not(:has(+ a))) {
   margin-block-end: 0;
 }
 

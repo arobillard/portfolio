@@ -39,6 +39,7 @@
 }
 
 .info-cards__heading {
+  color: var(--color-highlight, var(--color-green));
   margin-block-end: 0.5rem;
   font-size: var(--type-scale-h4);
 }
@@ -47,7 +48,7 @@
   margin-block-end: 0;
 }
 
-.key-features {
+.key-features--leagrr {
   .info-cards__img {
     overflow: hidden;
     border-radius: var(--radius);

@@ -1,0 +1,41 @@
+.call-out {
+  /* border: 0.0625rem solid var(--color-highlight, var(--color-green)); */
+  position: relative;
+
+  .border-line {
+    position: absolute;
+    background-color: var(--color-highlight, var(--color-green));
+
+    &.border-line--top,
+    &.border-line--bottom {
+      width: 100%;
+      height: 1px;
+      transform-origin: center left;
+    }
+
+    &.border-line--bottom {
+      inset-block-end: 0;
+      transform-origin: center right;
+    }
+
+    &.border-line--right,
+    &.border-line--left {
+      width: 1px;
+      height: 100%;
+      transform-origin: bottom center;
+    }
+
+    &.border-line--right {
+      inset-inline-end: 0;
+      transform-origin: top center;
+    }
+  }
+
+  .section__content {
+    grid-column: 2 / -2;
+  }
+
+  .section__text {
+    font-size: var(--type-scale-h6);
+  }
+}

@@ -17,13 +17,15 @@ const sectionClasses = ["section", "info-cards"];
     cards.map(({ heading, content, img }) => (
       <div class="info-cards__card">
         {img && (
-          <div class="info-cards__img">
+          <div class="info-cards__img scroll-item">
             <img src={img.src} alt={img.alt} />
           </div>
         )}
         <div class="info-cards__content">
-          <h3 class="info-cards__heading">{heading}</h3>
-          <p class="info-cards__text">{content}</p>
+          <h3 class="info-cards__heading scroll-item">{heading}</h3>
+          <p class="info-cards__text scroll-item scroll-item--grouped">
+            {content}
+          </p>
         </div>
       </div>
     ))
@@ -33,3 +35,7 @@ const sectionClasses = ["section", "info-cards"];
 <style>
   @import "./info-cards.css";
 </style>
+
+<script>
+  import "./info-cards";
+</script>

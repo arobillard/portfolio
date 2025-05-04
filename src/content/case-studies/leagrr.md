@@ -22,10 +22,10 @@ sections:
     img:
       src: /images/leagrr/leagrr-about.png
       alt: Three screens of the Leagrr app.
-    content: Leagrr is a sports league management web application that allows league managers to create and manage sports leagues and players to create and join teams to track their games and stats. I was inspired to create Leagrr after using a number of other apps for my own teams and found some of the features lacking and the user experience often confusing. Leagrr's target audience is recreational sports leagues and specifically players who play on the same team through multiple seasons. A common occurrence in rec sports is that people will play together on a team across multiple seasons and often multiple leagues at the same time. Most league management apps have teams made specifically as part of an individual league, meaning to play in multiple leagues, multiple disconnected versions of the team is created. In Leagrr, a team is its own separate entity and can be invited to join as many leagues as they want and can set its roster for each league individually from the main pool of team members. Meaning the team acts as a hub that keeps all of its members from across all leagues, as well as all of their stats history, in one place.
+    content: Leagrr is a sports league management web application that aims to make organizing and participating in sports leagues and teams easier and more user friendly. The target audience is recreational sports leagues, but it provides features that can work for all levels of sports. The app is currently in alpha and focuses on ice hockey. Users can create and manage sports leagues, add new seasons and divisions, create and join teams, and track games and stats.
   - type: info-cards
     title: Key Features
-    classes: key-features
+    classes: key-features--leagrr
     cards:
       - heading: Create & Manage Leagues
         img:
@@ -42,6 +42,9 @@ sections:
           src: /images/leagrr/feature-game-feed.jpg
           alt: Leagrr game feed
         content: Follow the action with the game feed, track stats like shots, goals, penalties and more including stat time and location.
+  - type: call-out
+    title: What's different about Leagrr?
+    content: A common occurrence in rec sports is that people will play together on a team across multiple seasons and often multiple leagues at the same time. Most league management apps have teams made specifically as part of an individual league. This means when play in multiple leagues, multiple disconnected versions of the team are created. In Leagrr, a team is its own separate entity and can be invited to join as many leagues as they want and can set its roster for each league individually from the main pool of team members. Meaning the team acts as a hub that keeps all of its members from across all leagues, as well as all of the team and player stats history, in one place.
   - type: technologies-cards
     title: Tech Stack
     cards:
@@ -55,7 +58,7 @@ sections:
 
 - What is Leagrr
 
-Leagrr is a sports league management web application that allows league managers to create and manage sports leagues and players to create and join teams to track their games and stats. I was inspired to create Leagrr after using a number of other apps for my own teams and found some of the features lacking and the user experience often confusing. Leagrr's target audience is recreational sports leagues and specifically players who play on the same team through multiple seasons. A common occurrence amongst rec sports is that people will play together on a team across multiple seasons and often multiple leagues at the same time. Most league management apps have teams made specifically as part of an individual league, meaning to play in multiple leagues, multiple disconnected versions of the team is created. In Leagrr, a team is its own separate entity and can be invited to join as many leagues as they want and can set its roster for each league individually from the main pool of team members. Meaning the team acts as a hub that keeps all of its members from across all leagues, as well as all of their stats history, in one place.
+Leagrr is a sports league management web application that allows league managers to create and manage sports leagues and players to create and join teams to track their games and stats. I was inspired to create Leagrr after using a number of other apps for my own teams and found some of the features lacking and the user experience often confusing. Leagrr's target audience is recreational sports leagues and specifically players who play on the same team through multiple seasons. A common occurrence in rec sports is that people will play together on a team across multiple seasons and often multiple leagues at the same time. Most league management apps have teams made specifically as part of an individual league, meaning to play in multiple leagues, multiple disconnected versions of the team is created. In Leagrr, a team is its own separate entity and can be invited to join as many leagues as they want and can set its roster for each league individually from the main pool of team members. Meaning the team acts as a hub that keeps all of its members from across all leagues, as well as all of their stats history, in one place.
 
 - Tech Stack
 

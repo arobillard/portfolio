@@ -1,0 +1,45 @@
+---
+import {
+  applyClasses,
+  applyClassesConditional,
+} from "../../../scripts/helpers";
+
+const { section } = Astro.props;
+
+const { title, content, img, classes } = section;
+
+const longContent = content.length > 500;
+
+const sectionClasses = ["section", "call-out"];
+---
+
+<section class={applyClasses(sectionClasses, classes)}>
+  <div class="border-line border-line--top"></div>
+  <div class="border-line border-line--right"></div>
+  <div class="border-line border-line--bottom"></div>
+  <div class="border-line border-line--left"></div>
+  <div class="section__content">
+    <h2 class="section__title">{title}</h2>
+    {
+      content && (
+        <p
+          class={applyClassesConditional(
+            "section__text",
+            "section__text--long",
+            longContent,
+          )}
+        >
+          {content}
+        </p>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  @import "./call-out.css";
+</style>
+
+<script>
+  import "./call-out";
+</script>

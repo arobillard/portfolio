@@ -3,12 +3,13 @@ import {
   applyClasses,
   applyClassesConditional,
 } from "../../../scripts/helpers";
+import Icon from "../../Icon/Icon.astro";
 
 const { section } = Astro.props;
 
-const { title, content, img, classes } = section;
+const { title, content, img, classes, link } = section;
 
-const longContent = content.length > 500;
+const longContent = content.length > 750;
 
 const sectionClasses = ["section", "split-content"];
 ---
@@ -22,12 +23,12 @@ const sectionClasses = ["section", "split-content"];
     )
   }
   <div class="section__content">
-    <h2 class="section__title">{title}</h2>
+    <h2 class="section__title scroll-item">{title}</h2>
     {
       content && (
         <p
           class={applyClassesConditional(
-            "section__text",
+            ["section__text", "scroll-item"],
             "section__text--long",
             longContent,
           )}
@@ -36,9 +37,41 @@ const sectionClasses = ["section", "split-content"];
         </p>
       )
     }
+    {
+      link &&
+        (link.icon ? (
+          <Icon
+            class="section__link scroll-item"
+            icon={link.icon}
+            label={link.label}
+            labelPos="right"
+            size="1.5em"
+            fontSize="var(--type-scale-h6)"
+            link={link.url}
+            newTab
+            hoverShift
+          />
+        ) : (
+          <Icon
+            class="section__link scroll-item"
+            icon="arrow-right"
+            label={link.label}
+            labelPos="left"
+            size="1.5em"
+            fontSize="var(--type-scale-h6)"
+            link={link.url}
+            newTab
+            hoverShift
+          />
+        ))
+    }
   </div>
 </section>
 
 <style>
   @import "./split-content.css";
 </style>
+
+<script>
+  import "./split-content";
+</script>

@@ -242,35 +242,6 @@ section:focus-visible {
   top: 0.5rem;
 }
 
-/* To Top */
-
-.to-top {
-  position: fixed;
-  bottom: -0.5rem;
-  right: 1.5rem;
-  background-color: var(--color-green);
-  color: var(--color-primary);
-  padding: 0.5rem 0.5rem 1rem;
-  border-radius: 0.5rem 0.5rem 0 0;
-  text-decoration: none;
-  box-shadow: var(--shadow);
-  translate: 0 100%;
-  transition:
-    translate var(--transition),
-    bottom var(--transition);
-}
-
-.to-top.visible {
-  translate: 0;
-}
-
-.to-top:hover,
-.to-top:focus-visible {
-  bottom: 0;
-  color: #000;
-  translate: 0;
-}
-
 /* Screen reader only text */
 
 .screen-reader-text,

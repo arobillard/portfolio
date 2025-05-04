@@ -8,10 +8,12 @@ import { objectSorter } from "../../scripts/helpers";
 export async function getStaticPaths() {
   const caseStudies = await getCollection("case-studies");
 
-  return caseStudies.map((cs) => ({
-    params: { id: cs.id },
-    props: { cs },
-  }));
+  return caseStudies
+    .filter((cs) => cs.data.active)
+    .map((cs) => ({
+      params: { id: cs.id },
+      props: { cs },
+    }));
 }
 
 const { cs } = Astro.props;

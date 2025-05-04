@@ -4,11 +4,12 @@ import "../styles/type.css";
 import Navbar from "../components/Navbar/Navbar.astro";
 import Footer from "../components/Footer/Footer.astro";
 import ScreenSizeDisplay from "../components/ScreenSizeDisplay/ScreenSizeDisplay.astro";
+import ToTop from "../components/ToTop/ToTop.astro";
 
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en-CA">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,6 +40,7 @@ const { pageTitle } = Astro.props;
         <a class="skip-links__link" href="#main">Skip to main content</a>
       </li>
     </ol>
+    <a id="top"></a>
 
     <div class="grid-layout">
       <Navbar />
@@ -50,10 +52,7 @@ const { pageTitle } = Astro.props;
       <Footer />
     </div>
 
-    <a href="#top" class="to-top">
-      <i class="material-symbols-outlined">arrow_up</i>
-      <span class="srt">Return to top of the page</span>
-    </a>
+    <ToTop />
 
     {import.meta.env.DEV && <ScreenSizeDisplay />}
   </body>

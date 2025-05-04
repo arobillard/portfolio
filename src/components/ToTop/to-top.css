@@ -1,0 +1,37 @@
+/* To Top */
+
+.to-top {
+  position: fixed;
+  inset-inline-end: 1.5rem;
+  inset-block-end: 1.5rem;
+  background-color: var(--color-highlight);
+  color: var(--color-primary);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  translate: 0 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    translate var(--transition),
+    opacity var(--transition);
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.to-top.visible {
+  translate: 0;
+  opacity: 0.5;
+  pointer-events: all;
+}
+
+.to-top:hover,
+.to-top:focus-visible {
+  opacity: 1;
+  translate: 0;
+  pointer-events: all;
+}

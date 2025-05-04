@@ -6,7 +6,7 @@ Designer & Developer: Adam Robillard
 Site: http://adamrobillard.ca
 GitHub: https://github.com/arobillard
 Instagram: @awillrobillard
-Location: Ottawa, Canada
+Location: Ottawa, Canada --> New Zealand
 
 ---
 
@@ -33,6 +33,7 @@ Macbook Mockup by juicy_fish from Freepik: https://www.freepik.com/free-vector/r
 - Git + GitHub
 - Astro
 - Markdown
+- Typescript
 - GSAP
 
 ## Hosting

@@ -1,3 +1,4 @@
-Sitemap: https://adamrobillard.ca/sitemap.xml
-
 User-agent: *
+Allow: /
+
+Sitemap: https://adamrobillard.ca/sitemap-index.xml

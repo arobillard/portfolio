@@ -43,7 +43,7 @@ sections:
           alt: Leagrr game feed
         content: Follow the action with the game feed, track stats like shots, goals, penalties and more including stat time and location.
   - type: videos
-    title: Demo
+    title: Demos
     videos:
       - id: "1082252666"
         title: Create, Edit, Add Stats for Games

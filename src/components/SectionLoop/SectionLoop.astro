@@ -3,6 +3,7 @@ import CallOut from "../sections/CallOut/CallOut.astro";
 import InfoCards from "../sections/InfoCards/InfoCards.astro";
 import SplitContent from "../sections/SplitContent/SplitContent.astro";
 import TechnologiesCards from "../sections/TechnologiesCards/TechnologiesCards.astro";
+import Videos from "../sections/Videos/Videos.astro";
 
 const { sections } = Astro.props;
 ---
@@ -18,6 +19,8 @@ const { sections } = Astro.props;
         return <SplitContent section={section} />;
       case "technologies-cards":
         return <TechnologiesCards section={section} />;
+      case "videos":
+        return <Videos section={section} />;
       default:
         return <section>Cool Section!</section>;
     }

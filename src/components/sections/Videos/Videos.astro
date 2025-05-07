@@ -1,0 +1,83 @@
+---
+import {
+  applyClasses,
+  applyClassesConditional,
+} from "../../../scripts/helpers";
+import Icon from "../../Icon/Icon.astro";
+
+const { section } = Astro.props;
+
+const { title, content, videos, classes } = section;
+
+const longContent = content && content.length > 500;
+
+const sectionClasses = ["section", "videos"];
+
+if (!videos) return null;
+
+const cols = videos.length <= 3 ? videos.length : 3;
+---
+
+<section class={applyClasses(sectionClasses, classes)}>
+  <div class="section__content">
+    <h2 class="section__title">{title}</h2>
+    {
+      content && (
+        <p
+          class={applyClassesConditional(
+            "section__text",
+            "section__text--long",
+            longContent,
+          )}
+        >
+          {content}
+        </p>
+      )
+    }
+  </div>
+
+  <div class="videos__grid" style={`--v-cols: ${cols}`}>
+    {
+      videos.map(({ id, title, description, link, placeholder }) => (
+        <div class="videos__container">
+          <div class="videos__item">
+            <div
+              class="videos__video scroll-item"
+              style={`--ph-image: url(${placeholder})`}
+            >
+              <iframe
+                src={`https://player.vimeo.com/video/${id}?color=2c8Bd9&title=0&byline=0&portrait=0`}
+                allowfullscreen
+              />
+            </div>
+            <div class="videos__content">
+              <h3 class="videos__heading scroll-item">{title}</h3>
+              {description && <p class="scroll-item">{description}</p>}
+              {link && (
+                <Icon
+                  icon="arrow-right"
+                  class="full bold scroll-item"
+                  link={link}
+                  label="View video"
+                  ratio="100 / 65"
+                  labelPos="left"
+                  hoverShift={true}
+                  size="1.5em"
+                  newTab
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  @import "./videos.css";
+</style>
+
+<script>
+  import "./videos";
+</script>

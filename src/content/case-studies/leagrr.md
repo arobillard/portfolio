@@ -42,6 +42,17 @@ sections:
           src: /images/leagrr/feature-game-feed.jpg
           alt: Leagrr game feed
         content: Follow the action with the game feed, track stats like shots, goals, penalties and more including stat time and location.
+  - type: videos
+    title: Demo
+    videos:
+      - id: "1082252666"
+        title: Create, Edit, Add Stats for Games
+        description: See how Leagrr manages games within a league and utilizes an in-depth game feed to track stats and automatically update game scores and league standings.
+        placeholder: /images/leagrr/demo-title-games.jpg
+      - id: "1082250496"
+        title: Add Teams to Divisions & Set Rosters
+        description: See how to add teams to a division within Leagrr and how to update team rosters within specific divisions.
+        placeholder: /images/leagrr/demo-title-divisions.jpg
   - type: call-out
     title: What's different about Leagrr?
     content: A common occurrence in rec sports is that people will play together on a team across multiple seasons and often multiple leagues at the same time. Most league management apps have teams made specifically as part of an individual league. This means when play in multiple leagues, multiple disconnected versions of the team are created. In Leagrr, a team is its own separate entity and can be invited to join as many leagues as they want and can set its roster for each league individually from the main pool of team members. Meaning the team acts as a hub that keeps all of its members from across all leagues, as well as all of the team and player stats history, in one place.

@@ -35,6 +35,7 @@ const caseStudyCollection = defineCollection({
           "info-cards",
           "technologies-cards",
           "call-out",
+          "videos",
         ]),
         title: z.string(),
         content: z.string().optional(),
@@ -54,6 +55,17 @@ const caseStudyCollection = defineCollection({
               heading: z.string().optional(),
               content: z.string().optional(),
               img: img.optional(),
+            }),
+          )
+          .optional(),
+        videos: z
+          .array(
+            z.object({
+              id: z.string(),
+              title: z.string(),
+              description: z.string().optional(),
+              link: z.string().optional(),
+              placeholder: z.string().optional(),
             }),
           )
           .optional(),

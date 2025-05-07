@@ -1,0 +1,21 @@
+---
+import { applyClasses } from "../../scripts/helpers";
+
+const { desktopOnly, disableAnimation, class: additionalClasses } = Astro.props;
+
+const classes = ["divider"];
+
+if (desktopOnly) classes.push("divider--desktop");
+if (disableAnimation) classes.push("divider--disable-animation");
+if (additionalClasses) classes.push(additionalClasses);
+---
+
+<div class={applyClasses(classes)}></div>
+
+<style>
+  @import "./divider.css";
+</style>
+
+<script>
+  import "./divider";
+</script>

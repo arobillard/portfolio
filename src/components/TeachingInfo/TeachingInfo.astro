@@ -1,5 +1,6 @@
 ---
 import { dateFormat } from "../../scripts/helpers";
+import Divider from "../Divider/Divider.astro";
 import Icon from "../Icon/Icon.astro";
 
 const { course } = Astro.props;
@@ -87,7 +88,7 @@ const { title, description, introduction, courseSite, programs, highlights } =
   </div>
 </article>
 
-<div class="divider"></div>
+<Divider />
 
 <style>
   @import "./teaching-info.css";

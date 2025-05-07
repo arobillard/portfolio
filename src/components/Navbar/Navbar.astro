@@ -4,6 +4,7 @@ import Icon from "../Icon/Icon.astro";
 import { getCollection } from "astro:content";
 import { applyClassesConditional, objectSorter } from "../../scripts/helpers";
 import { socials } from "../../scripts/socials";
+import Divider from "../Divider/Divider.astro";
 
 const isHome = Astro.url.pathname === "/";
 
@@ -39,7 +40,7 @@ const links = [
 
   <Toggle target="nav" />
 
-  <div class="divider divider--desktop"></div>
+  <Divider desktopOnly />
 
   <nav id="nav" class="navbar__nav">
     <ol class="navbar__list">
@@ -59,7 +60,7 @@ const links = [
     </ol>
   </nav>
 
-  <div class="divider divider--desktop"></div>
+  <Divider desktopOnly />
 
   <ul class="navbar__socials">
     {

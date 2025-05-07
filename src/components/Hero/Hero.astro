@@ -1,4 +1,6 @@
 ---
+import Divider from "../Divider/Divider.astro";
+
 const { link } = Astro.props;
 ---
 
@@ -18,9 +20,9 @@ const { link } = Astro.props;
     </p>
   </div>
   <div class="hero__footer">
-    <div class="divider"></div>
+    <Divider disableAnimation />
     <a class="hero__link" href={link}>View my work</a>
-    <div class="divider"></div>
+    <Divider disableAnimation />
   </div>
 </header>
 

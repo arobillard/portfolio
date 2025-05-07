@@ -1,0 +1,13 @@
+.divider {
+  height: 0.0625rem;
+  width: 100%;
+  background-color: var(--color-highlight);
+}
+
+.divider--desktop {
+  display: none;
+
+  @media (width >= 60rem) {
+    display: block;
+  }
+}

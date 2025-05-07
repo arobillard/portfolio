@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 import { objectSorter } from "../../scripts/helpers";
 import CoolStuff from "../CoolStuff/CoolStuff.astro";
+import Divider from "../Divider/Divider.astro";
 
 const { category } = Astro.props;
 
@@ -30,7 +31,7 @@ const { title, description } = categoryInfo.data;
 
   {coolStuff.map((cs) => <CoolStuff item={cs} category={category} />)}
 </section>
-<div class="divider"></div>
+<Divider />
 
 <style>
   @import "./cool-stuff-category.css";

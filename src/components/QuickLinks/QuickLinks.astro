@@ -1,5 +1,6 @@
 ---
 import { applyClasses } from "../../scripts/helpers";
+import Divider from "../Divider/Divider.astro";
 import Icon from "../Icon/Icon.astro";
 
 const { title, items, shortTitles } = Astro.props;
@@ -21,7 +22,10 @@ if (shortTitles) {
           <div class="quick-links__header scroll-item">
             <h3 class="quick-links__title">{catTitle}</h3>
             {shortTitles && (
-              <div class="divider scroll-item scroll-item--divider" />
+              <Divider
+                class="scroll-item scroll-item--divider"
+                disableAnimation
+              />
             )}
           </div>
           <div class="quick-links__content scroll-item scroll-item--grouped">
@@ -44,7 +48,7 @@ if (shortTitles) {
     }
   </ul>
 </section>
-<div class="divider"></div>
+<Divider />
 
 <style>
   @import "./quick-links.css";

@@ -2,10 +2,12 @@
 import { applyClassesConditional } from "../../scripts/helpers";
 import Divider from "../Divider/Divider.astro";
 
-const { title, byline } = Astro.props;
+const { title, byline, short } = Astro.props;
 ---
 
-<header class="page-header">
+<header
+  class={applyClassesConditional("page-header", "page-header--short", short)}
+>
   <div class="page-header__aligner">
     <div
       class={applyClassesConditional(

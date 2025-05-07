@@ -1,0 +1,52 @@
+---
+import { applyClassesConditional, dateFormat } from "../../scripts/helpers";
+import Divider from "../Divider/Divider.astro";
+
+const { data, noDivider } = Astro.props;
+
+const {
+  title,
+  institution,
+  description,
+  timeline,
+  location,
+  link,
+  highlighted,
+} = data.data;
+
+const startDate = dateFormat(timeline.start);
+
+const endDate = timeline.end ? dateFormat(timeline.end) : "Present";
+---
+
+<div
+  class={applyClassesConditional(
+    "resume-item",
+    "resume-item--condensed",
+    !highlighted,
+  )}
+>
+  <h3 class="resume-item__heading">{title}</h3>
+  <p class="resume-item__details push-0">
+    <span class="resume-item__timeline">
+      <span class="no-break">{startDate}</span> —{" "}
+      <span class="no-break">{endDate}</span>
+    </span> |
+    {
+      link ? (
+        <a class="resume-item__institution" href={link}>
+          {institution}
+        </a>
+      ) : (
+        <span class="resume-item__institution">{institution}</span>
+      )
+    } —
+    <span class="resume-item__location">{location}</span>
+  </p>
+  {description && <p class="resume-item__description">{description}</p>}
+</div>
+{!noDivider && <Divider />}
+
+<style>
+  @import "./resume-item.css";
+</style>

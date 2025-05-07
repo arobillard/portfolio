@@ -1,0 +1,7 @@
+.resume-group {
+  padding-block: 3rem;
+
+  &:where(:last-child) {
+    padding-block-end: 0;
+  }
+}

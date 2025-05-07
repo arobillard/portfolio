@@ -161,6 +161,24 @@ const coolStuffCategories = defineCollection({
   }),
 });
 
+const experienceCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/experience" }),
+  schema: z.object({
+    type: z.enum(["work", "education"]),
+    order: z.number(),
+    title: z.string(),
+    institution: z.string().optional(),
+    description: z.string().optional(),
+    timeline: z.object({
+      start: z.date(),
+      end: z.date().optional(),
+    }),
+    location: z.string().optional(),
+    link: z.string().optional(),
+    highlighted: z.boolean(),
+  }),
+});
+
 export const collections = {
   "case-studies": caseStudyCollection,
   technologies: technologiesCollection,
@@ -168,4 +186,5 @@ export const collections = {
   teaching: teachingCollection,
   "cool-stuff": coolStuffCollection,
   "cool-stuff-categories": coolStuffCategories,
+  experience: experienceCollection,
 };

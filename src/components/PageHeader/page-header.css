@@ -2,8 +2,11 @@
   display: grid;
   grid-template-columns: subgrid;
   padding-block: var(--section-padding-block);
-  min-height: 70dvh;
   align-items: center;
+
+  &:where(:not(.page-header--short)) {
+    min-height: 70dvh;
+  }
 }
 
 .page-header__aligner {

@@ -14,7 +14,7 @@ function DividersAnimations() {
         scrub: scrub,
         start: "top-=100 85%",
         end: "center 85%",
-        markers: true,
+        // markers: true,
       },
     });
   });

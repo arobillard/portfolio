@@ -1,7 +1,7 @@
 ---
 order: 2
 active: true
-categories: ["even-more"]
+categories: ["graphic-design"]
 title: Quadball Canada Jerseys
 shortDesc: I got my start in design through jersey design. I have designed 4 iterations of Quadball Canada's jersey since 2014.
 featureImg:

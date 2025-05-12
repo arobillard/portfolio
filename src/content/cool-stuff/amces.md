@@ -1,7 +1,7 @@
 ---
 order: 1
 active: true
-categories: ["even-more"]
+categories: ["graphic-design"]
 title: AMCES Rebrand
 shortDesc: Rebranded AMCES, creating a new logo and brand package.
 featureImg:

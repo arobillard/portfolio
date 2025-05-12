@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 active: true
 categories: ["motion"]
 title: Score Bar Graphic

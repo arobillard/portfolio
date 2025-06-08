@@ -12,7 +12,10 @@ const allCaseStudies = await getCollection("case-studies").then((data) =>
 );
 ---
 
-<BaseLayout pageTitle="Case Studies">
+<BaseLayout
+  pageTitle="Case Studies"
+  description="List of case studies of work Adam Robillard has done."
+>
   <PageHeader title="Case Studies" />
 
   {

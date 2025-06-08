@@ -1,16 +1,19 @@
 ---
-import { getCollection } from 'astro:content';
-import PageHeader from '../components/PageHeader/PageHeader.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { objectSorter } from '../scripts/helpers';
-import TeachingInfo from '../components/TeachingInfo/TeachingInfo.astro';
+import { getCollection } from "astro:content";
+import PageHeader from "../components/PageHeader/PageHeader.astro";
+import TeachingInfo from "../components/TeachingInfo/TeachingInfo.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { objectSorter } from "../scripts/helpers";
 
-const allTeaching = await getCollection('teaching').then((data) =>
-  data.sort((a, b) => objectSorter(a.data.order, b.data.order))
+const allTeaching = await getCollection("teaching").then((data) =>
+  data.sort((a, b) => objectSorter(a.data.order, b.data.order)),
 );
 ---
 
-<BaseLayout pageTitle="Teaching">
+<BaseLayout
+  pageTitle="Teaching"
+  description="A record of Adam Robillard's teaching experience including course descriptions."
+>
   <PageHeader title="Teaching" />
 
   {allTeaching.map((course) => <TeachingInfo course={course} />)}

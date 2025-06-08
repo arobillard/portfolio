@@ -6,7 +6,7 @@ import Footer from "../components/Footer/Footer.astro";
 import ScreenSizeDisplay from "../components/ScreenSizeDisplay/ScreenSizeDisplay.astro";
 import ToTop from "../components/ToTop/ToTop.astro";
 
-const { pageTitle } = Astro.props;
+const { pageTitle, description } = Astro.props;
 ---
 
 <html lang="en-CA">
@@ -18,6 +18,11 @@ const { pageTitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle && `${pageTitle} | `} Adam Robillard</title>
+    <meta
+      name="description"
+      content={description ||
+        "Portfolio website for Adam Robillard, a web developer, designer, and educator."}
+    />
 
     <script>
       import "../scripts/highlight-color";

@@ -3,7 +3,7 @@ layout: ../../layouts/CaseStudyLayout/CaseStudyLayout.astro
 title: Online Card Games
 shortDesc: A collection of card games built for realtime online play with friends.
 description: A collection of card games built for realtime online play with friends.
-order: 3
+order: 4
 active: true
 featureImg:
   src: /images/online-games/online-games-laptop.png

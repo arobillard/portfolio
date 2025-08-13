@@ -2,7 +2,7 @@
 title: Leagrr
 shortDesc: A league management application that allows users to create and manage sports leagues and teams.
 description: A league management application that allows users to create and manage sports leagues and teams.
-order: 1
+order: 2
 active: true
 featureImg:
   src: /images/leagrr/leagrr-laptop.png
@@ -53,9 +53,18 @@ sections:
         title: Add Teams to Divisions & Set Rosters
         description: See how to add teams to a division within Leagrr and how to update team rosters within specific divisions.
         placeholder: /images/leagrr/demo-title-divisions.jpg
+  - type: info-cards
+    title: UX Research & UI Design
+    cards:
+      - heading: Competitive Analysis
+        content: There are a number of other apps that look to solve the same problems. I have used a number of them in my daily life and spent a large amount of time auditing them to figure what was working and what wasn't.
+      - heading: User Feedback
+        content: I heard from league managers and participants to hear what they felt was working and what wasn't. I built Leagrr's strategy around improving key pain points without sacrificing preferred features.
+      - heading: Human Centred Design
+        content: Leagrr strives to be approachable and usable by any user with as little training and guidance as possible. It presents key information and actions upfront, allowing users to accomplish they goals with ease.
   - type: call-out
     title: What's different about Leagrr?
-    content: A common occurrence in rec sports is that people will play together on a team across multiple seasons and often multiple leagues at the same time. Most league management apps have teams made specifically as part of an individual league. This means when play in multiple leagues, multiple disconnected versions of the team are created. In Leagrr, a team is its own separate entity and can be invited to join as many leagues as they want and can set its roster for each league individually from the main pool of team members. Meaning the team acts as a hub that keeps all of its members from across all leagues, as well as all of the team and player stats history, in one place.
+    content: A common occurrence in rec sports is that people will play together on the same team across multiple seasons and often multiple leagues at the same time. Most league management apps have teams made specifically as part of an individual league. This means when a team is playing in multiple leagues, multiple disconnected versions of the team are created. In Leagrr, a team is its own separate entity and can be invited to join as many leagues as they want and can set its roster for each league individually from the main pool of team members. Meaning the team acts as a hub that keeps all of its members from across all leagues, as well as all of the team and player stats history, in one place.
   - type: technologies-cards
     title: Tech Stack
     cards:

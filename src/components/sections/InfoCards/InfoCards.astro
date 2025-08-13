@@ -1,9 +1,10 @@
 ---
 import { applyClasses } from "../../../scripts/helpers";
+import Icon from "../../Icon/Icon.astro";
 
 const { section } = Astro.props;
 
-const { title, cards, classes } = section;
+const { title, cards, classes, link } = section;
 
 const sectionClasses = ["section", "info-cards"];
 ---
@@ -26,6 +27,26 @@ const sectionClasses = ["section", "info-cards"];
           <p class="info-cards__text scroll-item scroll-item--grouped">
             {content}
           </p>
+          {link &&
+            (link.icon ? (
+              <Icon
+                class="section__link scroll-item"
+                icon={link.icon}
+                label={link.label}
+                labelPos="right"
+                link={link.url}
+                newTab
+              />
+            ) : (
+              <Icon
+                class="section__link scroll-item"
+                icon="arrow-right"
+                label={link.label}
+                labelPos="left"
+                link={link.url}
+                newTab
+              />
+            ))}
         </div>
       </div>
     ))

@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 1
 title: Applied Industry Projects
 description: Advise students through a semester long project where they build a mobile or web app for a client.
 introduction: Working in teams, students experience the analysis, design, implementation, testing and deployment of a mobile solution for a real-world client. Important topics from throughout their program of study are applied in this course. Faculty advisors facilitate student teams to demonstrate their skills in the applied project. Student teams make a technical presentation to their faculty advisors and participate in a public showcase of projects. My role in this course is to guide the research and design aspects of the project. I am paired with another professor who guides the development.

@@ -2,6 +2,12 @@
   .section__img {
     grid-column: 1 / -1;
 
+    img[src$=".jpg"] {
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
     @media (width >= 60rem) {
       grid-column: span 6;
     }

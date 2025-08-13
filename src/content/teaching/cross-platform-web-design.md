@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title: Cross Platform Web Design
 description: An introductory web development course where students learn HTML and CSS fundamentals and best practices through a design lens.
 introduction: Technologies on the web evolve quickly. Every year brings new devices and with them new capabilities. These devices present many challenges and opportunities to web developers. Students review fundamentals of web development using hypertext markup language (HTML), and cascading style sheets (CSS), with a focus on developing responsive and mobile websites. Multiple IDEs are introduced and used to complete hands-on projects.

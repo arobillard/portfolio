@@ -3,7 +3,7 @@ layout: ../../layouts/CaseStudyLayout/CaseStudyLayout.astro
 title: Responsive Type
 shortDesc: An app that generates responsive typography styles and CSS code for the web.
 description: Generate responsive typographic hierarchies and CSS code for websites.
-order: 2
+order: 3
 active: true
 featureImg:
   src: /images/responsive-type/responsive-type-laptop.png

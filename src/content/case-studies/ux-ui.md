@@ -11,8 +11,8 @@ links:
   - label: Projects Course
     url: "https://mad9145.github.io/W2025/assignments/"
     icon: school
-roles: ["ux", "designer"]
-technologies: ["figma"]
+# roles: ["ux", "designer"]
+# technologies: ["figma"]
 sections:
   - type: info-cards
     title: Experience Overview

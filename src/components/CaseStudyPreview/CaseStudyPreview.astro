@@ -8,8 +8,10 @@ const { cs, index, count } = Astro.props;
 const { id, data } = cs;
 const { title, description, roles, technologies, featureImg } = data;
 
-const rolesData: Category[] = await getEntries(roles);
-const technologiesData: Category[] = await getEntries(technologies);
+const rolesData: Category[] = roles ? await getEntries(roles) : [];
+const technologiesData: Category[] = technologies
+  ? await getEntries(technologies)
+  : [];
 
 const flipped = index % 2 === 1;
 
@@ -31,18 +33,30 @@ const classes = ["cs-preview"];
     </strong>
     <h2 class="cs-preview__title scroll-item">{title}</h2>
     <p class="cs-preview__desc scroll-item">{description}</p>
-    <div class="cs-preview__info scroll-item">
-      <h3 class="cs-preview__subtitle">Roles</h3>
-      <ul class="cs-preview__list">
-        {rolesData.map((role) => <li class="">{role.data.title}</li>)}
-      </ul>
-    </div>
-    <div class="cs-preview__info scroll-item">
-      <h3 class="cs-preview__subtitle">Technologies</h3>
-      <ul class="cs-preview__list">
-        {technologiesData.map((tech) => <li class="">{tech.data.title}</li>)}
-      </ul>
-    </div>
+    {
+      rolesData.length > 0 && (
+        <div class="cs-preview__info scroll-item">
+          <h3 class="cs-preview__subtitle">Roles</h3>
+          <ul class="cs-preview__list">
+            {rolesData.map((role) => (
+              <li class="">{role.data.title}</li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+    {
+      technologiesData.length > 0 && (
+        <div class="cs-preview__info scroll-item">
+          <h3 class="cs-preview__subtitle">Technologies</h3>
+          <ul class="cs-preview__list">
+            {technologiesData.map((tech) => (
+              <li class="">{tech.data.title}</li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
 
     <Icon
       icon="arrow-right"

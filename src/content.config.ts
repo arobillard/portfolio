@@ -71,8 +71,8 @@ const caseStudyCollection = defineCollection({
           .optional(),
       }),
     ),
-    roles: z.array(reference("roles")),
-    technologies: z.array(reference("technologies")),
+    roles: z.array(reference("roles")).optional(),
+    technologies: z.array(reference("technologies")).optional(),
   }),
 });
 

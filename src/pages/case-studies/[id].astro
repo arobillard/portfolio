@@ -31,7 +31,7 @@ const {
 
 const rolesData: Category[] = [];
 
-for (const role of roles) {
+for (const role of roles || []) {
   const roleData = await getEntry("roles", role.id);
   if (roleData) {
     rolesData.push({
@@ -42,18 +42,18 @@ for (const role of roles) {
   }
 }
 
-const technologiesData: Category[] = [];
+// const technologiesData: Category[] = [];
 
-for (const tech of technologies) {
-  const techData = await getEntry("technologies", tech.id);
-  if (techData) {
-    technologiesData.push({
-      id: techData.id,
-      data: techData.data,
-      collection: tech.collection,
-    });
-  }
-}
+// for (const tech of technologies || []) {
+//   const techData = await getEntry("technologies", tech.id);
+//   if (techData) {
+//     technologiesData.push({
+//       id: techData.id,
+//       data: techData.data,
+//       collection: tech.collection,
+//     });
+//   }
+// }
 
 const allCS = await getCollection("case-studies").then((data) =>
   data
@@ -77,14 +77,20 @@ const prevCS =
     <div class="cs-header__content">
       <h1 class="cs-header__headline scroll-item">{title}</h1>
       <p class="cs-header__byline scroll-item">{description}</p>
-      <div class="cs-header__block scroll-item">
-        <h2 class="cs-header__sub-head">
-          Role{rolesData.length > 1 ? "s" : ""}
-        </h2>
-        <ul class="cs-header__list">
-          {rolesData.map((role) => <li>{role.data.title}</li>)}
-        </ul>
-      </div>
+      {
+        rolesData.length > 0 && (
+          <div class="cs-header__block scroll-item">
+            <h2 class="cs-header__sub-head">
+              Role{rolesData.length > 1 ? "s" : ""}
+            </h2>
+            <ul class="cs-header__list">
+              {rolesData.map((role) => (
+                <li>{role.data.title}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
       {
         links && links.length > 0 && (
           <div class="cs-header__block scroll-item">

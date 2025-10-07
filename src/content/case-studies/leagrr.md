@@ -2,7 +2,7 @@
 title: Leagrr
 shortDesc: A league management application that allows users to create and manage sports leagues and teams.
 description: A league management application that allows users to create and manage sports leagues and teams.
-order: 2
+order: 1
 active: true
 featureImg:
   src: /images/leagrr/leagrr-laptop.png

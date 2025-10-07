@@ -2,7 +2,7 @@
 title: UX Research & UI Design
 shortDesc: An overview of my experience working and teaching user experience research and user interface design.
 description: An overview of my experience working and teaching user experience research and user interface design.
-order: 1
+order: 4
 active: true
 featureImg:
   src: /images/ux-ui/ux-ui-laptop.png

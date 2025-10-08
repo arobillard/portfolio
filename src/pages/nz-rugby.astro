@@ -1,0 +1,246 @@
+---
+import PageHeader from "../components/PageHeader/PageHeader.astro";
+import CallOut from "../components/sections/CallOut/CallOut.astro";
+import Gallery from "../components/sections/Gallery/Gallery.astro";
+import SplitContent from "../components/sections/SplitContent/SplitContent.astro";
+import Videos from "../components/sections/Videos/Videos.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "NZ Rugby";
+const description =
+  "An overview of my experience designing for sport, including marketing and social assets, motion graphics, and jersey design.";
+---
+
+<BaseLayout pageTitle={title} description={description}>
+  <PageHeader title={title} byline={description} />
+
+  <SplitContent
+    section={{
+      title: "Sport is why I got into design",
+      content:
+        "My design journey was started through sport. I was in university and not terribly inspired by what I was studying. However, I was very inspired by a new nerdy sport called Quadball (based on Harry Potter and a mix of rugby and dodgeball) and I spent most of my time playing and designing my team's jerseys and merchandise. Once I realized that was my real passion, I changed gears and pursued a career in design. The photo is me playing for the University of Ottawa's Quadball team and wearing the first jersey I ever designed.",
+      img: {
+        src: "/images/nz-rugby/first-jersey-design.jpg",
+        alt: "University of Ottawa GeeGees Quadball jersey",
+      },
+      // classes: ,
+      // link:
+    }}
+  />
+
+  <SplitContent
+    section={{
+      pre_title: "Work Highlight",
+      title: "Canada Army Run",
+      content:
+        "I worked with Canada Army Run from 2019—2023 while employed by Spruce Creative. During this time I re-established their brand and created social and marketing assets, maps, race bibs, signage, and other race day assets, motion graphics, and re-designed and developed their website.",
+      img: {
+        src: "/images/nz-rugby/army-run-laptop.png",
+        alt: "Laptop showing the Army Run home page",
+      },
+      // classes: ,
+      // link:
+    }}
+  />
+
+  <Videos
+    section={{
+      title: "Motion Graphics",
+      content:
+        "I am proficient in After Effects and creating motion graphics. Below is a sample of sport related motion graphics that I have created.",
+      videos: [
+        {
+          id: "302712275",
+          title: "Nordiques Logo Reveal",
+          description:
+            "A re-imagining of the Québec Nordiques logo shown in a logo reveal animation.",
+        },
+        {
+          id: "265978484",
+          title: "Broadcast Package",
+          description:
+            "A motion graphic broadcast package for a fictional football league.",
+        },
+        {
+          id: "256258738",
+          title: "Score Bar Graphic",
+          description:
+            "A score bar graphic for an ice hockey game demonstrating a goal animation.",
+        },
+      ],
+    }}
+  />
+
+  <Gallery
+    section={{
+      title: "Gallery",
+      content:
+        "A collection of sport related design work I have created over the years.",
+      gallery: [
+        {
+          src: "/images/nz-rugby/gallery/quebec-nordiques-logo.svg",
+          alt: "",
+          caption: "Re-imaging of the Quebec Nordiques logo",
+        },
+        {
+          src: "/images/nz-rugby/gallery/elements-pattern.jpg",
+          alt: "",
+          caption: "Close up of the pattern on Nordiques jersey",
+        },
+        {
+          src: "/images/nz-rugby/gallery/elements-shoulder.jpg",
+          alt: "",
+          caption: "Close up of the shoulder of Nordiques jersey",
+          highlight: true,
+        },
+        {
+          src: "/images/nz-rugby/gallery/elements-chest.jpg",
+          alt: "",
+          caption: "Close up of the chest of the Nordiques jersey",
+        },
+        {
+          src: "/images/nz-rugby/gallery/elements-gloves.jpg",
+          alt: "",
+          caption: "Close up of the gloves of the Nordiques jersey",
+        },
+        {
+          src: "/images/nz-rugby/gallery/jersey-home.jpg",
+          alt: "",
+          caption: "Nordiques home kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/jersey-away.jpg",
+          alt: "",
+          caption: "Nordiques away kit",
+        },
+        // {
+        //   src: "/images/nz-rugby/gallery/jersey-retro.jpg",
+        //   alt: "",
+        //   caption: "Nordiques retro kit",
+        // },
+        {
+          src: "/images/nz-rugby/gallery/merch-hat.jpg",
+          alt: "",
+          caption: "Nordiques merchandise - hat",
+        },
+        {
+          src: "/images/nz-rugby/gallery/ice-graphic.jpg",
+          alt: "",
+          caption: "Nordiques ice graphic",
+          highlight: true,
+        },
+        {
+          src: "/images/nz-rugby/gallery/merch-hoodie.jpg",
+          alt: "",
+          caption: "Nordiques merchandise - kangaroo hoodie",
+        },
+        {
+          src: "/images/nz-rugby/gallery/merch-puck-stack.jpg",
+          alt: "",
+          caption: "Nordiques merchandise - pucks",
+        },
+        {
+          src: "/images/nz-rugby/gallery/merch-mini-stick.jpg",
+          alt: "",
+          caption: "Nordiques merchandise - mini hockey stick",
+        },
+        {
+          src: "/images/nz-rugby/gallery/qc2023-dark.jpg",
+          alt: "",
+          caption: "Player wearing 2023 Team Canada Quadball dark kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/qc2023-light.jpg",
+          alt: "",
+          caption: "Player wearing 2023 Team Canada Quadball light kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/qc2023-team.jpg",
+          alt: "",
+          caption:
+            "2023 Team Canada Quadball team on sideline showing light kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/team-canada-kit.jpg",
+          alt: "",
+          caption: "2018 Team Canada Quadball dark kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/team-canada-symbol.jpg",
+          alt: "",
+          caption:
+            "Close up of the 2018 Team Canada Quadball kit symbol featuring iconography from all Canadian Quadball teams",
+          highlight: true,
+        },
+        {
+          src: "/images/nz-rugby/gallery/team-canada-kit-light.jpg",
+          alt: "",
+          caption: "2018 Team Canada Quadball light kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/dark-jersey-1.jpg",
+          alt: "",
+          caption: "Player wearing 2018 Team Canada Quadball dark kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/light-jersey-2.jpg",
+          alt: "",
+          caption: "Player wearing 2018 Team Canada Quadball light kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/banner-qc.jpg",
+          alt: "",
+          caption:
+            "Player wearing 2016 Team Canada Quadball kit showing front of kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/qc2016-mcveigh.jpg",
+          alt: "",
+          caption:
+            "Player wearing 2016 Team Canada Quadball kit showing back of kit",
+        },
+        {
+          src: "/images/nz-rugby/gallery/gatineau-promo.jpg",
+          alt: "",
+          caption: "Social promotion for alumni ice hockey game",
+          highlight: true,
+        },
+        {
+          src: "/images/nz-rugby/gallery/qc2016-team.jpg",
+          alt: "",
+          caption: "2016 Team Canada Quadball team photo showing team jerseys",
+        },
+        {
+          src: "/images/nz-rugby/gallery/ns-team.jpg",
+          alt: "",
+          caption: "North Star Quadball team photo showing team jerseys.",
+        },
+        {
+          src: "/images/nz-rugby/gallery/uottawa.jpg",
+          alt: "",
+          caption:
+            "University of Ottawa Quadball team photo showing team jerseys",
+        },
+        {
+          src: "/images/nz-rugby/gallery/nike-promo.jpg",
+          alt: "",
+          caption: "Sample ad (not affiliated with Nike).",
+        },
+        {
+          src: "/images/nz-rugby/gallery/karlsson.jpg",
+          alt: "",
+          caption:
+            "Sample promo for ice hockey player (not affiliated with the Ottawa Senators).",
+        },
+      ],
+    }}
+  />
+
+  <CallOut
+    section={{
+      title: "A final note",
+      content:
+        "Sport is a big part of my life. Back in Canada I played ice hockey, football, badminton, pickleball, and cycled. Since arriving in New Zealand, I have used sport to find community and settle into life in New Zealand. I unfortunately promised my family back home I wouldn't play rugby because my already injured body wouldn't be able to handle it, but getting to experience the rugby culture in New Zealand has been a priority for me. I attended the Black Ferns/All Blacks double header in July, followed the Black Ferns World Cup run and hope to experience more rugby while in the country. The opportunity to work with New Zealand Rugby would be an incredible experience and would be an ideal way for me to experience New Zealand. Thank you for considering my application, I hope to hear from you soon!",
+    }}
+  />
+</BaseLayout>

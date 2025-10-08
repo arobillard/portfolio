@@ -29,6 +29,9 @@
 .videos__video {
   display: flex;
   aspect-ratio: 16 / 9;
+}
+
+.videos__video--with-placeholder {
   background-image: var(--ph-image);
   background-size: cover;
   background-position: center;

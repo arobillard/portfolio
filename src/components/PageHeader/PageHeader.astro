@@ -2,6 +2,12 @@
 import { applyClassesConditional } from "../../scripts/helpers";
 import Divider from "../Divider/Divider.astro";
 
+interface Props {
+  title: string;
+  byline?: string;
+  short?: boolean;
+}
+
 const { title, byline, short } = Astro.props;
 ---
 

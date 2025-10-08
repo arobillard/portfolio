@@ -4,10 +4,11 @@ import {
   applyClassesConditional,
 } from "../../../scripts/helpers";
 import Icon from "../../Icon/Icon.astro";
+import SectionContent from "../SectionContent/SectionContent.astro";
 
 const { section } = Astro.props;
 
-const { title, content, videos, classes } = section;
+const { pre_title, title, content, videos, classes } = section;
 
 const longContent = content && content.length > 500;
 
@@ -19,7 +20,8 @@ const cols = videos.length <= 3 ? videos.length : 3;
 ---
 
 <section class={applyClasses(sectionClasses, classes)}>
-  <div class="section__content">
+  <SectionContent pre_title={pre_title} title={title} content={content} />
+  <!-- <div class="section__content">
     <h2 class="section__title">{title}</h2>
     {
       content && (
@@ -34,7 +36,7 @@ const cols = videos.length <= 3 ? videos.length : 3;
         </p>
       )
     }
-  </div>
+  </div> -->
 
   <div class="videos__grid" style={`--v-cols: ${cols}`}>
     {
@@ -42,8 +44,14 @@ const cols = videos.length <= 3 ? videos.length : 3;
         <div class="videos__container">
           <div class="videos__item">
             <div
-              class="videos__video scroll-item"
-              style={`--ph-image: url(${placeholder})`}
+              class={applyClassesConditional(
+                ["videos__video", "scroll-item"],
+                "videos__video--with-placeholder",
+                placeholder,
+              )}
+              style={
+                placeholder ? `--ph-image: url(${placeholder})` : undefined
+              }
             >
               <iframe
                 src={`https://player.vimeo.com/video/${id}?color=2c8Bd9&title=0&byline=0&portrait=0`}

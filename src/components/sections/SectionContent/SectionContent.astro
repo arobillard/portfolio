@@ -1,0 +1,67 @@
+---
+import { applyClassesConditional } from "../../../scripts/helpers";
+import Icon from "../../Icon/Icon.astro";
+
+interface Props {
+  pre_title?: string;
+  title: string;
+  content?: string;
+  link?: {
+    icon?: string;
+    label: string;
+    url: string;
+  };
+}
+
+const { pre_title, title, content, link } = Astro.props;
+
+const longContent = content ? content.length > 750 : false;
+---
+
+<div class="section__content">
+  {pre_title && <p class="section__pre-title">{pre_title}</p>}
+  <h2 class="section__title">{title}</h2>
+  {
+    content && (
+      <p
+        class={applyClassesConditional(
+          ["section__text", "scroll-item"],
+          "section__text--long",
+          longContent,
+        )}
+      >
+        {content}
+      </p>
+    )
+  }
+  {
+    link &&
+      (link.icon ? (
+        <Icon
+          class="section__link scroll-item"
+          icon={link.icon}
+          label={link.label}
+          labelPos="right"
+          size="1.5em"
+          fontSize="var(--type-scale-h6)"
+          link={link.url}
+          newTab
+        />
+      ) : (
+        <Icon
+          class="section__link scroll-item"
+          icon="arrow-right"
+          label={link.label}
+          labelPos="left"
+          size="1.5em"
+          fontSize="var(--type-scale-h6)"
+          link={link.url}
+          newTab
+        />
+      ))
+  }
+</div>
+
+<style>
+  @import "./section-content.css";
+</style>

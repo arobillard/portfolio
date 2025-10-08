@@ -1,0 +1,73 @@
+---
+import {
+  applyClasses,
+  applyClassesConditional,
+} from "../../../scripts/helpers";
+import Icon from "../../Icon/Icon.astro";
+import SectionContent from "../SectionContent/SectionContent.astro";
+
+interface Props {
+  section: Section;
+}
+
+const { section } = Astro.props;
+
+const { pre_title, title, content, gallery, classes } = section;
+
+const sectionClasses = ["section", "gallery"];
+
+if (!gallery) return null;
+---
+
+<section class={applyClasses(sectionClasses, classes)}>
+  <SectionContent pre_title={pre_title} title={title} content={content} />
+
+  <div class="gallery__grid">
+    {
+      gallery.map(({ src, caption, highlight }) => (
+        <div
+          class={applyClassesConditional(
+            ["gallery__item", "scroll-item"],
+            "gallery__item--highlight",
+            highlight,
+          )}
+        >
+          <img class="gallery__image" src={src} alt={caption} />
+          <button class="gallery__view" data-caption={caption} data-src={src}>
+            <span class="srt">View image in lightbox</span>
+          </button>
+        </div>
+      ))
+    }
+  </div>
+  <div class="gallery__lightbox">
+    <div class="gallery__lightbox-grid">
+      <figure class="gallery__figure">
+        <img class="gallery__lightbox-image" src={gallery[0].src} alt="" />
+        <figcaption class="gallery__figcaption">
+          {gallery[0].caption}
+        </figcaption>
+      </figure>
+      <button class="gallery__close" tabindex="-1">
+        <Icon icon="close" />
+        <span class="srt">Close lightbox</span>
+      </button>
+      <button class="gallery__prev" tabindex="-1">
+        <Icon icon="prev" />
+        <span class="srt">View previous image</span>
+      </button>
+      <button class="gallery__next" tabindex="-1">
+        <Icon icon="next" />
+        <span class="srt">View next image</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  @import "./gallery.css";
+</style>
+
+<script>
+  import "./gallery";
+</script>

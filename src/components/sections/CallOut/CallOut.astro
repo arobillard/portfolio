@@ -3,12 +3,11 @@ import {
   applyClasses,
   applyClassesConditional,
 } from "../../../scripts/helpers";
+import SectionContent from "../SectionContent/SectionContent.astro";
 
 const { section } = Astro.props;
 
-const { title, content, img, classes } = section;
-
-const longContent = content.length > 500;
+const { pre_title, title, content, img, classes } = section;
 
 const sectionClasses = ["section", "call-out"];
 ---
@@ -18,22 +17,7 @@ const sectionClasses = ["section", "call-out"];
   <div class="border-line border-line--right"></div>
   <div class="border-line border-line--bottom"></div>
   <div class="border-line border-line--left"></div>
-  <div class="section__content">
-    <h2 class="section__title">{title}</h2>
-    {
-      content && (
-        <p
-          class={applyClassesConditional(
-            "section__text",
-            "section__text--long",
-            longContent,
-          )}
-        >
-          {content}
-        </p>
-      )
-    }
-  </div>
+  <SectionContent pre_title={pre_title} title={title} content={content} />
 </section>
 
 <style>

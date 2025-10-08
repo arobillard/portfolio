@@ -1,18 +1,22 @@
 ---
 import { applyClasses } from "../../../scripts/helpers";
 import Icon from "../../Icon/Icon.astro";
+import SectionContent from "../SectionContent/SectionContent.astro";
 
 const { section } = Astro.props;
 
-const { title, cards, classes, link } = section;
+const { pre_title, title, content, cards, classes, link } = section;
 
 const sectionClasses = ["section", "info-cards"];
 ---
 
 <section class={applyClasses(sectionClasses, classes)}>
-  <div class="section__content">
-    <h2 class="section__title">{title}</h2>
-  </div>
+  <SectionContent
+    pre_title={pre_title}
+    title={title}
+    content={content}
+    link={link}
+  />
 
   {
     cards.map(({ heading, content, img }) => (

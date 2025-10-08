@@ -24,7 +24,9 @@ function splitContentAnimations() {
       tl.from(scImg, { x: "-6rem", opacity: 0, duration: timing.short });
     }
 
-    const scrollItems = section.querySelectorAll(".scroll-item");
+    const scrollItems = section.querySelectorAll(
+      ".section__pre-title, .section__title, .section__text, .section__link",
+    );
 
     scrollItems.forEach((item) => {
       const pos = item.classList.contains("scroll-item--grouped")

@@ -38,6 +38,10 @@
     @media (width >= 45rem) {
       grid-column: span 7;
     }
+
+    &:where(.page-header__title--small + &) {
+      font-size: var(--type-scale-h3);
+    }
   }
 }
 
@@ -46,6 +50,10 @@
 
   @media (width >= 45rem) {
     grid-column: span 5;
+  }
+
+  &.page-header__title--small {
+    font-size: var(--type-scale-h3);
   }
 }
 

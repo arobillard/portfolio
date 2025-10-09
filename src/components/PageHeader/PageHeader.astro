@@ -6,9 +6,10 @@ interface Props {
   title: string;
   byline?: string;
   short?: boolean;
+  smallTitle?: boolean;
 }
 
-const { title, byline, short } = Astro.props;
+const { title, byline, short, smallTitle } = Astro.props;
 ---
 
 <header
@@ -22,7 +23,15 @@ const { title, byline, short } = Astro.props;
         !byline,
       )}
     >
-      <h1 class="page-header__title">{title}</h1>
+      <h1
+        class={applyClassesConditional(
+          "page-header__title",
+          "page-header__title--small",
+          smallTitle,
+        )}
+      >
+        {title}
+      </h1>
       <Divider disableAnimation />
     </div>
     {byline && <p class="page-header__byline">{byline}</p>}

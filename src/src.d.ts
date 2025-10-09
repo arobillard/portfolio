@@ -1,6 +1,6 @@
 interface Img {
   src: string;
-  alt: string;
+  alt?: string;
 }
 
 interface ImgWithCaption extends Img {

@@ -14,8 +14,14 @@
   color: var(--color-highlight, var(--color-green));
 }
 
-.section__text:where(:not(:has(+ a))) {
-  margin-block-end: 0;
+.section__text {
+  &:where(:where(.videos, .gallery, .info-cards, .technologies-cards) &) {
+    width: min(100%, 45rem);
+  }
+
+  &:where(:not(:has(+ a))) {
+    margin-block-end: 0;
+  }
 }
 
 .section__text--long {
